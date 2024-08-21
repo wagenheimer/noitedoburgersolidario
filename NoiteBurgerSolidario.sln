@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Noite do Burger Solidário", "Noite do Burger Solidário.csproj", "{68DC0983-4658-4198-97D7-FB48F73772E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoiteBurgerSolidario", "NoiteBurgerSolidario.csproj", "{85758655-0C74-450A-BC8F-DB640ADB6330}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68DC0983-4658-4198-97D7-FB48F73772E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68DC0983-4658-4198-97D7-FB48F73772E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68DC0983-4658-4198-97D7-FB48F73772E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68DC0983-4658-4198-97D7-FB48F73772E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85758655-0C74-450A-BC8F-DB640ADB6330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85758655-0C74-450A-BC8F-DB640ADB6330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85758655-0C74-450A-BC8F-DB640ADB6330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85758655-0C74-450A-BC8F-DB640ADB6330}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C61B1709-48F2-47E9-B281-C830AB1A8852}
+		SolutionGuid = {291933C1-2EF1-4B85-82E5-D7CCA8C9DDF5}
 	EndGlobalSection
 EndGlobal
