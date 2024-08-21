@@ -13,20 +13,43 @@
 </head>
 
 <body>
+
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <div class="loading-progress-text">Carregando...</div>
+        <img src="icon-192.png" style="margin-top:100px" alt="Loading Icon" />
     </div>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+        <a href="" class="reload"> Reload</a>
+        <a class="dismiss"> 🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>
 
 </html>
+
+<style>
+    body {
+        background-color: #231236;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    #app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Center text horizontally */
+    }
+
+    .loading-progress-text {
+        margin-top: 10px; /* Adjust margin to be closer to the image */
+        font-size: 1.2em;
+    }
+</style>
+

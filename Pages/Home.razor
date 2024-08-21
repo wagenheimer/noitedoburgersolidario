@@ -1,7 +1,116 @@
 ﻿@page "/"
+<PageTitle>5ª Noite do Burger Solidário</PageTitle>
+<style>
+    body {
+        background-color: #231236;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
 
-<PageTitle>Home</PageTitle>
+    .content {
+        max-width: 800px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 150px;
+    }
 
-<h1>Hello, world!</h1>
+        .content img {
+            max-width: 100%;
+            margin: 20px 0;
+        }
 
-Welcome to your new app.
+    .institutions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .institutions a img {
+            max-width: 350px;
+            height: auto;
+        }
+
+    .floating-icons {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+        .floating-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-icons img {
+            width: 40px;
+            height: 40px;
+        }
+
+    .floating-counter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .floating-sponsor {
+        position: fixed;
+        top: 50px;
+        left: 20px;
+        background-color: #FFD700;
+        color: #231236;
+        padding: 15px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+</style>
+<div class="content">
+    <img src="/logo.png" alt="Logo" />
+    <p>Em prol das instituições:</p>
+    <div class="institutions">
+        <a href="https://www.soslondrina.com.br/" target="_blank">
+            <img src="/sosservicoesdeobrassociaisdelondrina.jpg" alt="SOS Serviços de Obras Sociais de Londrina" />
+        </a>
+        <a href="https://www.facebook.com/cei.tiamariajuliaa/" target="_blank">
+            <img src="/ceitiamariajulia.jpg" alt="CEI Tia Maria Julia" />
+        </a>
+    </div>
+    <p>Junte-se ao 5º Burger Solidário! Seja um patrocinador, apoie uma causa importante e veja sua marca em evidência nas redes sociais e no evento!</p>
+</div>
+<div class="floating-counter">
+    <script>(function (d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
+    <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:120px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
+</div>
+<div class="floating-icons">
+    <a href="https://wa.me/554399070081" target="_blank">
+        <img src="/whatsapp.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank">
+        <img src="/Instagram_icon.png" alt="Instagram" />
+    </a>
+</div>
+<a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
+    Seja um Patrocinador!
+</a>
