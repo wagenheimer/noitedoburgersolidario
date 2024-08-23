@@ -1,4 +1,6 @@
 ﻿@page "/"
+@inject IJSRuntime JSRuntime;
+
 <PageTitle>5ª Noite do Burger Solidário</PageTitle>
 <style>
     body {
@@ -85,7 +87,83 @@
         text-decoration: none;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
+
+    .floating-sponsors {
+        position: fixed;
+        bottom: 150px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sponsors-title {
+        font-size: 24px;
+    }
+
+    .sponsor-carousel {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os itens sejam quebrados para a próxima linha */
+        justify-content: center; /* Centraliza os itens horizontalmente */
+        overflow-y: auto; /* Permite rolar horizontalmente se necessário */
+    }
+
+        .sponsor-carousel img {
+            max-height: 200px;
+            margin: 10px; /* Adiciona um espaçamento entre as imagens */
+        }
+
+
+    .image-carousel-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .image-carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+        overflow: hidden;
+        width: 100%;
+    }
+
+        .image-carousel img {
+            max-width: 200px;
+            margin: 0 10px;
+            height: auto;
+            object-fit: contain;
+        }
+
+    .carousel-button {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        .carousel-button.right {
+            right: 10px;
+        }
 </style>
+
 <div class="content">
     <img src="/Logo.png" alt="Logo" />
     <p>Em prol das instituições:</p>
@@ -99,10 +177,29 @@
     </div>
     <p>Junte-se ao 5º Burger Solidário! Seja um patrocinador, apoie uma causa importante e veja sua marca em evidência nas redes sociais e no evento!</p>
 </div>
+
+<div class="sponsors-container">
+    <div class="floating-sponsors">
+        <div class="sponsors-title">Patrocinadores já confirmados</div>
+        <div class="image-carousel-container">
+            <button class="carousel-button left" @onclick="MoveLeft">&#10094;</button>
+            <div class="image-carousel" id="@CarouselId">
+                <a href="https://lantimoveis.com.br/"><img src="/patrocinadores/lantimoveis.jpg" class="d-block w-100" alt="Lantim Imóveis"></a>
+                <a href="https://depositoroseira.com.br/"><img src="/patrocinadores/depositoroseira.png" class="d-block w-100" alt="Depósito Roseira"></a>
+                <a href="https://londricabos.com.br/"><img src="/patrocinadores/londricabos.png" class="d-block w-100" alt="Londri Cabos"></a>
+                <a href="https://www.alugueuse.com.br/"><img src="/patrocinadores/alugueuse.jpg" class="d-block w-100" alt="Alugueuse"></a>
+                <a href="https://zelancheslondrina.com.br/"><img src="/patrocinadores/logo-mascote-ze-lanches.png" class="d-block w-100" alt="Zé Lanches"></a>
+                <a href="https://www.instagram.com/tklondrina/"><img src="/patrocinadores/tkacabamentos.png" class="d-block w-100" alt="TK Acabamentos"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="floating-counter">
     <script>(function (d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
     <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:120px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
 </div>
+
 <div class="floating-icons">
     <a href="https://wa.me/554399070081" target="_blank">
         <img src="/whatsapp.png" alt="WhatsApp" />
@@ -110,11 +207,27 @@
     <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank">
         <img src="/Instagram_icon.png" alt="Instagram" />
     </a>
-
     <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank">
         <img src="/Facebook_Icon.png" alt="Facebook" />
     </a>
 </div>
+
 <a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
     Seja um Patrocinador!
 </a>
+
+@code {
+    [Parameter] public List<string> Images { get; set; } = new List<string>();
+    [Parameter] public string CarouselId { get; set; } = Guid.NewGuid().ToString();
+
+    private async Task MoveLeft()
+    {
+        await JSRuntime.InvokeVoidAsync("moveCarousel", CarouselId, -1);
+    }
+
+    private async Task MoveRight()
+    {
+        await JSRuntime.InvokeVoidAsync("moveCarousel", CarouselId, 1);
+    }
+}
+
