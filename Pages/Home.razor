@@ -75,6 +75,16 @@
         z-index: 1000;
     }
 
+    .nofloating-sponsor {
+        background-color: #FFD700;
+        color: #231236;
+        padding: 15px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
     .floating-sponsor {
         position: fixed;
         top: 50px;
@@ -106,6 +116,7 @@
 
     .sponsors-title {
         font-size: 24px;
+        color: yellow;
     }
 
     .sponsor-carousel {
@@ -131,14 +142,15 @@
 
     .image-carousel {
         display: flex;
-        transition: transform 0.5s ease;
+        flex-wrap: wrap; /* Permite que os itens sejam quebrados para a próxima linha */
+        justify-content: center; /* Centraliza os itens horizontalmente */
+        gap: 10px; /* Adiciona um espaçamento entre as imagens */
         overflow: hidden;
         width: 100%;
     }
 
         .image-carousel img {
-            max-width: 200px;
-            margin: 0 10px;
+            max-height: 200px;
             height: auto;
             object-fit: contain;
         }
@@ -176,28 +188,29 @@
         </a>
     </div>
     <p>Junte-se ao 5º Burger Solidário! Seja um patrocinador, apoie uma causa importante e veja sua marca em evidência nas redes sociais e no evento!</p>
-</div>
 
-<div class="sponsors-container">
-    <div class="floating-sponsors">
-        <div class="sponsors-title">Patrocinadores já confirmados</div>
-        <div class="image-carousel-container">
-            <button class="carousel-button left" @onclick="MoveLeft">&#10094;</button>
-            <div class="image-carousel" id="@CarouselId">
-                <a href="https://lantimoveis.com.br/"><img src="/patrocinadores/lantimoveis.jpg" class="d-block w-100" alt="Lantim Imóveis"></a>
-                <a href="https://depositoroseira.com.br/"><img src="/patrocinadores/depositoroseira.png" class="d-block w-100" alt="Depósito Roseira"></a>
-                <a href="https://londricabos.com.br/"><img src="/patrocinadores/londricabos.png" class="d-block w-100" alt="Londri Cabos"></a>
-                <a href="https://www.alugueuse.com.br/"><img src="/patrocinadores/alugueuse.jpg" class="d-block w-100" alt="Alugueuse"></a>
-                <a href="https://zelancheslondrina.com.br/"><img src="/patrocinadores/logo-mascote-ze-lanches.png" class="d-block w-100" alt="Zé Lanches"></a>
-                <a href="https://www.instagram.com/tklondrina/"><img src="/patrocinadores/tkacabamentos.png" class="d-block w-100" alt="TK Acabamentos"></a>
-            </div>
+
+
+    <div class="sponsors-title">Patrocinadores já confirmados</div>
+    <div class="image-carousel-container">
+        <div class="image-carousel" id="@CarouselId">
+            <a href="https://lantimoveis.com.br/"><img src="/patrocinadores/lantimoveis.jpg" class="d-block w-100" alt="Lantim Imóveis"></a>
+            <a href="https://depositoroseira.com.br/"><img src="/patrocinadores/depositoroseira.png" class="d-block w-100" alt="Depósito Roseira"></a>
+            <a href="https://londricabos.com.br/"><img src="/patrocinadores/londricabos.png" class="d-block w-100" alt="Londri Cabos"></a>
+            <a href="https://www.alugueuse.com.br/"><img src="/patrocinadores/alugueuse.jpg" class="d-block w-100" alt="Alugueuse"></a>
+            <a href="https://zelancheslondrina.com.br/"><img src="/patrocinadores/logo-mascote-ze-lanches.png" class="d-block w-100" alt="Zé Lanches"></a>
+            <a href="https://www.instagram.com/tklondrina/"><img src="/patrocinadores/tkacabamentos.png" class="d-block w-100" alt="TK Acabamentos"></a>
         </div>
     </div>
+
+    <a href="https://wa.me/554399070081" target="_blank" class="nofloating-sponsor">
+        Seja um Patrocinador!
+    </a>
 </div>
 
 <div class="floating-counter">
     <script>(function (d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
-    <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:120px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
+    <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:70px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
 </div>
 
 <div class="floating-icons">
@@ -211,10 +224,12 @@
         <img src="/Facebook_Icon.png" alt="Facebook" />
     </a>
 </div>
-
-<a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
-    Seja um Patrocinador!
-</a>
+<div>
+    <br><br />
+    <a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
+        Seja um Patrocinador!
+    </a>
+</div>
 
 @code {
     [Parameter] public List<string> Images { get; set; } = new List<string>();
