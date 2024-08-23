@@ -15,7 +15,7 @@
     }
 
     .content {
-        max-width: 800px;
+        max-width: 100%;
         width: 100%;
         text-align: center;
         padding-bottom: 150px;
@@ -34,7 +34,7 @@
     }
 
         .institutions a img {
-            max-width: 350px;
+            max-width: 100%;
             height: auto;
         }
 
@@ -115,7 +115,7 @@
     }
 
     .sponsors-title {
-        font-size: 24px;
+        font-size: 28px;
         color: yellow;
     }
 
@@ -177,21 +177,23 @@
 </style>
 
 <div class="content">
-    <img src="/Logo.png" alt="Logo" />
+    <img src="/Logo.png" alt="Logo" style="max-width:800px;height:auto;" />
     <p>Em prol das instituições:</p>
     <div class="institutions">
         <a href="https://www.soslondrina.com.br/" target="_blank">
-            <img src="/SOSServicoesdeObrasSociaisdeLondrina.jpg" alt="SOS Serviços de Obras Sociais de Londrina" />
+            <img src="/SOSServicoesdeObrasSociaisdeLondrina.jpg" style="max-width:400px;height:auto;" alt="SOS Serviços de Obras Sociais de Londrina" />
         </a>
         <a href="https://www.facebook.com/cei.tiamariajuliaa/" target="_blank">
-            <img src="/CeiTiaMariaJulia.jpg" alt="CEI Tia Maria Julia" />
+            <img src="/CeiTiaMariaJulia.jpg" alt="CEI Tia Maria Julia" style="max-width:400px;height:auto;" />
         </a>
     </div>
-    <p>Junte-se ao 5º Burger Solidário! Seja um patrocinador, apoie uma causa importante e veja sua marca em evidência nas redes sociais e no evento!</p>
 
-
+    <div>
+        <p style="font-size:22px;">Junte-se ao 5º Burger Solidário! Seja um patrocinador, apoie uma causa importante e veja sua marca em evidência nas redes sociais e no evento!</p>
+    </div>
 
     <div class="sponsors-title">Patrocinadores já confirmados</div>
+
     <div class="image-carousel-container">
         <div class="image-carousel" id="@CarouselId">
             <a href="https://lantimoveis.com.br/"><img src="/patrocinadores/lantimoveis.jpg" class="d-block w-100" alt="Lantim Imóveis"></a>
@@ -203,14 +205,18 @@
         </div>
     </div>
 
-    <a href="https://wa.me/554399070081" target="_blank" class="nofloating-sponsor">
-        Seja um Patrocinador!
-    </a>
+    <div>
+        <br />
+        <br />
+        <a href="https://wa.me/554399070081" target="_blank" class="nofloating-sponsor">
+            Seja também um Patrocinador!
+        </a>
+    </div>
 </div>
 
 <div class="floating-counter">
     <script>(function (d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
-    <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:70px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
+    <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:110px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
 </div>
 
 <div class="floating-icons">
@@ -224,12 +230,10 @@
         <img src="/Facebook_Icon.png" alt="Facebook" />
     </a>
 </div>
-<div>
-    <br><br />
-    <a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
-        Seja um Patrocinador!
-    </a>
-</div>
+
+<a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
+    Seja um Patrocinador!
+</a>
 
 @code {
     [Parameter] public List<string> Images { get; set; } = new List<string>();
