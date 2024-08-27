@@ -2,306 +2,6 @@
 @inject IJSRuntime JSRuntime;
 
 <PageTitle>5ª Noite do Burger Solidário</PageTitle>
-<style>
-    body {
-        background-color: #231236;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        overflow-x: hidden;
-        align-items: center;
-        margin: 0;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-
-    .content {
-        max-width: 100%;
-        width: 100%;
-        text-align: center;
-        padding-bottom: 150px;
-    }
-
-        .content img {
-            max-width: 100%;
-            width: 100%; /* Garante que a imagem ocupe a largura total disponível */
-            margin: 20px 0;
-        }
-
-    .institutions {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
-
-        .institutions a img {
-            max-width: 100%;
-            height: auto;
-        }
-
-    .floating-icons {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-        .floating-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            background-color: white;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .floating-icons img {
-            width: 40px;
-            height: 40px;
-        }
-
-    .floating-counter {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        z-index: 1000;
-    }
-
-    .nofloating-sponsor {
-        background-color: #FFD700;
-        color: #231236;
-        padding: 15px 20px;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .floating-historia {
-        position: fixed;
-        top: 120px;
-        left: 20px;
-        background-color: #FFD700;
-        color: #231236;
-        padding: 15px 20px;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .floating-sponsor {
-        position: fixed;
-        top: 50px;
-        left: 20px;
-        background-color: #FFD700;
-        color: #231236;
-        padding: 15px 20px;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .floating-sponsors {
-        position: fixed;
-        bottom: 150px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .sponsors-title {
-        font-size: 28px;
-        color: yellow;
-    }
-
-    .sponsors-title-1 {
-        font-size: 24px;
-        color: yellow;
-    }
-
-    .sponsors-title-smaller {
-        font-size: 20px;
-        color: white;
-    }
-
-    .sponsor-carousel {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os itens sejam quebrados para a próxima linha */
-        justify-content: center; /* Centraliza os itens horizontalmente */
-        overflow-y: auto; /* Permite rolar horizontalmente se necessário */
-    }
-
-        .sponsor-carousel img {
-            max-height: 200px;
-            margin: 10px; /* Adiciona um espaçamento entre as imagens */
-        }
-
-
-    .image-carousel-container {
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        max-width: 100%;
-    }
-
-    .image-carousel {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os itens sejam quebrados para a próxima linha */
-        justify-content: center; /* Centraliza os itens horizontalmente */
-        gap: 10px; /* Adiciona um espaçamento entre as imagens */
-        overflow: hidden;
-        width: 100%;
-    }
-
-        .image-carousel img {
-            max-height: 200px;
-            height: auto;
-            object-fit: contain;
-        }
-
-    .carousel-button {
-        background-color: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1001;
-    }
-
-        .carousel-button.left {
-            left: 10px;
-        }
-
-        .carousel-button.right {
-            right: 10px;
-        }
-
-
-    .event-info-box {
-        margin-top: 20px;
-        max-width: 60%;
-        border: 2px solid #FFD700;
-        padding: 20px;
-        border-radius: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    .event-info-box {
-        background-color: #333; /* Ajuste conforme necessário */
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .event-history {
-        max-width: 60p;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .event-info-box {
-        background-color: #333; /* Ajuste conforme necessário */
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .history-section {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .event-image {
-        max-width: 500px; /* Define a largura máxima da imagem */
-        height: auto;
-        border-radius: 8px;
-    }
-
-    .history-text {
-        flex: 1;
-        color: #fff;
-        text-align: justify;
-    }
-
-    p {
-        margin-bottom: 15px;
-    }
-
-    .event-info-box {
-        background-color: #333; /* Ajuste conforme necessário */
-        padding: 20px;
-        border-radius: 8px;
-        color: #fff;
-        margin-bottom: 20px;
-    }
-
-    .history-section,
-    .content-section {
-        display: flex;
-        flex-wrap: wrap; /* Permite que o conteúdo vá para a linha de baixo se necessário */
-        align-items: center;
-        justify-content: center; /* Centraliza o conteúdo */
-        gap: 20px; /* Espaçamento entre elementos */
-    }
-
-        .history-section img,
-        .content-section img {
-            max-width: 100%;
-            width: 300px; /* Define a largura das imagens */
-            height: auto;
-            border-radius: 8px;
-        }
-
-    .history-text,
-    .event-text {
-        flex: 1;
-        min-width: 300px; /* Garante que o texto não seja menor que a imagem */
-        text-align: justify;
-    }
-
-    ul {
-        padding-left: 20px;
-        margin-bottom: 15px;
-    }
-
-    p, ul {
-        margin-top: 0;
-    }
-
-    .clickable-image {
-        max-width: 300px; /* Define a largura máxima da imagem clicável */
-        height: auto;
-        border-radius: 8px;
-        display: block;
-        margin: 20px auto; /* Centraliza a imagem clicável horizontalmente */
-    }
-</style>
 
 <div class="content">
 
@@ -325,11 +25,13 @@
 
             <div class="video-section">
                 <p class="sponsors-title-smaller">Assista este vídeo e saiba mais sobre a instituição beneficiada pelo nosso evento neste ano.</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/__oWNDUrHw0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/__oWNDUrHw0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
 
-        <div class="event-info-box">
+        <div class="event-info-box" style="background:#231236;">
             <p class="sponsors-title">
                 Mais informações Sobre o Evento
             </p>
@@ -366,7 +68,7 @@
 
             <div>
                 <a style="margin-top:10px" href="https://wa.me/554399070081" target="_blank" class="nofloating-sponsor">
-                    Seja também um Patrocinador!
+                    Seja um Patrocinador!
                 </a>
             </div>
 
@@ -468,7 +170,7 @@
 
 
 <a @onclick="AlternaHistoria" class="floating-historia">
-    História do Burger Solidário
+    @textHistoria
 </a>
 
 
@@ -479,9 +181,19 @@
 
     bool HistoriaDoEvento = false;
 
+    string textHistoria = "História do Burger Solidário";
+
     void AlternaHistoria()
     {
         HistoriaDoEvento = !HistoriaDoEvento;
+        if (textHistoria == "História do Burger Solidário")
+        {
+            textHistoria = "5º Burger Solidário";
+        }
+        else
+        {
+            textHistoria = "História do Burger Solidário";
+        }
     }
 
 
