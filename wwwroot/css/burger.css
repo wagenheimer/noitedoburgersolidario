@@ -212,7 +212,7 @@
         max-width: 100%;
         margin-left: 0px;
         margin-right: 0px;
-        padding:0px;
+        padding: 0px;
     }
 }
 
@@ -299,6 +299,47 @@ p, ul {
     margin-top: 0;
 }
 
+.history-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.history-text {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+    .history-text p {
+        margin-bottom: 15px;
+    }
+
+    .history-text strong {
+        color: #231236;
+    }
+
+.history-images-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.history-image-item {
+    text-align: center;
+}
+
+.history-image {
+    max-width: 200px;
+    padding: 2px;
+    width: auto;
+    height: 300px;
+}
+
+
 .clickable-image {
     max-width: 300px; /* Define a largura máxima da imagem clicável */
     height: auto;
@@ -311,5 +352,86 @@ p, ul {
     width: 100%; /* Ajuste o tamanho conforme necessário */
     height: 315px; /* Mantém a proporção */
     max-width: 560px; /* Tamanho máximo */
-    margin:0px;
+    margin: 0px;
+}
+
+
+/* Estilos específicos para mobile */
+@media (max-width: 768px) {
+    .top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: #231236; /* Cor de fundo opcional */
+        padding: 10px 0;
+        z-index: 1001; /* Garante que a barra fique acima de outros elementos */
+    }
+
+        .top-bar > div {
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-bar a {
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: #FFD700;
+            color: #231236;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-bar .floating-icons {
+            flex-direction: row;
+            gap: 10px;
+            top: 10px;
+        }
+
+            .top-bar .floating-icons a {
+                width: auto;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .top-bar .floating-icons img {
+                width: 30px;
+                height: 30px;
+            }
+
+    .floating-sponsor {
+        position: fixed;
+        top: 15px;
+        left: 5px;
+        background-color: #FFD700;
+        color: #231236;
+        padding: 15px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .floating-historia {
+        position: fixed;
+        top: 15px;
+        left: 200px;
+        background-color: #FFD700;
+        color: #231236;
+        padding: 15px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
 }

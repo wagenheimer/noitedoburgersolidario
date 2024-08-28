@@ -84,27 +84,37 @@
             <h2 class="sponsors-title">História do Burger Solidário</h2>
 
             <h3 class="sponsors-title" style="color: white;">1º, 2º e 3º Burger Solidário - 2019-2021</h3>
-            <div class="history-section">
-                <img src="Giuseppe.png" alt="Giuseppe Prato" style="width:300px;" />
-                <div class="history-text">
+
+
+            <div class="content-section">
+                <div class="event-text">
                     <p>
-                        A "Noite do Burger Solidário" nasceu do desejo de ajudar nosso querido irmão Giuseppe Prato, que precisava de uma cirurgia na coluna e havia sido diagnosticado com câncer. Em um espírito de fraternidade, todos os irmãos se uniram, e assim foi criado o "Primeiro Burger Solidário."
+                        A <strong>"Noite do Burger Solidário"</strong> nasceu do desejo de ajudar nosso querido irmão Giuseppe Prato, que precisava de uma cirurgia na coluna e havia sido diagnosticado com câncer. Em um espírito de fraternidade, todos os irmãos se uniram, e assim foi criado o <strong>"Primeiro Burger Solidário."</strong>
                     </p>
                     <p>
-                        No ano seguinte, quando Giuseppe enfrentou um novo câncer, o evento foi novamente dedicado a ele. Com o apoio da Loja Prosperidade, realizamos o "Segundo Burger Solidário," agora com maior organização e planejamento.
+                        No ano seguinte, quando Giuseppe enfrentou um novo câncer, o evento foi novamente dedicado a ele. Com o apoio da Loja Prosperidade, realizamos o <strong>"Segundo Burger Solidário,"</strong> agora com maior organização e planejamento.
                     </p>
                     <p>
-                        No terceiro ano, enquanto Giuseppe continuava sua batalha contra a doença, organizamos o "Terceiro Burger Solidário." Infelizmente, Giuseppe nos deixou um dia após o evento, e nossa perda foi ainda maior com o falecimento de nosso irmão Edno Gentilho Junior, que tanto contribuiu para os eventos anteriores.
+                        No terceiro ano, enquanto Giuseppe continuava sua batalha contra a doença, organizamos o <strong>"Terceiro Burger Solidário."</strong> Infelizmente, Giuseppe nos deixou um dia após o evento, e nossa perda foi ainda maior com o falecimento de nosso irmão Edno Gentilho Junior, que tanto contribuiu para os eventos anteriores.
                     </p>
                     <p>
-                        Diante desses acontecimentos, decidimos transformar a "Noite do Burger Solidário" em um evento anual da Loja Maçônica Arte & Ciência, mantendo vivo o legado de solidariedade e honra à memória dos nossos queridos irmãos, levando adiante o espírito de união e apoio que sempre marcou essa jornada.
+                        Diante desses acontecimentos, decidimos transformar a <strong>"Noite do Burger Solidário"</strong> em um evento anual da Loja Maçônica Arte & Ciência, mantendo vivo o legado de solidariedade e honra à memória dos nossos queridos irmãos, levando adiante o espírito de união e apoio que sempre marcou essa jornada.
                     </p>
                 </div>
-                <img src="Edno.png" alt="Edno Gentilho Junior" style="width:300px;" class="history-image right" />
+            </div>
 
+
+            <div class="history-images-container">
+                <div class="history-image-item">
+                    <img src="Giuseppe.png" alt="Giuseppe Prato" class="history-image" />
+                    <p>Giuseppe Prato</p>
+                </div>
+                <div class="history-image-item">
+                    <img src="Edno.png" alt="Edno Gentilho Junior" class="history-image" />
+                    <p>Edno Gentilho Junior</p>
+                </div>
             </div>
         </div>
-
 
         <div class="event-info-box">
             <h3 class="sponsors-title" style="color:white;">4º Burger Solidário - 2023</h3>
@@ -140,11 +150,13 @@
                 </center>
 
             </div>
+
+
+
+
+
+            <a @onclick="AlternaHistoria" class="historiaevento">Voltar</a>
         </div>
-
-
-
-        <a @onclick="AlternaHistoria" class="historiaevento">Voltar</a>
     }
 </div>
 
@@ -156,26 +168,28 @@
     <a data-type="countdown" data-id="5681704" class="tickcounter" style="display:block; width:100%; height:110px; position:relative; padding-bottom:0; margin:0 auto;" title="5ª Noite do Burger Solidário" href="//www.tickcounter.com/">5ª Noite do Burger Solidário</a>
 </div>
 
-<div class="floating-icons">
-    <a href="https://wa.me/554399070081" target="_blank">
-        <img src="/whatsapp.png" alt="WhatsApp" />
-    </a>
-    <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank">
-        <img src="/Instagram_icon.png" alt="Instagram" />
-    </a>
-    <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank">
-        <img src="/Facebook_Icon.png" alt="Facebook" />
-    </a>
+<div class="top-bar">
+    <div>
+        <a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
+            Seja um Patrocinador!
+        </a>
+        <a @onclick="AlternaHistoria" class="floating-historia">
+            @textHistoria
+        </a>
+    </div>
+    <div class="floating-icons">
+        <a href="https://wa.me/554399070081" target="_blank">
+            <img src="/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank">
+            <img src="/Instagram_icon.png" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank">
+            <img src="/Facebook_Icon.png" alt="Facebook" />
+        </a>
+    </div>
 </div>
 
-<a href="https://wa.me/554399070081" target="_blank" class="floating-sponsor">
-    Seja um Patrocinador!
-</a>
-
-
-<a @onclick="AlternaHistoria" class="floating-historia">
-    @textHistoria
-</a>
 
 
 
