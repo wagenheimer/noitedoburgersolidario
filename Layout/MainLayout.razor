@@ -7,3 +7,22 @@
     </main>
 </div>
 
+@code {
+    [Inject] NavigationManager Navigation { get; set; }
+    [Inject] IJSRuntime JS { get; set; } // Inject IJSRuntime
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Navigation.LocationChanged += (sender, args) =>
+            {
+                InvokeAsync(() =>
+                {
+                    var path = args.Location.Replace(Navigation.BaseUri, "/");
+                    JS.InvokeVoidAsync("gtag", "config", "G-ZWG2697526", new { page_path = path });
+                });
+            };
+        }
+    }
+}
