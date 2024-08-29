@@ -1,5 +1,3 @@
-using Blazor.Analytics;
-
 using Blazorise;
 using Blazorise.Bootstrap5;
 
@@ -18,7 +16,5 @@ builder.Services.AddBlazorise(options =>
 {
     options.Immediate = true;
 }).AddBootstrap5Providers();
-
-builder.Services.AddGoogleAnalytics("G-ZWG2697526");
 
 await builder.Build().RunAsync();
