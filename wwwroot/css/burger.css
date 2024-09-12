@@ -84,6 +84,19 @@
 
 .floating-historia {
     position: fixed;
+    top: 190px;
+    left: 20px;
+    background-color: #FFD700;
+    color: #231236;
+    padding: 15px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.floating-beneficiada{
+    position: fixed;
     top: 120px;
     left: 20px;
     background-color: #FFD700;
@@ -94,6 +107,7 @@
     text-decoration: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 
 .floating-sponsor {
     position: fixed;
