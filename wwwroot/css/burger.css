@@ -211,14 +211,21 @@
 
 
 .event-info-box {
-    margin-top: 20px;
-    max-width: 60%;
+    max-width: 60%; /* Largura padrão para modo paisagem */
+    margin: 0 auto;
     border: 2px solid #FFD700;
     padding: 20px;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
+    background-color: #333; /* Ajuste conforme necessário */
+    color: #fff;
+}
+
+/* Media query para modo retrato */
+@media (orientation: portrait) {
+    .event-info-box {
+        max-width: 100%; /* Largura para modo retrato */
+    }
 }
 
 .event-info-box {
@@ -552,3 +559,53 @@ p, ul {
         flex-direction: column;
     }
 }
+
+
+.whatsapp-invite {
+    text-align: center;
+    margin: 20px 0;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: green; /* Altera a cor do texto para verde */
+    font-weight: bold;
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    margin-top: 10px;
+    animation: pulse 1.5s infinite; /* Animação de pulsação */
+}
+
+    .whatsapp-link img {
+        margin-right: 8px;
+    }
