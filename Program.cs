@@ -1,20 +1,16 @@
-using Blazorise;
-using Blazorise.Bootstrap5;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Hosting;
 
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
-using NoiteBurgerSolidario;
-
-var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
-
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-builder.Services.AddBlazorise(options =>
+internal class Program
 {
-    options.Immediate = true;
-}).AddBootstrap5Providers();
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        var app = builder.Build();
 
-await builder.Build().RunAsync();
+        app.UseDefaultFiles();
+        app.UseStaticFiles();
+
+        app.Run();
+    }
+}
