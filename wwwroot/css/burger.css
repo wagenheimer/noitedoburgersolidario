@@ -19,9 +19,9 @@
 
     .content img {
         max-width: 100%;
-        width: 100%; /* Garante que a imagem ocupe a largura total disponível */
         margin: 20px 0;
     }
+
 
 .institutions {
     display: flex;
@@ -613,15 +613,3 @@ p, ul {
     }
 
 
-
-.responsive-image {
-    max-width: 90%;
-    height: auto;
-}
-
-/* Para telas em modo landscape (orientação horizontal), define 50% de largura */
-@media (orientation: landscape) {
-    .responsive-image {
-        max-width: 50%;
-    }
-}
