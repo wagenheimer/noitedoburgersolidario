@@ -611,3 +611,17 @@ p, ul {
     .whatsapp-link img {
         margin-right: 8px;
     }
+
+
+
+.responsive-image {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Para telas em modo landscape (orientação horizontal), define 50% de largura */
+@media (orientation: landscape) {
+    .responsive-image {
+        max-width: 50%;
+    }
+}
