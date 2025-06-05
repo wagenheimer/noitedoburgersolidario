@@ -17,7 +17,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -106,3 +106,58 @@ code {
 
 
 
+.patrocinador-animado {
+    background: linear-gradient(90deg, #25d366 0%, #128c7e 100%);
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.15em;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 32px;
+    box-shadow: 0 4px 24px #25d36655, 0 0 8px #fff3;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.2s, background 0.2s;
+    animation: pulse-btn 1.2s infinite alternate;
+    cursor: pointer;
+    text-shadow: 0 1px 2px #0002;
+    letter-spacing: 0.01em;
+    display: inline-block;
+}
+
+@keyframes pulse-btn {
+    0% {
+        box-shadow: 0 4px 24px #25d36655, 0 0 8px #fff3;
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: 0 8px 32px #25d36699, 0 0 24px #fff6;
+        transform: scale(1.06) rotate(-2deg);
+    }
+}
+
+.patrocinador-animado:hover {
+    background: linear-gradient(90deg, #128c7e 0%, #25d366 100%);
+    color: #fff;
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 12px 40px 0 #25d366cc, 0 0 32px #fff8;
+}
+
+.patrocinador-animado::after {
+    content: '';
+    position: absolute;
+    left: -75%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.7) 100%);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+    pointer-events: none;
+}
+
+.patrocinador-animado:hover::after {
+    left: 120%;
+    transition: left 0.5s;
+}
