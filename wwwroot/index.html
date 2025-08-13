@@ -21,6 +21,77 @@
             'page_path': window.location.pathname
         });
     </script>
+    <style>
+        /* Grid de patrocinadores */
+        .sponsors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .sponsor-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+            .sponsor-card img {
+                height: 120px;
+                width: auto;
+                border: 4px solid #fff;
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+            .sponsor-card:hover img {
+                transform: scale(1.04);
+                box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+            }
+
+        /* Popup de imagem */
+        .img-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .img-modal-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            border: 6px solid #fff;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .img-modal-close {
+            position: fixed;
+            top: 16px;
+            right: 20px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            line-height: 1;
+        }
+
+        @media (max-width: 600px) {
+            .sponsor-card img {
+                height: 90px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="top-bar">
@@ -54,19 +125,112 @@
             </a>
         </div>
     </div>
+
     <div class="content">
         <div class="event-info-box">
-            <h3 class="sponsors-title" style="color:white;"><b>🍔6º Burger Solidário - 2025🍔</b></h3>
-            <div class="sponsors-title-1" style="color: white; margin: 10px 0; font-size: 1.1em; text-align:center;">
-                    <img src="6º Burger Solidário.jpg" alt="6º Burger Solidário" style="max-width:100%; height:auto; border-radius: 12px; background:#fff; box-shadow: 0 2px 12px #0002;" />
+            <h3 class="sponsors-title" style="color:white;"><b>🍔 6º Burger Solidário - 2025 🍔</b></h3>
+            <p class="sponsors-title-smaller">Instituições beneficiadas neste ano</p>
+
+            <div class="content-section" style="align-items:center;">
+                <a href="https://afc.org.br/" target="_blank" rel="noopener noreferrer">
+                    <img src="/6oBurger/afclondrina.jpg" alt="Associação Flávia Cristina - Londrina" class="event-image" style="max-width:300px;" />
+                </a>
+                <div class="event-text">
+                    ✨ <a href="https://afc.org.br/" target="_blank" rel="noopener noreferrer"><b>Associação Flávia Cristina</b></a>: É a ponte para um futuro com mais autonomia e qualidade de vida. Desde 1996, eles oferecem um atendimento clínico e educacional cheio de afeto, transformando a história de cada criança, jovem e adulto que busca superar seus limites e alcançar novas conquistas.
                 </div>
-                <video controls muted autoplay loop style="width:100%; max-width:420px; height:auto; aspect-ratio:16/9; border: 4px solid #ff9800; border-radius: 12px; box-shadow: 0 2px 12px #0002; margin-bottom: 12px;">
+            </div>
+
+            <div class="content-section" style="align-items:center; margin-top:16px;">
+                <a href="https://casadeapoiomadreleonia.org.br/" target="_blank" rel="noopener noreferrer">
+                    <img src="/6oBurger/casaapoiomadreleonia.jpg" alt="Casa de Apoio Madre Leônia Milito" class="event-image" style="max-width:300px;" />
+                </a>
+                <div class="event-text">
+                    🏡 <a href="https://casadeapoiomadreleonia.org.br/" target="_blank" rel="noopener noreferrer"><b>Casa de Apoio Madre Leônia Milito</b></a>: É o porto seguro e o abraço que acalma dezenas de pacientes e seus familiares, oferecendo cama, comida e um lar temporário quando eles mais precisam lutar pela saúde longe de casa.
+                </div>
+            </div>
+
+            <div style="margin:16px 0;">
+                <video controls muted autoplay loop style="width:100%; max-width:420px; height:auto; aspect-ratio:16/9; border: 4px solid #ff9800; border-radius: 12px; box-shadow: 0 2px 12px #0002;">
                     <source src="videoburger.mp4" type="video/mp4" />
                     Seu navegador não suporta o vídeo.
                 </video>
-                <div style="margin-bottom: 10px;">Em breve, novidades sobre o 6º Burger Solidário!<br>Fique atento às nossas redes sociais e participe dessa corrente do bem em 2025.</div>
+            </div>
+
+            <div style="margin-top:18px;">
+                <a href="https://wa.me/554399070081" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
             </div>
         </div>
+
+        <!-- Patrocinadores confirmados -->
+        <div class="event-info-box" style="margin-top: 18px;">
+            <h3 class="sponsors-title" style="color:white;"><b>Patrocinadores confirmados</b></h3>
+            <div class="sponsors-grid">
+                <!-- Exemplo de patrocinador (adicione mais âncoras iguais lado a lado quando houver) -->
+                <a href="patrocinadores/tocadocateto.png"
+                   class="sponsor-card"
+                   data-full="patrocinadores/tocadocateto.png"
+                   title="Frigocenter">
+                    <img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" />
+                </a>
+
+                <a href="patrocinadores/lantimoveis.jpg"
+                   class="sponsor-card"
+                   data-full="patrocinadores/lantimoveis.jpg"
+                   title="Frigocenter">
+                    <img src="patrocinadores/lantimoveis.jpg" alt="Lant Imóveis" />
+                </a>
+                <a href="6oBurger/patrocinador_frigocenter.jpg"
+                   class="sponsor-card"
+                   data-full="6oBurger/patrocinador_frigocenter.jpg"
+                   title="Frigocenter">
+                    <img src="6oBurger/patrocinador_frigocenter.jpg" alt="Frigocenter" />
+                </a>
+
+            </div>
+
+        </div>
     </div>
+
+    <!-- Modal de imagem ampliada -->
+    <div id="imgModal" class="img-modal" aria-hidden="true">
+        <span class="img-modal-close" aria-label="Fechar">&times;</span>
+        <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
+    </div>
+
+    <script>
+        // Abre popup ao clicar no patrocinador
+        document.querySelectorAll('.sponsor-card').forEach(function (el) {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
+                var src = el.getAttribute('data-full') || el.getAttribute('href');
+                var modal = document.getElementById('imgModal');
+                var img = document.getElementById('imgModalContent');
+                img.src = src;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                modal.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        // Fecha popup clicando fora ou no X
+        (function () {
+            var modal = document.getElementById('imgModal');
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+                modal.setAttribute('aria-hidden', 'true');
+            }
+            modal.addEventListener('click', function (e) {
+                if (e.target.id === 'imgModal' || e.target.classList.contains('img-modal-close')) {
+                    closeModal();
+                }
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
