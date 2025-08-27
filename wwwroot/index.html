@@ -86,38 +86,78 @@
             line-height: 1;
         }
 
+        /* CONTAINER PRINCIPAL DAS INSTITUIÇÕES - NOVO LAYOUT */
+        .institutions-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 20px 0;
+        }
+
+        @media (min-width: 992px) {
+            .institutions-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         /* Estilos para as instituições melhoradas */
         .institution-card {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             border-radius: 16px;
-            padding: 20px;
-            margin: 16px 0;
+            padding: 24px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             border: 2px solid rgba(255, 152, 0, 0.2);
             transition: all 0.3s ease;
             cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
         }
 
             .institution-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+                transform: translateY(-6px);
+                box-shadow: 0 16px 48px rgba(0,0,0,0.15);
                 border-color: rgba(255, 152, 0, 0.4);
+            }
+
+            .institution-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, #ff9800, #ff5722);
+                opacity: 0.7;
+                transition: opacity 0.3s;
+            }
+
+            .institution-card:hover::before {
+                opacity: 1;
             }
 
         .institution-header {
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .institution-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 12px;
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
             object-fit: cover;
-            border: 3px solid #ff9800;
+            border: 4px solid #ff9800;
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .institution-card:hover .institution-logo {
+            transform: scale(1.05);
         }
 
         .institution-title {
@@ -128,36 +168,46 @@
                 margin: 0 0 8px 0;
                 color: #2c3e50;
                 font-weight: bold;
-                font-size: 1.3em;
+                font-size: 1.4em;
             }
 
         .institution-subtitle {
             color: #7f8c8d;
-            font-size: 0.9em;
+            font-size: 0.95em;
             margin: 0;
+            font-weight: 500;
         }
 
         .institution-summary {
             color: #34495e;
             line-height: 1.6;
             margin: 15px 0;
+            font-size: 1.05em;
+            flex-grow: 1;
         }
 
         .expand-indicator {
-            background: #ff9800;
+            background: linear-gradient(45deg, #ff9800, #ff5722);
             color: white;
             border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            font-size: 0.85em;
-            font-weight: 500;
+            border-radius: 25px;
+            padding: 10px 20px;
+            font-size: 0.9em;
+            font-weight: 600;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+            margin-left: auto;
+            margin-right: auto;
         }
 
             .expand-indicator:hover {
-                background: #f57c00;
-                transform: scale(1.05);
+                background: linear-gradient(45deg, #f57c00, #e64a19);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4);
             }
 
         .institution-details {
@@ -165,7 +215,7 @@
             margin-top: 20px;
             padding-top: 20px;
             border-top: 2px solid #ecf0f1;
-            animation: fadeIn 0.3s ease;
+            animation: fadeIn 0.4s ease;
         }
 
             .institution-details.show {
@@ -174,26 +224,45 @@
 
             .institution-details h5 {
                 color: #2c3e50;
-                margin: 20px 0 10px 0;
+                margin: 20px 0 12px 0;
                 font-weight: bold;
+                font-size: 1.2em;
+                position: relative;
+                padding-left: 16px;
             }
+
+                .institution-details h5::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    height: 20px;
+                    width: 6px;
+                    background: linear-gradient(to bottom, #ff9800, #ff5722);
+                    border-radius: 3px;
+                }
 
             .institution-details p {
                 color: #34495e;
                 line-height: 1.7;
                 text-align: justify;
+                margin-bottom: 16px;
             }
 
         .visit-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: linear-gradient(45deg, #ff9800, #ff5722);
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 25px;
-            font-weight: 500;
+            font-weight: 600;
             margin-top: 15px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
         }
 
             .visit-link:hover {
@@ -214,11 +283,8 @@
             }
         }
 
-        @media (max-width: 600px) {
-            .sponsor-card img {
-                height: 90px;
-            }
-
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 991px) {
             .institution-header {
                 flex-direction: column;
                 text-align: center;
@@ -226,9 +292,38 @@
             }
 
             .institution-logo {
-                width: 100px;
-                height: 100px;
+                width: 140px;
+                height: 140px;
             }
+
+            .expand-indicator {
+                align-self: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sponsor-card img {
+                height: 90px;
+            }
+
+            .institution-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .institution-card {
+                padding: 20px;
+            }
+        }
+
+        /* Estilo para o título das instituições */
+        .institutions-title {
+            text-align: center;
+            color: white;
+            margin: 30px 0 20px;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -272,88 +367,83 @@
             <img src="6oBurger/Logo6oBurger.jpg" />
             <p class="sponsors-title-smaller">Instituições beneficiadas neste ano</p>
 
-            <!-- Associação Flávia Cristina - Layout Melhorado -->
-            <div class="institution-card" onclick="toggleDetails('afc-details', this)">
-                <div class="institution-header">
-                    <img src="/6oBurger/afclondrina.jpg" alt="Associação Flávia Cristina" class="institution-logo" />
-                    <div class="institution-title">
-                        <h4>✨ Associação Flávia Cristina</h4>
-                        <p class="institution-subtitle">Atendimento especializado desde 1996</p>
+            <!-- Container para as instituições em grid -->
+            <div class="institutions-title">Instituições beneficiadas neste ano</div>
+
+            <div class="institutions-container">
+                <!-- Associação Flávia Cristina -->
+                <div class="institution-card">
+                    <div class="institution-header">
+                        <img src="/6oBurger/afclondrina.jpg" alt="Associação Flávia Cristina" class="institution-logo" />
+                        <div class="institution-title">
+                            <h4>✨ Associação Flávia Cristina</h4>
+                            <p class="institution-subtitle">Atendimento especializado desde 1996</p>
+                        </div>
+                    </div>
+                    <div class="institution-summary">
+                        Oferece atendimento gratuito e especializado para crianças, jovens e adolescentes com necessidades educacionais especiais, além de reabilitação para adultos.
+                    </div>
+                    <div id="afc-details" class="institution-details">
+                        <h5>🏥 História e Evolução</h5>
+                        <p>A Associação Flávia Cristina nasceu em 1996 através de uma ação filantrópica com objetivo de desenvolver o atendimento gratuito e especializado para crianças, jovens e adolescentes com necessidades educacionais especiais.</p>
+                        <p>A partir de 2006 passou a integrar atividades de atendimento clínico à pessoa com deficiência, abrangendo hoje a reabilitação de adultos e a comunidade em geral. Além do atendimento pelo SUS, o centro clínico possibilita outros atendimentos à população através de projetos solidários.</p>
+                        <h5>🎯 Missão</h5>
+                        <p>Promover o desenvolvimento das pessoas com deficiência através de programas e serviços especializados nas áreas da assistência social, educação e saúde. Estamos comprometidos em romper a barreira do preconceito e lutar pela dignidade humana propiciando condições para uma sociedade inclusiva.</p>
+                        <a href="https://afc.org.br/" target="_blank" rel="noopener noreferrer" class="visit-link">
+                            🌐 Visitar site oficial
+                        </a>
                     </div>
                 </div>
 
-                <div class="institution-summary">
-                    Oferece atendimento gratuito e especializado para crianças, jovens e adolescentes com necessidades educacionais especiais, além de reabilitação para adultos.
-                </div>
-
-                <button class="expand-indicator">
-                    <span class="expand-text">Saiba mais</span> ▼
-                </button>
-
-                <div id="afc-details" class="institution-details">
-                    <h5>🏥 História e Evolução</h5>
-                    <p>A Associação Flávia Cristina nasceu em 1996 através de uma ação filantrópica com objetivo de desenvolver o atendimento gratuito e especializado para crianças, jovens e adolescentes com necessidades educacionais especiais.</p>
-
-                    <p>A partir de 2006 passou a integrar atividades de atendimento clínico à pessoa com deficiência, abrangendo hoje a reabilitação de adultos e a comunidade em geral. Além do atendimento pelo SUS, o centro clínico possibilita outros atendimentos à população através de projetos solidários.</p>
-
-                    <h5>🎯 Missão</h5>
-                    <p>Promover o desenvolvimento das pessoas com deficiência através de programas e serviços especializados nas áreas da assistência social, educação e saúde. Estamos comprometidos em romper a barreira do preconceito e lutar pela dignidade humana propiciando condições para uma sociedade inclusiva.</p>
-
-                    <a href="https://afc.org.br/" target="_blank" rel="noopener noreferrer" class="visit-link">
-                        🌐 Visitar site oficial
-                    </a>
-                </div>
-            </div>
-
-            <!-- Casa de Apoio Madre Leônia - Layout Melhorado -->
-            <div class="institution-card" onclick="toggleDetails('casa-details', this)">
-                <div class="institution-header">
-                    <img src="/6oBurger/casaapoiomadreleonia.jpg" alt="Casa de Apoio Madre Leônia Milito" class="institution-logo" />
-                    <div class="institution-title">
-                        <h4>🏡 Casa de Apoio Madre Leônia Milito</h4>
-                        <p class="institution-subtitle">Acolhimento humanizado para pacientes oncológicos</p>
+                <!-- Casa de Apoio Madre Leônia -->
+                <div class="institution-card">
+                    <div class="institution-header">
+                        <img src="/6oBurger/casaapoiomadreleonia.jpg" alt="Casa de Apoio Madre Leônia Milito" class="institution-logo" />
+                        <div class="institution-title">
+                            <h4>🏡 Casa de Apoio Madre Leônia Milito</h4>
+                            <p class="institution-subtitle">Acolhimento humanizado para pacientes oncológicos</p>
+                        </div>
+                    </div>
+                    <div class="institution-summary">
+                        Recebe pacientes e acompanhantes em tratamento no Hospital do Câncer de Londrina, oferecendo hospedagem, alimentação e acompanhamento integral.
+                    </div>
+                    <div id="casa-details" class="institution-details">
+                        <h5>🏠 Serviços Oferecidos</h5>
+                        <p>A Casa de Apoio Madre Leônia recebe diariamente pacientes e acompanhantes advindos de outros municípios e que se encontram em tratamento no Hospital do Câncer de Londrina. Durante a permanência na casa recebem o acolhimento humanizado com local para descanso e alimentação, hospedagem, atendimento espiritual, social e psicológico.</p>
+                        <h5>🍽️ Modalidades de Atendimento</h5>
+                        <p><strong>Hospedagem completa:</strong> Pouso, banho e cinco refeições diárias (café da manhã, almoço, café da tarde, jantar e ceia).</p>
+                        <p><strong>Modalidade itinerante:</strong> Acolhimento para refeições (café da manhã, almoço e café da tarde) enquanto aguardam o retorno ao município de origem.</p>
+                        <h5>🎯 Objetivo</h5>
+                        <p>Realizar o acolhimento humanizado aos pacientes em tratamento de câncer no município de Londrina e a seus acompanhantes, visando oferecer um local seguro e agradável que favoreça o bem-estar e a tranquilidade durante o período da estadia.</p>
+                        <a href="https://casadeapoiomadreleonia.org.br/" target="_blank" rel="noopener noreferrer" class="visit-link">
+                            🌐 Visitar site oficial
+                        </a>
                     </div>
                 </div>
-
-                <div class="institution-summary">
-                    Recebe pacientes e acompanhantes em tratamento no Hospital do Câncer de Londrina, oferecendo hospedagem, alimentação e acompanhamento integral.
-                </div>
-
-                <button class="expand-indicator">
-                    <span class="expand-text">Saiba mais</span> ▼
-                </button>
-
-                <div id="casa-details" class="institution-details">
-                    <h5>🏠 Serviços Oferecidos</h5>
-                    <p>A Casa de Apoio Madre Leônia recebe diariamente pacientes e acompanhantes advindos de outros municípios e que se encontram em tratamento no Hospital do Câncer de Londrina. Durante a permanência na casa recebem o acolhimento humanizado com local para descanso e alimentação, hospedagem, atendimento espiritual, social e psicológico.</p>
-
-                    <h5>🍽️ Modalidades de Atendimento</h5>
-                    <p><strong>Hospedagem completa:</strong> Pouso, banho e cinco refeições diárias (café da manhã, almoço, café da tarde, jantar e ceia).</p>
-                    <p><strong>Modalidade itinerante:</strong> Acolhimento para refeições (café da manhã, almoço e café da tarde) enquanto aguardam o retorno ao município de origem.</p>
-
-                    <h5>🎯 Objetivo</h5>
-                    <p>Realizar o acolhimento humanizado aos pacientes em tratamento de câncer no município de Londrina e a seus acompanhantes, visando oferecer um local seguro e agradável que favoreça o bem-estar e a tranquilidade durante o período da estadia.</p>
-
-                    <a href="https://casadeapoiomadreleonia.org.br/" target="_blank" rel="noopener noreferrer" class="visit-link">
-                        🌐 Visitar site oficial
-                    </a>
-                </div>
             </div>
 
-            <div style="margin:16px 0;">
-                <video controls muted autoplay loop style="width:100%; max-width:420px; height:auto; aspect-ratio:16/9; border: 4px solid #ff9800; border-radius: 12px; box-shadow: 0 2px 12px #0002;">
+            <!-- Botão único para expandir/recolher ambos -->
+            <div style="text-align:center; margin-bottom:18px;">
+                <button id="expandAllBtn" class="expand-indicator">
+                    <span class="expand-text">Saiba mais</span> ▼
+                </button>
+            </div>
+
+
+            <div style="margin:30px 0; text-align: center;">
+                <video controls muted autoplay loop style="width:100%; max-width:520px; height:auto; aspect-ratio:16/9; border: 4px solid #ff9800; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
                     <source src="videoburger.mp4" type="video/mp4" />
                     Seu navegador não suporta o vídeo.
                 </video>
             </div>
 
-            <div style="margin-top:18px;">
+            <div style="margin-top:28px; text-align: center;">
                 <a href="https://wa.me/554399070081" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
             </div>
         </div>
 
         <!-- Patrocinadores confirmados -->
-        <div class="event-info-box" style="margin-top: 18px;">
+        <div class="event-info-box" style="margin-top: 28px;">
             <h3 class="sponsors-title" style="color:white;"><b>Patrocinadores confirmados</b></h3>
             <div class="sponsors-grid">
                 <a href="patrocinadores/tocadocateto.png"
@@ -418,6 +508,9 @@
                 // Abrir o atual
                 details.classList.add('show');
                 indicator.innerHTML = '<span class="expand-text">Recolher</span> ▲';
+
+                // Scroll suave para o elemento expandido
+                details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
 
@@ -464,6 +557,29 @@
                 }
             });
         })();
+
+        // Botão único para expandir/recolher ambos os detalhes
+        document.getElementById('expandAllBtn').addEventListener('click', function () {
+            var details = document.querySelectorAll('.institution-details');
+            var btn = this;
+            var expanded = btn.classList.contains('expanded');
+            details.forEach(function (el) {
+                if (expanded) {
+                    el.classList.remove('show');
+                } else {
+                    el.classList.add('show');
+                }
+            });
+            if (expanded) {
+                btn.classList.remove('expanded');
+                btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
+            } else {
+                btn.classList.add('expanded');
+                btn.innerHTML = '<span class="expand-text">Recolher</span> ▲';
+                // Scroll até a primeira instituição expandida
+                details[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
     </script>
 </body>
 </html>
