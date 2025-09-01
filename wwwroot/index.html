@@ -343,13 +343,13 @@
                 </a>
             </div>
             <div style="flex-shrink: 0;">
-                <a href="https://wa.me/554399070081" target="_blank" class="patrocinador-animado">
+                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">
                     Seja um Patrocinador
                 </a>
             </div>
         </div>
         <div class="floating-icons">
-            <a href="https://wa.me/554399070081" target="_blank">
+            <a href="https://wa.me/5543991205772" target="_blank">
                 <img src="whatsapp.png" alt="WhatsApp" />
             </a>
             <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank">
@@ -364,7 +364,7 @@
     <div class="content">
         <div class="event-info-box">
             <h3 class="sponsors-title" style="color:white;"><b>🍔 6º Burger Solidário - 2025 🍔</b></h3>
-            <img src="6oBurger/Logo6oBurger.jpg" />
+            <img src="6oBurger/Convite Burger.jpg" style="max-width:800px" />
             <p class="sponsors-title-smaller">Instituições beneficiadas neste ano</p>
 
             <!-- Container para as instituições em grid -->
@@ -438,7 +438,7 @@
             </div>
 
             <div style="margin-top:28px; text-align: center;">
-                <a href="https://wa.me/554399070081" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
+                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
             </div>
         </div>
 
@@ -475,111 +475,133 @@
                    title="RS Engenharia">
                     <img src="6oBurger/RSEngenharia.jpg" alt="RS Engenharia" />
                 </a>
+
+                <a href="patrocinadores/logo-mascote-ze-lanches.png"
+                   class="sponsor-card"
+                   data-full="patrocinadores/logo-mascote-ze-lanches.png"
+                   data-link="https://www.instagram.com/zelanches/"
+                   title="Zé Lanches">
+                    <img src="patrocinadores/logo-mascote-ze-lanches.png" alt="Zé Lanches" />
+                </a>
+
+                <a href="6oBurger/Printapel.jpg"
+                   class="sponsor-card"
+                   data-full="6oBurger/Printapel.jpg"
+                   data-link="https://www.instagram.com/printapel/"
+                   title="RS Engenharia">
+                    <img src="6oBurger/Printapel.jpg" alt="RS Engenharia" />
+                </a>
             </div>
         </div>
-    </div>
 
-    <!-- Modal de imagem ampliada -->
-    <div id="imgModal" class="img-modal" aria-hidden="true">
-        <span class="img-modal-close" aria-label="Fechar">&times;</span>
-        <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
-    </div>
+        <div class="event-info-box" style="margin-top: 28px;">
+            <h3 class="sponsors-title" style="color:white;"><b>Sejá também um Patrocinador!</b></h3>
+        </div>
+        <div  class="event-info-box">
+            <img src="6oBurger/Folder Patrocinio.jpg" />
+        </div>
 
-    <script>
-        // Função para expandir/contrair detalhes das instituições
-        function toggleDetails(detailsId, cardElement) {
-            const details = document.getElementById(detailsId);
-            const indicator = cardElement.querySelector('.expand-indicator');
-            const expandText = indicator.querySelector('.expand-text');
+        <!-- Modal de imagem ampliada -->
+        <div id="imgModal" class="img-modal" aria-hidden="true">
+            <span class="img-modal-close" aria-label="Fechar">&times;</span>
+            <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
+        </div>
 
-            if (details.classList.contains('show')) {
-                details.classList.remove('show');
-                expandText.textContent = 'Saiba mais';
-                indicator.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-            } else {
-                // Fechar outros detalhes abertos
-                document.querySelectorAll('.institution-details.show').forEach(detail => {
-                    detail.classList.remove('show');
-                });
-                document.querySelectorAll('.expand-indicator').forEach(btn => {
-                    btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-                });
+        <script>
+            // Função para expandir/contrair detalhes das instituições
+            function toggleDetails(detailsId, cardElement) {
+                const details = document.getElementById(detailsId);
+                const indicator = cardElement.querySelector('.expand-indicator');
+                const expandText = indicator.querySelector('.expand-text');
 
-                // Abrir o atual
-                details.classList.add('show');
-                indicator.innerHTML = '<span class="expand-text">Recolher</span> ▲';
-
-                // Scroll suave para o elemento expandido
-                details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        }
-
-        // Abre popup ao clicar no patrocinador
-        document.querySelectorAll('.sponsor-card').forEach(function (el) {
-            el.addEventListener('click', function (e) {
-                e.preventDefault();
-                var src = el.getAttribute('data-full') || el.getAttribute('href');
-                var link = el.getAttribute('data-link') || null;
-                var modal = document.getElementById('imgModal');
-                var img = document.getElementById('imgModalContent');
-                img.src = src;
-                img.setAttribute('data-link', link || '');
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                modal.setAttribute('aria-hidden', 'false');
-            });
-        });
-
-        // Clica na imagem grande abre o link (se houver)
-        document.getElementById('imgModalContent').addEventListener('click', function (e) {
-            var link = e.target.getAttribute('data-link');
-            if (link) {
-                window.open(link, '_blank');
-            }
-        });
-
-        // Fecha popup clicando fora ou no X
-        (function () {
-            var modal = document.getElementById('imgModal');
-            function closeModal() {
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-                modal.setAttribute('aria-hidden', 'true');
-            }
-            modal.addEventListener('click', function (e) {
-                if (e.target.id === 'imgModal' || e.target.classList.contains('img-modal-close')) {
-                    closeModal();
-                }
-            });
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && modal.style.display === 'flex') {
-                    closeModal();
-                }
-            });
-        })();
-
-        // Botão único para expandir/recolher ambos os detalhes
-        document.getElementById('expandAllBtn').addEventListener('click', function () {
-            var details = document.querySelectorAll('.institution-details');
-            var btn = this;
-            var expanded = btn.classList.contains('expanded');
-            details.forEach(function (el) {
-                if (expanded) {
-                    el.classList.remove('show');
+                if (details.classList.contains('show')) {
+                    details.classList.remove('show');
+                    expandText.textContent = 'Saiba mais';
+                    indicator.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
                 } else {
-                    el.classList.add('show');
+                    // Fechar outros detalhes abertos
+                    document.querySelectorAll('.institution-details.show').forEach(detail => {
+                        detail.classList.remove('show');
+                    });
+                    document.querySelectorAll('.expand-indicator').forEach(btn => {
+                        btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
+                    });
+
+                    // Abrir o atual
+                    details.classList.add('show');
+                    indicator.innerHTML = '<span class="expand-text">Recolher</span> ▲';
+
+                    // Scroll suave para o elemento expandido
+                    details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+
+            // Abre popup ao clicar no patrocinador
+            document.querySelectorAll('.sponsor-card').forEach(function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var src = el.getAttribute('data-full') || el.getAttribute('href');
+                    var link = el.getAttribute('data-link') || null;
+                    var modal = document.getElementById('imgModal');
+                    var img = document.getElementById('imgModalContent');
+                    img.src = src;
+                    img.setAttribute('data-link', link || '');
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    modal.setAttribute('aria-hidden', 'false');
+                });
+            });
+
+            // Clica na imagem grande abre o link (se houver)
+            document.getElementById('imgModalContent').addEventListener('click', function (e) {
+                var link = e.target.getAttribute('data-link');
+                if (link) {
+                    window.open(link, '_blank');
                 }
             });
-            if (expanded) {
-                btn.classList.remove('expanded');
-                btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-            } else {
-                btn.classList.add('expanded');
-                btn.innerHTML = '<span class="expand-text">Recolher</span> ▲';
-                // Scroll até a primeira instituição expandida
-                details[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        });
-    </script>
+
+            // Fecha popup clicando fora ou no X
+            (function () {
+                var modal = document.getElementById('imgModal');
+                function closeModal() {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+                modal.addEventListener('click', function (e) {
+                    if (e.target.id === 'imgModal' || e.target.classList.contains('img-modal-close')) {
+                        closeModal();
+                    }
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && modal.style.display === 'flex') {
+                        closeModal();
+                    }
+                });
+            })();
+
+            // Botão único para expandir/recolher ambos os detalhes
+            document.getElementById('expandAllBtn').addEventListener('click', function () {
+                var details = document.querySelectorAll('.institution-details');
+                var btn = this;
+                var expanded = btn.classList.contains('expanded');
+                details.forEach(function (el) {
+                    if (expanded) {
+                        el.classList.remove('show');
+                    } else {
+                        el.classList.add('show');
+                    }
+                });
+                if (expanded) {
+                    btn.classList.remove('expanded');
+                    btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
+                } else {
+                    btn.classList.add('expanded');
+                    btn.innerHTML = '<span class="expand-text">Recolher</span> ▲';
+                    // Scroll até a primeira instituição expandida
+                    details[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        </script>
 </body>
 </html>
