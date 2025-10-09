@@ -29,6 +29,120 @@
         });
     </script>
     <style>
+
+        /* --- ESTILOS DO NOVO MENU MOBILE --- */
+        .top-bar {
+            position: relative;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu-toggle {
+            display: none; /* Oculto no desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            padding: 10px;
+        }
+
+        .hamburger {
+            display: block;
+            position: relative;
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+            .hamburger::before,
+            .hamburger::after {
+                content: '';
+                position: absolute;
+                width: 28px;
+                height: 3px;
+                background: white;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+                left: 0;
+            }
+
+            .hamburger::before {
+                top: -8px;
+            }
+
+            .hamburger::after {
+                bottom: -8px;
+            }
+
+        .mobile-nav {
+            display: none; /* Oculto por padrão */
+            flex-direction: column;
+            background: #2c2c2c;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border-bottom: 3px solid #ff9800;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+            .mobile-nav a {
+                padding: 15px 20px !important;
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px solid #444;
+            }
+
+                .mobile-nav a:last-child {
+                    border-bottom: none;
+                }
+
+
+        /* Media Query para ativar o menu mobile */
+        @media (max-width: 991px) { /* Ponto de quebra pode ser ajustado */
+            .desktop-nav {
+                display: none; /* Esconde a navegação de desktop */
+            }
+
+            .menu-toggle {
+                display: block; /* Mostra o botão hambúrguer */
+            }
+
+            .top-bar .main-title {
+                flex-grow: 1; /* Título ocupa mais espaço */
+            }
+
+            /* Animação do ícone para 'X' quando ativo */
+            .menu-toggle.is-active .hamburger {
+                background: transparent;
+            }
+
+                .menu-toggle.is-active .hamburger::before {
+                    transform: rotate(45deg) translate(5px, 6px);
+                }
+
+                .menu-toggle.is-active .hamburger::after {
+                    transform: rotate(-45deg) translate(5px, -6px);
+                }
+
+            /* Mostra o menu quando ativo */
+            .mobile-nav.is-active {
+                display: flex;
+            }
+        }
+
         /* Grid de patrocinadores */
         .sponsors-grid {
             display: flex;
@@ -425,34 +539,32 @@
 
 <body style="margin:0; padding:0; padding-bottom:210px;">
     <div class="top-bar">
-        <div class="button-container" style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="flex: 1; display: flex; gap: 10px;">
-                <a href="index.html" class="top-button">
-                    6º Burger Solidário - 2025
-                </a>
-                <a href="burger2024.html" class="top-button">
-                    5º Burger Solidário - 2024
-                </a>
-                <a href="burger2024.html#historia" class="top-button">
-                    Histórico
-                </a>
-            </div>
-            <div style="flex-shrink: 0;">
-                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">
-                    Seja um Patrocinador
-                </a>
-            </div>
+        <div class="top-bar-content">
+            <a href="index.html" class="top-button main-title">
+                6º Burger Solidário - 2025
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="burger2024.html" class="top-button">5º Burger Solidário - 2024</a>
+                <a href="burger2024.html#historia" class="top-button">Histórico</a>
+
+            </nav>
+
+            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">
+                <span class="hamburger"></span>
+            </button>
         </div>
+
+        <nav id="mobile-nav" class="mobile-nav">
+            <a href="burger2024.html" class="top-button">5º Burger Solidário - 2024</a>
+            <a href="burger2024.html#historia" class="top-button">Histórico</a>
+            <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Seja um Patrocinador</a>
+        </nav>
+
         <div class="floating-icons">
-            <a href="https://wa.me/5543991205772" target="_blank">
-                <img src="whatsapp.png" alt="WhatsApp" />
-            </a>
-            <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank">
-                <img src="Instagram_icon.png" alt="Instagram" />
-            </a>
-            <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank">
-                <img src="Facebook_Icon.png" alt="Facebook" />
-            </a>
+            <a href="https://wa.me/5543991205772" target="_blank"><img src="whatsapp.png" alt="WhatsApp" /></a>
+            <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank"><img src="Instagram_icon.png" alt="Instagram" /></a>
+            <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank"><img src="Facebook_Icon.png" alt="Facebook" /></a>
         </div>
     </div>
 
@@ -466,6 +578,10 @@
                     COMPRE JÁ SEU CONVITE!<br>
                     <span style="font-size:1.1em; font-weight:800;">🍔BURGER🍔<br />R$ 25,00</span>
                 </a>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
             </div>
 
 
@@ -550,62 +666,62 @@
         <div class="event-info-box" style="margin-top: 28px;">
             <h3 class="sponsors-title" style="color:white;"><b>Patrocinadores confirmados</b></h3>
             <div class="sponsors-grid">
-                   <a href="#" class="sponsor-card" data-full="patrocinadores/tocadocateto.png" data-link="https://www.instagram.com/tocadocateto/" title="Toca do Cateto">
-       <img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/prosa.png" data-link="https://www.instagram.com/prosacozinhasecreta/" title="Prosa Cozinha Secreta">
-       <img src="/patrocinadores/prosa.png" alt="Prosa Cozinha Secreta" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/BarracoDaSopa.png" data-link="https://www.barracodasopa.com.br/" title="Barraco da Sopa">
-       <img src="patrocinadores/BarracoDaSopa.png" alt="Barraco da Sopa" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/angico.png" data-link="https://www.instagram.com/angico_restaurante/" title="Restaurante Angico">
-       <img src="patrocinadores/angico.png" alt="Restaurante Angico" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/logo-mascote-ze-lanches.png" data-link="https://www.instagram.com/zelanches/" title="Zé Lanches">
-       <img src="patrocinadores/logo-mascote-ze-lanches.png" alt="Zé Lanches" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantimoveis/" title="Lant Imóveis">
-       <img src="patrocinadores/lantimoveis.jpg" alt="Lant Imóveis" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="6oBurger/patrocinador_frigocenter.jpg" data-link="https://wa.me/5543996573241" title="Frigocenter">
-       <img src="6oBurger/patrocinador_frigocenter.jpg" alt="Frigocenter" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="6oBurger/RSEngenharia.jpg" data-link="https://wa.me/55043996608099" title="RS Engenharia">
-       <img src="6oBurger/RSEngenharia.jpg" alt="RS Engenharia" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/imprimaplus.png" data-link="https://imprimaplus.com.br/index.php" title="Imprima Plus">
-       <img src="patrocinadores/imprimaplus.png" alt="Imprima Plus" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/bodes.png" data-link="https://bodesdoasfaltolondrina.com.br/" title="Bodes do Asfalto - Facção Londrina">
-       <img src="patrocinadores/bodes.png" alt="Bodes do Asfalto" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/jabuti.jpg" data-link="https://www.instagram.com/jabutilazereconhecimento/" title="Jabuti Lazer e Conhecimento">
-       <img src="patrocinadores/jabuti.jpg" alt="Jabuti Lazer e Conhecimento" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/mapa.png" data-link="https://mapasecuritizadora.com.br/" title="Mapa Securitizadora">
-       <img src="patrocinadores/mapa.png" alt="Mapa Securitizadora" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/depositoroseira.png" data-link="https://depositoroseira.com.br/" title="Depósito Roseira">
-       <img src="patrocinadores/depositoroseira.png" alt="Depósito Roseira" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="patrocinadores/alugueuse.jpg" data-link="https://www.alugueuse.com.br/" title="Alugueuse">
-       <img src="patrocinadores/alugueuse.jpg" alt="Alugueuse" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="6oBurger/FabianoPerito.png" data-link="https://www.instagram.com/peritofabianoabucarub/" title="Fabiano Abucarub - Perito">
-       <img src="6oBurger/FabianoPerito.png" alt="Fabiano Abucarub - Perito" />
-   </a>
-   <a href="#" class="sponsor-card" data-full="6oBurger/casadasfraldaslondrina.jpg" data-link="https://www.instagram.com/casadasfraldas.londrina/" title="Casa das Fraldas - Londrina">
-       <img src="6oBurger/casadasfraldaslondrina.jpg" alt="Casa das Fraldas - Londrina" />
-   </a>
-                   
-   <a href="#" class="sponsor-card" data-full="patrocinadores/manaiaimoveis.jpg" data-link="https://www.instagram.com/manaiaimoveis/" title="Manaia Imóveis">
-       <img src="patrocinadores/manaiaimoveis.jpg" alt="Manaia Imóveis" />
-   </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/tocadocateto.png" data-link="https://www.instagram.com/tocadocateto/" title="Toca do Cateto">
+                    <img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/prosa.png" data-link="https://www.instagram.com/prosacozinhasecreta/" title="Prosa Cozinha Secreta">
+                    <img src="/patrocinadores/prosa.png" alt="Prosa Cozinha Secreta" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/BarracoDaSopa.png" data-link="https://www.barracodasopa.com.br/" title="Barraco da Sopa">
+                    <img src="patrocinadores/BarracoDaSopa.png" alt="Barraco da Sopa" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/angico.png" data-link="https://www.instagram.com/angico_restaurante/" title="Restaurante Angico">
+                    <img src="patrocinadores/angico.png" alt="Restaurante Angico" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/logo-mascote-ze-lanches.png" data-link="https://www.instagram.com/zelanches/" title="Zé Lanches">
+                    <img src="patrocinadores/logo-mascote-ze-lanches.png" alt="Zé Lanches" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantimoveis/" title="Lant Imóveis">
+                    <img src="patrocinadores/lantimoveis.jpg" alt="Lant Imóveis" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="6oBurger/patrocinador_frigocenter.jpg" data-link="https://wa.me/5543996573241" title="Frigocenter">
+                    <img src="6oBurger/patrocinador_frigocenter.jpg" alt="Frigocenter" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="6oBurger/RSEngenharia.jpg" data-link="https://wa.me/55043996608099" title="RS Engenharia">
+                    <img src="6oBurger/RSEngenharia.jpg" alt="RS Engenharia" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/imprimaplus.png" data-link="https://imprimaplus.com.br/index.php" title="Imprima Plus">
+                    <img src="patrocinadores/imprimaplus.png" alt="Imprima Plus" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/bodes.png" data-link="https://bodesdoasfaltolondrina.com.br/" title="Bodes do Asfalto - Facção Londrina">
+                    <img src="patrocinadores/bodes.png" alt="Bodes do Asfalto" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/jabuti.jpg" data-link="https://www.instagram.com/jabutilazereconhecimento/" title="Jabuti Lazer e Conhecimento">
+                    <img src="patrocinadores/jabuti.jpg" alt="Jabuti Lazer e Conhecimento" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/mapa.png" data-link="https://mapasecuritizadora.com.br/" title="Mapa Securitizadora">
+                    <img src="patrocinadores/mapa.png" alt="Mapa Securitizadora" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/depositoroseira.png" data-link="https://depositoroseira.com.br/" title="Depósito Roseira">
+                    <img src="patrocinadores/depositoroseira.png" alt="Depósito Roseira" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/alugueuse.jpg" data-link="https://www.alugueuse.com.br/" title="Alugueuse">
+                    <img src="patrocinadores/alugueuse.jpg" alt="Alugueuse" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="6oBurger/FabianoPerito.png" data-link="https://www.instagram.com/peritofabianoabucarub/" title="Fabiano Abucarub - Perito">
+                    <img src="6oBurger/FabianoPerito.png" alt="Fabiano Abucarub - Perito" />
+                </a>
+                <a href="#" class="sponsor-card" data-full="6oBurger/casadasfraldaslondrina.jpg" data-link="https://www.instagram.com/casadasfraldas.londrina/" title="Casa das Fraldas - Londrina">
+                    <img src="6oBurger/casadasfraldaslondrina.jpg" alt="Casa das Fraldas - Londrina" />
+                </a>
 
-   <a href="#" class="sponsor-card" data-full="patrocinadores/tkacabamentos.png" data-link="https://www.instagram.com/tklondrina/" title="Tk Acabamentos Londrina">
-       <img src="patrocinadores/tkacabamentos.png" alt="Tk Acabamentos Londrina" />
-   </a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/manaiaimoveis.jpg" data-link="https://www.instagram.com/manaiaimoveis/" title="Manaia Imóveis">
+                    <img src="patrocinadores/manaiaimoveis.jpg" alt="Manaia Imóveis" />
+                </a>
+
+                <a href="#" class="sponsor-card" data-full="patrocinadores/tkacabamentos.png" data-link="https://www.instagram.com/tklondrina/" title="Tk Acabamentos Londrina">
+                    <img src="patrocinadores/tkacabamentos.png" alt="Tk Acabamentos Londrina" />
+                </a>
 
 
             </div>
@@ -678,6 +794,16 @@
         </style>
 
         <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileNav = document.getElementById('mobile-nav');
+
+                menuToggle.addEventListener('click', function () {
+                    menuToggle.classList.toggle('is-active');
+                    mobileNav.classList.toggle('is-active');
+                });
+            });
+
             // Botão único para expandir/recolher ambos os detalhes das instituições
             document.getElementById('expandAllBtn').addEventListener('click', function () {
                 var details = document.querySelectorAll('.institution-details');
@@ -986,7 +1112,7 @@
                 <a href="#" class="sponsor-card" data-full="6oBurger/casadasfraldaslondrina.jpg" data-link="https://www.instagram.com/casadasfraldas.londrina/" title="Casa das Fraldas - Londrina">
                     <img src="6oBurger/casadasfraldaslondrina.jpg" alt="Casa das Fraldas - Londrina" />
                 </a>
-                                
+
                 <a href="#" class="sponsor-card" data-full="patrocinadores/manaiaimoveis.jpg" data-link="https://www.instagram.com/manaiaimoveis/" title="Manaia Imóveis">
                     <img src="patrocinadores/manaiaimoveis.jpg" alt="Manaia Imóveis" />
                 </a>
