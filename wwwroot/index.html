@@ -577,6 +577,15 @@
                    title="Fabiano Abucarub - Perito">
                     <img src="6oBurger/FabianoPerito.png" alt="Fabiano Abucarub - Perito" />
                 </a>
+
+                <a href="6oBurger/casadasfraldaslondrina.png"
+                   class="sponsor-card"
+                   data-full="6oBurger/casadasfraldaslondrina.png"
+                   data-link="https://www.instagram.com/casadasfraldas.londrina/"
+                   title="Casa das Fraldas - Londrina">
+                    <img src="6oBurger/casadasfraldaslondrina.png" alt="Casa das Fraldas - Londrina" />
+                </a>
+
             </div>
         </div>
 
@@ -589,65 +598,98 @@
         <!-- Modal de imagem ampliada -->
         <div id="imgModal" class="img-modal" aria-hidden="true">
             <span class="img-modal-close" aria-label="Fechar">&times;</span>
-            <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
+            <div class="img-modal-inner">
+                <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
+                <div class="img-modal-info">
+                    <h4 id="imgModalTitle"></h4>
+                    <a id="imgModalLink" href="#" target="_blank" rel="noopener noreferrer" class="visit-link" style="display:none;">
+                        🌐 Visitar patrocinador
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <script>
-            // Função para expandir/contrair detalhes das instituições
-            function toggleDetails(detailsId, cardElement) {
-                const details = document.getElementById(detailsId);
-                const indicator = cardElement.querySelector('.expand-indicator');
-                const expandText = indicator.querySelector('.expand-text');
-
-                if (details.classList.contains('show')) {
-                    details.classList.remove('show');
-                    expandText.textContent = 'Saiba mais';
-                    indicator.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-                } else {
-                    // Fechar outros detalhes abertos
-                    document.querySelectorAll('.institution-details.show').forEach(detail => {
-                        detail.classList.remove('show');
-                    });
-                    document.querySelectorAll('.expand-indicator').forEach(btn => {
-                        btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-                    });
-
-                    // Abrir o atual
-                    details.classList.add('show');
-                    indicator.innerHTML = '<span class="expand-text">Recolher</span> ▲';
-
-                    // Scroll suave para o elemento expandido
-                    details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
+        <style>
+            .img-modal-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
             }
 
+            .img-modal-info {
+                margin-top: 10px;
+                background: rgba(255,255,255,0.15);
+                padding: 12px 20px;
+                border-radius: 10px;
+                backdrop-filter: blur(6px);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                color: #fff;
+                max-width: 90%;
+                word-break: break-word;
+            }
+
+                .img-modal-info h4 {
+                    margin: 0;
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    color: #fff;
+                }
+
+                .img-modal-info a.visit-link {
+                    margin-top: 6px;
+                    background: linear-gradient(45deg, #ff9800, #ff5722);
+                    color: #fff;
+                    text-decoration: none;
+                    font-weight: 600;
+                    padding: 8px 18px;
+                    border-radius: 25px;
+                    transition: transform 0.2s;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                }
+
+                    .img-modal-info a.visit-link:hover {
+                        transform: translateY(-2px);
+                    }
+        </style>
+
+        <script>
             // Abre popup ao clicar no patrocinador
             document.querySelectorAll('.sponsor-card').forEach(function (el) {
                 el.addEventListener('click', function (e) {
                     e.preventDefault();
-                    var src = el.getAttribute('data-full') || el.getAttribute('href');
-                    var link = el.getAttribute('data-link') || null;
-                    var modal = document.getElementById('imgModal');
-                    var img = document.getElementById('imgModalContent');
+
+                    const src = el.getAttribute('data-full') || el.getAttribute('href');
+                    const link = el.getAttribute('data-link') || null;
+                    const title = el.getAttribute('title') || 'Patrocinador';
+
+                    const modal = document.getElementById('imgModal');
+                    const img = document.getElementById('imgModalContent');
+                    const modalTitle = document.getElementById('imgModalTitle');
+                    const modalLink = document.getElementById('imgModalLink');
+
                     img.src = src;
-                    img.setAttribute('data-link', link || '');
+                    modalTitle.textContent = title;
+
+                    if (link) {
+                        modalLink.style.display = 'inline-flex';
+                        modalLink.href = link;
+                    } else {
+                        modalLink.style.display = 'none';
+                    }
+
                     modal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
                     modal.setAttribute('aria-hidden', 'false');
                 });
             });
 
-            // Clica na imagem grande abre o link (se houver)
-            document.getElementById('imgModalContent').addEventListener('click', function (e) {
-                var link = e.target.getAttribute('data-link');
-                if (link) {
-                    window.open(link, '_blank');
-                }
-            });
-
             // Fecha popup clicando fora ou no X
             (function () {
-                var modal = document.getElementById('imgModal');
+                const modal = document.getElementById('imgModal');
                 function closeModal() {
                     modal.style.display = 'none';
                     document.body.style.overflow = '';
@@ -664,29 +706,6 @@
                     }
                 });
             })();
-
-            // Botão único para expandir/recolher ambos os detalhes
-            document.getElementById('expandAllBtn').addEventListener('click', function () {
-                var details = document.querySelectorAll('.institution-details');
-                var btn = this;
-                var expanded = btn.classList.contains('expanded');
-                details.forEach(function (el) {
-                    if (expanded) {
-                        el.classList.remove('show');
-                    } else {
-                        el.classList.add('show');
-                    }
-                });
-                if (expanded) {
-                    btn.classList.remove('expanded');
-                    btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-                } else {
-                    btn.classList.add('expanded');
-                    btn.innerHTML = '<span class="expand-text">Recolher</span> ▲';
-                    // Scroll até a primeira instituição expandida
-                    details[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
         </script>
 
     </div>
