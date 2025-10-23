@@ -30,6 +30,128 @@
     </script>
     <style>
 
+        /* PATROCINADOR OURO - DESTAQUE ESPECIAL */
+        .gold-sponsor-section {
+            margin: 35px 0;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 4px solid #FFD700;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 10px 40px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .gold-sponsor-section::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient( 45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70% );
+                animation: goldShine 3s infinite;
+            }
+
+        @keyframes goldShine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .gold-sponsor-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            font-weight: 900;
+            font-size: 1.1em;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+            margin-bottom: 15px;
+            animation: pulse-gold 2s infinite alternate;
+        }
+
+        @keyframes pulse-gold {
+            0% {
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+            }
+
+            100% {
+                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.9);
+            }
+        }
+
+        .gold-sponsor-title {
+            color: #FFD700;
+            font-size: 1.8em;
+            font-weight: 900;
+            text-align: center;
+            margin: 15px 0 20px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+        }
+
+        .gold-sponsor-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+            .gold-sponsor-logo-container img {
+                max-width: 400px;
+                width: 90%;
+                height: auto;
+                border: 6px solid #FFD700;
+                border-radius: 16px;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5), 0 0 50px rgba(255, 215, 0, 0.3);
+                transition: all 0.4s ease;
+                cursor: pointer;
+            }
+
+                .gold-sponsor-logo-container img:hover {
+                    transform: scale(1.08) rotate(-2deg);
+                    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 215, 0, 0.5);
+                }
+
+        .gold-sponsor-description {
+            text-align: center;
+            color: #fff;
+            font-size: 1.15em;
+            line-height: 1.6;
+            margin: 20px auto;
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .gold-sponsor-title {
+                font-size: 1.4em;
+            }
+
+            .gold-sponsor-logo-container img {
+                max-width: 280px;
+                padding: 15px;
+            }
+
+            .gold-sponsor-badge {
+                font-size: 0.95em;
+                padding: 6px 16px;
+            }
+        }
+
         /* --- ESTILOS DO NOVO MENU MOBILE --- */
         .top-bar {
             position: relative;
@@ -582,8 +704,31 @@
                 </a>
             </div>
 
+            <!-- ========== PATROCINADOR OURO - DESTAQUE ESPECIAL ========== -->
+            <div class="gold-sponsor-section">
+                <div style="text-align: center;">
+                    <div class="gold-sponsor-badge">
+                        ⭐ PATROCINADOR OURO ⭐
+                    </div>
+                    <h2 class="gold-sponsor-title">LANT CONSULTORIA</h2>
+                </div>
+
+                <div class="gold-sponsor-logo-container">
+                    <a href="#" class="sponsor-card" data-full="patrocinadores/lantconsultoria.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro">
+                        <img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" />
+                    </a>
+                </div>
+
+                <p class="gold-sponsor-description">
+                    <b>Agradecemos imensamente à Lant Consultoria</b>, nosso <b style="color:#FFD700;">Patrocinador Ouro</b>,
+                    pela confiança e apoio fundamental ao 6º Burger Solidário.
+                    Juntos, estamos transformando vidas e fortalecendo nossa comunidade! 🌟
+                </p>
+            </div>
+
+
             <div style="margin-top: 20px;">
-                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
+                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar também e apoiar esta causa</a>
             </div>
 
 
