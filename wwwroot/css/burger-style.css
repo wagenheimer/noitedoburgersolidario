@@ -1,0 +1,1401 @@
+﻿/* ========================================================= */
+/* 1. ANIMAÇÕES GLOBAIS E UTILIDADES */
+/* ========================================================= */
+
+@keyframes goldShine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+@keyframes pulse-convite {
+    0% {
+        box-shadow: 0 8px 30px rgba(255, 8, 68, 0.5), 0 0 20px rgba(255, 177, 153, 0.6);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: 0 12px 40px rgba(255, 8, 68, 0.8), 0 0 35px rgba(255, 177, 153, 1);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.9);
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.1);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animações Diamante */
+@keyframes pulse-diamond-border {
+    0% {
+        border-color: #00BFFF;
+        box-shadow: 0 0 40px rgba(0, 191, 255, 0.6), 0 15px 50px rgba(0,0,0,0.7);
+    }
+
+    100% {
+        border-color: #ADD8E6;
+        box-shadow: 0 0 55px rgba(173, 216, 230, 0.8), 0 20px 60px rgba(0,0,0,0.8);
+    }
+}
+
+@keyframes diamondShine {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* ========================================================= */
+/* 2. ESTILOS GLOBAIS E ESTRUTURA BASE */
+/* ========================================================= */
+
+body {
+    background-color: #231236;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 85px; /* Altura da barra superior fixa */
+    padding-bottom: 200px !important; /* Padding para a barra animada fixa inferior */
+}
+
+.content {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+    .content img {
+        max-width: 100%;
+        margin: 20px 0;
+    }
+
+.event-info-box {
+    margin: 0 auto;
+    border: 2px solid #FFD700;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 20px;
+    max-width: 1400px;
+}
+
+/* Títulos Gerais */
+.sponsors-title {
+    color: yellow;
+    font-size: 28px;
+}
+
+.sponsors-title-smaller {
+    color: white;
+    font-size: 20px;
+}
+
+.institutions-title {
+    text-align: center;
+    color: white;
+    margin: 30px 0 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Patrocinadores (Demais) */
+.sponsors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.sponsor-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+    .sponsor-card img {
+        height: 400px;
+        width: auto;
+        border: 4px solid #fff;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .sponsor-card:hover img {
+        transform: scale(1.04);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    }
+
+/* Badges de Destaque */
+.sponsor-badge {
+    position: absolute;
+    top: -15px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+    .sponsor-badge.diamond {
+        background: #00BFFF;
+        color: #000;
+        border: 2px solid #fff;
+    }
+
+    .sponsor-badge.gold {
+        background: #FFD700;
+        color: #000;
+        border: 2px solid #fff;
+    }
+
+/* ========================================================= */
+/* 3. BARRA SUPERIOR E NAVEGAÇÃO */
+/* ========================================================= */
+
+.top-bar {
+    position: relative;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.top-button {
+    background-color: #FFD700;
+    color: #231236;
+    padding: 15px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.top-bar .main-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    background: none;
+    box-shadow: none;
+    padding: 5px 15px;
+}
+
+    .top-bar .main-title:hover {
+        background: none;
+    }
+
+.floating-icons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 5000;
+}
+
+    .floating-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .floating-icons img {
+        width: 40px;
+        height: 40px;
+    }
+
+/* Menu Mobile (Hamburger) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    padding: 10px;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+    .hamburger::before, .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 3px;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        left: 0;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        bottom: -8px;
+    }
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #2c2c2c;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-bottom: 3px solid #ff9800;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 9990;
+}
+
+    .mobile-nav a {
+        padding: 15px 20px !important;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #444;
+    }
+
+
+/* ========================================================= */
+/* 4. PATROCINADORES DE DESTAQUE LADO A LADO (Horizontal) */
+/* ========================================================= */
+
+/* CONTAINER PARA DIAMANTE E OURO - LADO A LADO */
+.top-sponsors-tier {
+    display: flex;
+    flex-direction: row; /* CHAVE: Lado a lado (Horizontal) */
+    justify-content: center;
+    align-items: stretch; /* CRUCIAL: Garante que os blocos tenham a mesma altura */
+    gap: 20px;
+    margin: 25px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Base dos cards de Patrocinador (Diamante e Ouro) - ALINHAMENTO INTERNO CORRIGIDO */
+.diamond-sponsor-section,
+.gold-sponsor-section {
+    flex: 1 1 50%; /* Ocupa 50% do espaço disponível */
+    width: auto;
+    margin: 0;
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    /* ALINHAMENTO INTERNO (Faz o conteúdo dos cards ficarem centralizados) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Estilos Específicos DIAMANTE */
+.diamond-sponsor-section {
+    padding: 40px 25px;
+    background: linear-gradient(135deg, #0f1c2b 0%, #1a2a3a 100%);
+    border: 6px solid #00BFFF;
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(0, 191, 255, 0.6), 0 15px 50px rgba(0,0,0,0.7);
+    animation: pulse-diamond-border 3s infinite alternate, float-diamond 5s infinite ease-in-out;
+}
+
+.diamond-sponsor-description {
+    color: #f0f8ff;
+    font-size: 1.25em;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 20px auto;
+    max-width: 90%;
+    position: relative;
+    z-index: 1;
+}
+
+.diamond-sponsor-badge {
+    background: linear-gradient(135deg, #ADD8E6 0%, #00BFFF 100%);
+    color: #000;
+    font-weight: 900;
+    font-size: 1.25em;
+    padding: 10px 25px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.7);
+    margin-bottom: 20px;
+    animation: pulse-diamond 2s infinite alternate;
+    display: inline-block;
+}
+
+.diamond-sponsor-title {
+    color: #ADD8E6;
+    font-size: 2.2em;
+    font-weight: 900;
+    text-align: center;
+    margin: 20px 0 25px;
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 3px 6px rgba(0,0,0,0.9);
+    letter-spacing: 1.5px;
+}
+
+/* Estilos Específicos OURO */
+.gold-sponsor-section {
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border: 4px solid #FFD700;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 10px 40px rgba(0,0,0,0.5);
+    animation: float-gold 4s infinite ease-in-out;
+}
+
+.gold-sponsor-description {
+    color: #fff;
+    font-size: 1.15em;
+    line-height: 1.6;
+    margin: 20px auto;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.gold-sponsor-badge {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000;
+    font-weight: 900;
+    font-size: 1.1em;
+    padding: 8px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+    margin-bottom: 15px;
+    animation: pulse-gold 2s infinite alternate;
+    display: inline-block;
+}
+
+.gold-sponsor-title {
+    color: #FFD700;
+    font-size: 1.8em;
+    font-weight: 900;
+    text-align: center;
+    margin: 15px 0 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 2px 4px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
+}
+
+/* ========================================================= */
+/* 5. BARRA ANIMADA (STICKY SPONSORS) */
+/* ========================================================= */
+
+.sticky-sponsors {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    z-index: 5000 !important;
+    background-color: #1a1a1a;
+    border-top: 5px solid #ff9800;
+    height: 180px;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    display: flex !important;
+    align-items: stretch;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sponsors-title-fixed {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    color: #fff;
+    padding: 0 25px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    border-right: 2px solid #333;
+    width: 220px;
+}
+
+    .sponsors-title-fixed span {
+        font-size: 1em;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: #aaa;
+    }
+
+    .sponsors-title-fixed strong {
+        font-size: 1.3em;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ff9800;
+    }
+
+.sponsors-carousel-wrapper {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+    .sponsors-carousel-wrapper::before, .sponsors-carousel-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .sponsors-carousel-wrapper::before {
+        left: 0;
+        background: linear-gradient(to right, #1a1a1a, transparent);
+    }
+
+    .sponsors-carousel-wrapper::after {
+        right: 0;
+        background: linear-gradient(to left, #1a1a1a, transparent);
+    }
+
+.sponsor-track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0 30px;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    animation: scrollSponsors 45s linear infinite;
+}
+
+@keyframes scrollSponsors {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.sticky-sponsors .sponsor-card {
+    display: flex;
+    align-items: center;
+}
+
+    .sticky-sponsors .sponsor-card img {
+        height: 140px;
+        width: auto;
+        max-width: 180px;
+        border-radius: 1px;
+        background: #fff;
+        padding: 0px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+
+/* ========================================================= */
+/* 6. MEDIA QUERIES E RESPONSIVIDADE */
+/* ========================================================= */
+
+/* Mobile Base (768px e abaixo) */
+@media (max-width: 768px) {
+    /* CORREÇÃO CRÍTICA DO PADDING NO MOBILE */
+    body {
+        padding-top: 150px !important;
+    }
+
+    /* Top Bar */
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 5px;
+        position: fixed;
+    }
+
+        .top-bar .button-container {
+            flex-direction: column !important;
+            gap: 8px !important;
+        }
+
+            .top-bar .button-container > div {
+                width: 100% !important;
+                flex: none !important;
+            }
+
+                .top-bar .button-container > div:first-child {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+    .top-button {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9em !important;
+        padding: 10px 8px !important;
+        margin: 2px 4px;
+    }
+
+    /* Patrocinadores de Destaque */
+    .top-sponsors-tier {
+        flex-direction: column;
+        width: 100%;
+        gap: 30px;
+    }
+    /* FORÇA EMPILHAMENTO NO MOBILE */
+    .diamond-sponsor-section, .gold-sponsor-section {
+        flex: 1 1 100%;
+        max-width: 95%;
+        margin: 0 auto;
+        padding: 30px 15px;
+    }
+
+    /* Sticky Sponsors */
+    .sticky-sponsors {
+        height: 80px !important;
+    }
+
+    .sponsors-title-fixed {
+        display: none;
+    }
+
+    .sponsor-track {
+        gap: 30px;
+        padding: 0 15px;
+        animation-duration: 40s;
+    }
+
+    .sticky-sponsors .sponsor-card img {
+        height: 60px;
+        padding: 4px;
+        max-width: 150px;
+    }
+
+    body {
+        padding-bottom: 90px !important;
+    }
+
+    /* Ícones Sociais */
+    .floating-icons {
+        top: 90px;
+        right: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+        .floating-icons a {
+            width: 45px;
+            height: 45px;
+        }
+
+        .floating-icons img {
+            width: 25px;
+            height: 25px;
+        }
+}
+
+@media (max-width: 991px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .top-bar .main-title {
+        flex-grow: 1;
+    }
+
+    .mobile-nav.is-active {
+        display: flex;
+    }
+
+    body {
+        padding-top: 85px !important;
+    }
+    /* Padding para Tablet (quando a barra não expande tanto) */
+}
+
+
+/* ========================================================= */
+/* 3. BOTÃO COMPRE SEU CONVITE - DESTAQUE MÁXIMO */
+/* ========================================================= */
+
+.btn-convite-destaque {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+    color: #fff !important;
+    font-weight: 900;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    border: 4px solid #fff;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(255, 8, 68, 0.5), 0 0 20px rgba(255, 177, 153, 0.6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: pulse-convite 1.5s infinite alternate; /* O SEU BOTÃO ANIMADO ESTÁ AQUI! */
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+    .btn-convite-destaque:hover {
+        background: linear-gradient(135deg, #ffb199 0%, #ff0844 100%);
+        transform: scale(1.08) rotate(-2deg) !important;
+        box-shadow: 0 15px 50px rgba(255, 8, 68, 0.9), 0 0 50px rgba(255, 177, 153, 1);
+    }
+
+
+/* Animação de Sombra/Tamanho (Botão de Convite Destacado) */
+@keyframes pulse-convite {
+    0% {
+        box-shadow: 0 8px 30px rgba(255, 8, 68, 0.5), 0 0 20px rgba(255, 177, 153, 0.6);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: 0 12px 40px rgba(255, 8, 68, 0.8), 0 0 35px rgba(255, 177, 153, 1);
+        transform: scale(1.05);
+    }
+}
+
+
+/* ========================================================= */
+/* 4. INSTITUIÇÕES DE CARIDADE */
+/* ========================================================= */
+
+/* Estilo para o título das instituições */
+.institutions-title {
+    text-align: center;
+    color: white;
+    margin: 30px 0 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* CONTAINER PRINCIPAL DAS INSTITUIÇÕES */
+.institutions-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 20px 0;
+}
+
+/* Estilos para as instituições */
+.institution-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255, 152, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+    .institution-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+        border-color: rgba(255, 152, 0, 0.4);
+    }
+
+    .institution-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #ff9800, #ff5722);
+        opacity: 0.7;
+        transition: opacity 0.3s;
+    }
+
+    .institution-card:hover::before {
+        opacity: 1;
+    }
+
+.institution-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.institution-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 4px solid #ff9800;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.institution-card:hover .institution-logo {
+    transform: scale(1.05);
+}
+
+.institution-title {
+    flex: 1;
+}
+
+    .institution-title h4 {
+        margin: 0 0 8px 0;
+        color: #2c3e50;
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+
+.institution-subtitle {
+    color: #7f8c8d;
+    font-size: 0.95em;
+    margin: 0;
+    font-weight: 500;
+}
+
+.institution-summary {
+    color: #34495e;
+    line-height: 1.6;
+    margin: 15px 0;
+    font-size: 1.05em;
+    flex-grow: 1;
+}
+
+.expand-indicator {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+    .expand-indicator:hover {
+        background: linear-gradient(45deg, #f57c00, #e64a19);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4);
+    }
+
+.institution-details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #ecf0f1;
+    animation: fadeIn 0.4s ease;
+}
+
+    .institution-details.show {
+        display: block;
+    }
+
+    .institution-details h5 {
+        color: #2c3e50;
+        margin: 20px 0 12px 0;
+        font-weight: bold;
+        font-size: 1.2em;
+        position: relative;
+        padding-left: 16px;
+    }
+
+        .institution-details h5::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 6px;
+            background: linear-gradient(to bottom, #ff9800, #ff5722);
+            border-radius: 3px;
+        }
+
+    .institution-details p {
+        color: #34495e;
+        line-height: 1.7;
+        text-align: justify;
+        margin-bottom: 16px;
+    }
+
+.visit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+    .visit-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        color: white;
+    }
+
+/* ========================================================= */
+/* ANIMAÇÕES */
+/* ========================================================= */
+
+/* Animação de Fade In (Detalhes de Instituições) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================================= */
+/* RESPONSIVIDADE */
+/* ========================================================= */
+
+/* Grid de instituições (desktop) */
+@media (min-width: 992px) {
+    .institutions-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ajustes para tablets e mobile */
+@media (max-width: 991px) {
+    .institution-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .institution-logo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .expand-indicator {
+        align-self: center;
+    }
+}
+
+/* Ajustes para mobile small */
+@media (max-width: 600px) {
+    .institution-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .institution-card {
+        padding: 20px;
+    }
+}
+
+
+
+/* ========================================================= */
+/* 6. MODAL E POPUP */
+/* ========================================================= */
+
+/* Popup de imagem */
+.img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.img-modal-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    border: 6px solid #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+.img-modal-close {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+    z-index: 10000;
+}
+
+.img-modal-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.img-modal-info {
+    margin-top: 10px;
+    background: rgba(255,255,255,0.15);
+    padding: 12px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    color: #fff;
+    max-width: 90%;
+    word-break: break-word;
+}
+
+    .img-modal-info h4 {
+        margin: 0;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .img-modal-info a.visit-link {
+        margin-top: 6px;
+        background: linear-gradient(45deg, #ff9800, #ff5722);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 18px;
+        border-radius: 25px;
+        transition: transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+        .img-modal-info a.visit-link:hover {
+            transform: translateY(-2px);
+        }
+
+
+
+
+
+.image-carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.image-carousel {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens sejam quebrados para a próxima linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 10px; /* Adiciona um espaçamento entre as imagens */
+    overflow: hidden;
+    width: 100%;
+}
+
+    .image-carousel img {
+        max-height: 200px;
+        height: auto;
+        object-fit: contain;
+    }
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+    .carousel-button.left {
+        left: 10px;
+    }
+
+    .carousel-button.right {
+        right: 10px;
+    }
+
+
+
+.diamond-animation {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #0f1c2b 0%, blue 100%);
+    border: 5px solid #00BFFF;
+    border-radius: 25px;
+    
+    animation: pulse-diamond-border 3s infinite alternate, float-diamond 5s infinite ease-in-out;
+}
+
+.gold-animation {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #1a1a1a 0%, yellow 100%);
+    border: 5px solid #FFD700;
+    border-radius: 25px;
+    
+    animation: float-gold 4s infinite ease-in-out;
+}
+
+/* ========================================================= */
+/* ANIMAÇÕES DIAMANTE MELHORADAS */
+/* ========================================================= */
+
+@keyframes pulse-diamond {
+    0% {
+        box-shadow: 0 6px 20px rgba(0, 191, 255, 0.7), 0 0 30px rgba(173, 216, 230, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.1);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 8px 35px rgba(0, 191, 255, 0.9), 0 0 50px rgba(173, 216, 230, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.2);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 10px 40px rgba(0, 191, 255, 1), 0 0 60px rgba(173, 216, 230, 0.9), inset 0 0 25px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+    }
+}
+
+@keyframes float-diamond {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 10px 30px rgba(0, 191, 255, 0.5), 0 0 40px rgba(135, 206, 250, 0.3);
+    }
+
+    25% {
+        transform: translateY(-4px) rotate(0.5deg);
+        box-shadow: 0 12px 35px rgba(0, 191, 255, 0.6), 0 0 50px rgba(135, 206, 250, 0.4);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(0deg);
+        box-shadow: 0 15px 40px rgba(0, 191, 255, 0.8), 0 0 60px rgba(135, 206, 250, 0.6);
+    }
+
+    75% {
+        transform: translateY(-4px) rotate(-0.5deg);
+        box-shadow: 0 12px 35px rgba(0, 191, 255, 0.6), 0 0 50px rgba(135, 206, 250, 0.4);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 10px 30px rgba(0, 191, 255, 0.5), 0 0 40px rgba(135, 206, 250, 0.3);
+    }
+}
+
+@keyframes diamondShine {
+    0% {
+        transform: translateX(-150%) translateY(-150%) rotate(45deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(150%) translateY(150%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================================= */
+/* ANIMAÇÕES GOLD - VERSÕES MELHORADAS */
+/* ========================================================= */
+
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 223, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.1);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 8px 35px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 223, 0, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.2);
+        transform: scale(1.02);
+    }
+
+    100% {
+        box-shadow: 0 10px 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 223, 0, 0.9), inset 0 0 25px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+    }
+}
+
+@keyframes float-gold {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 223, 0, 0.3);
+    }
+
+    25% {
+        transform: translateY(-4px) rotate(0.5deg);
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 223, 0, 0.4);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(0deg);
+        box-shadow: 0 15px 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 223, 0, 0.6);
+    }
+
+    75% {
+        transform: translateY(-4px) rotate(-0.5deg);
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 223, 0, 0.4);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 223, 0, 0.3);
+    }
+}
+
+@keyframes goldShine {
+    0% {
+        transform: translateX(-150%) translateY(-150%) rotate(45deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(150%) translateY(150%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================================= */
+/* ANIMAÇÕES PARA OS CARDS DOS PATROCINADORES */
+/* ========================================================= */
+
+.diamond-sponsor-section {
+    animation: float-diamond 4s ease-in-out infinite;
+}
+
+.diamond-sponsor-badge {
+    animation: pulse-diamond 2s ease-in-out infinite;
+}
+
+.gold-sponsor-section {
+    animation: float-gold 4s ease-in-out infinite;
+}
+
+.gold-sponsor-badge {
+    animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Efeitos de brilho para as seções */
+.diamond-sponsor-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 191, 255, 0.15) 50%, transparent 70%);
+    animation: diamondShine 4s infinite;
+    z-index: 0;
+}
+
+.gold-sponsor-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.15) 50%, transparent 70%);
+    animation: goldShine 4s infinite;
+    z-index: 0;
+}
+
+/* ========================================================= */
+/* ANIMAÇÕES PARA OS LOGOS DENTRO DAS SEÇÕES */
+/* ========================================================= */
+
+.diamond-sponsor-logo-container img {
+    transition: all 0.5s ease;
+    animation: logo-glow-diamond 3s ease-in-out infinite alternate;
+}
+
+.gold-sponsor-logo-container img {
+    transition: all 0.5s ease;
+    animation: logo-glow-gold 3s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow-diamond {
+    0% {
+        box-shadow: 0 8px 30px rgba(0, 191, 255, 0.5), 0 0 50px rgba(0, 191, 255, 0.3);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: 0 12px 40px rgba(0, 191, 255, 0.8), 0 0 70px rgba(0, 191, 255, 0.5);
+        transform: scale(1.03);
+    }
+}
+
+@keyframes logo-glow-gold {
+    0% {
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5), 0 0 50px rgba(255, 215, 0, 0.3);
+        transform: scale(1);
+    }
+
+    100% {
+        box-shadow: 0 12px 40px rgba(255, 215, 0, 0.8), 0 0 70px rgba(255, 215, 0, 0.5);
+        transform: scale(1.03);
+    }
+}
+
+/* Hover effects melhorados */
+.diamond-sponsor-logo-container img:hover {
+    animation: none;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 15px 50px rgba(0, 191, 255, 0.9), 0 0 80px rgba(0, 191, 255, 0.7);
+}
+
+.gold-sponsor-logo-container img:hover {
+    animation: none;
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.9), 0 0 80px rgba(255, 215, 0, 0.7);
+}
