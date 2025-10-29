@@ -608,39 +608,38 @@ body {
 @media (max-width: 768px) {
     /* CORREÇÃO CRÍTICA DO PADDING NO MOBILE */
     body {
-        padding-top: 150px !important;
+        padding-top: 100px !important; /* compensa a barra fixa no topo */
     }
 
-    /* Top Bar */
+    /* Top Bar fixa corretamente no topo no mobile */
     .top-bar {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px 5px;
         position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 9998;
+        background: #231236; /* mesma cor do background para evitar "faixa" */
+        border-bottom: 3px solid #ff9800;
     }
 
-        .top-bar .button-container {
-            flex-direction: column !important;
-            gap: 8px !important;
-        }
-
-            .top-bar .button-container > div {
-                width: 100% !important;
-                flex: none !important;
-            }
-
-                .top-bar .button-container > div:first-child {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 6px;
-                }
+    .top-bar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 85px; /* altura consistente para o cálculo do padding-top */
+        padding: 8px 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
     .top-button {
-        width: 100%;
-        text-align: center;
-        font-size: 0.9em !important;
-        padding: 10px 8px !important;
-        margin: 2px 4px;
+        margin: 0; /* evita empurrar a altura */
+    }
+
+    .menu-toggle {
+        display: block;
+        z-index: 9999; /* garante que fique acima de outros elementos */
     }
 
     /* Patrocinadores de Destaque */
@@ -1112,8 +1111,6 @@ body {
 
 
 
-
-
 .image-carousel-container {
     display: flex;
     align-items: center;
@@ -1366,24 +1363,24 @@ body {
 
 @keyframes logo-glow-diamond {
     0% {
-        box-shadow: 0 8px 30px rgba(0, 191, 255, 0.5), 0 0 50px rgba(0, 191, 255, 0.3);
+        box-shadow: 0 8px 30px rgba(0,191,255,0.5), 0 0 50px rgba(0,191,255,0.3);
         transform: scale(1);
     }
 
     100% {
-        box-shadow: 0 12px 40px rgba(0, 191, 255, 0.8), 0 0 70px rgba(0, 191, 255, 0.5);
+        box-shadow: 0 12px 40px rgba(0,191,255,0.8), 0 0 70px rgba(0,191,255,0.5);
         transform: scale(1.03);
     }
 }
 
 @keyframes logo-glow-gold {
     0% {
-        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5), 0 0 50px rgba(255, 215, 0, 0.3);
+        box-shadow: 0 8px 30px rgba(255,215,0,0.5), 0 0 50px rgba(255,215,0,0.3);
         transform: scale(1);
     }
 
     100% {
-        box-shadow: 0 12px 40px rgba(255, 215, 0, 0.8), 0 0 70px rgba(255, 215, 0, 0.5);
+        box-shadow: 0 12px 40px rgba(255,215,0,0.8), 0 0 70px rgba(255,215,0,0.5);
         transform: scale(1.03);
     }
 }
@@ -1399,4 +1396,54 @@ body {
     animation: none;
     transform: scale(1.1) rotate(-3deg);
     box-shadow: 0 15px 50px rgba(255,215,0,0.9), 0 0 80px rgba(255,215,0,0.7);
+}
+
+/* ========================================================= */
+/* RESPONSIVIDADE GRID PATROCINADORES */
+/* ========================================================= */
+
+/* Mobile: até 3 itens por linha na grid de patrocinadores */
+@media (max-width:768px) {
+ /* Grid de patrocinadores: até3 por linha no mobile e sem gap vertical exagerado */
+ .sponsors-grid {
+ gap:8px;
+ justify-content: center;
+ align-items: stretch;
+ align-content: flex-start; /* evita distribuir linhas no eixo vertical */
+ }
+
+ .sponsors-grid .sponsor-card {
+ flex:00 calc(33.333% -8px);
+ max-width: calc(33.333% -8px);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height:110px; /* altura uniforme */
+ margin:0;
+ padding:0;
+ box-sizing: border-box;
+ }
+
+ /* normaliza wrappers internos usados em alguns cards */
+ .sponsors-grid .sponsor-image-container {
+ width:100%;
+ height:100%;
+ margin:0;
+ padding:0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+ .sponsors-grid .sponsor-overlay { display: none; }
+
+ .sponsors-grid .sponsor-card img {
+ display: block; /* remove espaço por baseline */
+ width:100% !important;
+ height:100% !important;
+ max-height:110px;
+ object-fit: contain; /* mantém proporção dentro da área */
+ border-width:2px;
+ border-radius:8px;
+ box-shadow:03px8px rgba(0,0,0,0.25);
+ }
 }
