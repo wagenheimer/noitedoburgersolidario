@@ -233,6 +233,10 @@
                     <img src="/patrocinadores/petroshop.png" alt="PetroShop - Brinquedos Antigos" />
                 </a>
 
+                <a href="#" class="sponsor-card" data-full="/patrocinadores/depositobetel.png" data-link="https://www.instagram.com/depositobetellda/" title="Depósito Betel">
+                    <img src="/patrocinadores/depositobetel.png" alt="Depósito Betel" />
+                </a>
+
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/eletrofm.png" data-link="https://www.instagram.com/eletrofm.materiaiseletricos/" title="EletroFM - Materiais Elétricos">
                     <img src="/patrocinadores/eletrofm.png" alt="EletroFM - Materiais Elétricos" />
                 </a>
@@ -323,95 +327,7 @@
                 </div>
             </div>
         </div>
-
-        <script>
-            // Scripts JS
-            document.addEventListener('DOMContentLoaded', function () {
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileNav = document.getElementById('mobile-nav');
-
-                menuToggle.addEventListener('click', function () {
-                    menuToggle.classList.toggle('is-active');
-                    mobileNav.classList.toggle('is-active');
-                });
-            });
-
-            document.getElementById('expandAllBtn').addEventListener('click', function () {
-                var details = document.querySelectorAll('.institution-details');
-                var btn = this;
-                var expanded = btn.classList.contains('expanded');
-                details.forEach(function (el) {
-                    if (expanded) {
-                        el.classList.remove('show');
-                    } else {
-                        el.classList.add('show');
-                    }
-                });
-                if (expanded) {
-                    btn.classList.remove('expanded');
-                    btn.innerHTML = '<span class="expand-text">Saiba mais</span> ▼';
-                } else {
-                    btn.classList.add('expanded');
-                    btn.innerHTML = '<span class="expand-text">Recolher</span> ▲';
-                    details[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }
-            });
-
-            function openSponsorModal(e) {
-                e.preventDefault();
-                const el = e.currentTarget;
-                const src = el.getAttribute('data-full') || el.getAttribute('href');
-                const link = el.getAttribute('data-link') || null;
-                const title = el.getAttribute('title') || 'Patrocinador';
-                const modal = document.getElementById('imgModal');
-                const img = document.getElementById('imgModalContent');
-                const modalTitle = document.getElementById('imgModalTitle');
-                const modalLink = document.getElementById('imgModalLink');
-                img.src = src;
-                modalTitle.textContent = title;
-                if (link) {
-                    modalLink.style.display = 'inline-flex';
-                    modalLink.href = link;
-                } else {
-                    modalLink.style.display = 'none';
-                }
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                modal.setAttribute('aria-hidden', 'false');
-            }
-
-            function attachSponsorListeners() {
-                document.querySelectorAll('.sponsor-card').forEach(function (el) {
-                    el.removeEventListener('click', openSponsorModal);
-                    el.addEventListener('click', openSponsorModal);
-                });
-            }
-
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', attachSponsorListeners);
-            } else {
-                attachSponsorListeners();
-            }
-
-            (function () {
-                const modal = document.getElementById('imgModal');
-                function closeModal() {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
-                    modal.setAttribute('aria-hidden', 'true');
-                }
-                modal.addEventListener('click', function (e) {
-                    if (e.target.id === 'imgModal' || e.target.classList.contains('img-modal-close')) {
-                        closeModal();
-                    }
-                });
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape' && modal.style.display === 'flex') {
-                        closeModal();
-                    }
-                });
-            })();
-        </script>
+        <script src="js/site.js"></script>
     </div>
 
     <div class="sticky-sponsors">
@@ -457,6 +373,10 @@
 
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/petroshop.png" data-link="https://www.instagram.com/petroshopbrinquedosantigos/" title="PetroShop - Brinquedos Antigos">
                     <img src="/patrocinadores/petroshop.png" alt="PetroShop - Brinquedos Antigos" />
+                </a>
+
+                <a href="#" class="sponsor-card" data-full="/patrocinadores/depositobetel.png" data-link="https://www.instagram.com/depositobetellda/" title="Depósito Betel">
+                    <img src="/patrocinadores/depositobetel.png" alt="Depósito Betel" />
                 </a>
 
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/eletrofm.png" data-link="https://www.instagram.com/eletrofm.materiaiseletricos/" title="EletroFM - Materiais Elétricos">
