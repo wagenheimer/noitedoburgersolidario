@@ -185,6 +185,8 @@
 
         <div class="event-info-box" style="margin-top: 28px;">
             <h3 class="sponsors-title" style="color:white;"><b>Patrocinadores confirmados</b></h3>
+
+            <div class="sponsors-actions" style="text-align:center; margin:10px 16px;"> <button id="openAllSponsors" type="button" class="btn-convite-destaque" style="font-size:1.05em; padding:10px 18px;"> Ver todas as logos em tela cheia </button> </div>
             <div class="sponsors-grid">
 
                 <a href="#" class="sponsor-card diamond-animation" data-full="patrocinadores/sti_technology.png" data-link="https://www.instagram.com/sti_maquinas/" title="STI Máquinas">
@@ -335,6 +337,14 @@
                 </div>
             </div>
         </div>
+        <div id="allSponsorsModal" class="img-modal all-sponsors-modal" aria-hidden="true">
+            <span class="img-modal-close" aria-label="Fechar">&times;</span>
+            <div class="all-sponsors-modal-inner">
+                <div class="all-sponsors-modal-title">🍔 6ª Noite do Burger Solidário - 2025 🍔 </div>
+                <div class="all-sponsors-modal-subtitle">Patrocinadores</div>
+                <div id="allSponsorsGrid" class="all-sponsors-grid"></div>
+            </div>
+        </div>
         <script src="js/site.js"></script>
     </div>
 
@@ -342,6 +352,12 @@
         <div class="sponsors-title-fixed">
             <span>NOSSOS</span>
             <strong>PATROCINADORES</strong>
+            <div style="text-align:center; margin:8px 0;">
+                <button id="openAllSponsorsSticky" type="button" class="btn-convite-destaque" style="font-size:1.05em; padding:8px 16px;">
+                    Ver Todos
+                </button>
+            </div>
+
         </div>
         <div class="sponsors-carousel-wrapper">
             <div class="sponsor-track">

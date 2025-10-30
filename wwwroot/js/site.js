@@ -45,6 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // ===== BOTÃO VER TODOS DA BARRA INFERIOR =====
+    const btnSticky = document.getElementById('openAllSponsorsSticky');
+    const modalAll = document.getElementById('allSponsorsModal');
+    const gridAll = document.getElementById('allSponsorsGrid');
+    if (btnSticky && modalAll && gridAll) {
+        btnSticky.addEventListener('click', function () {
+            // Coleta todas as imagens dos patrocinadores existentes na grade principal
+            const logos = Array.from(document.querySelectorAll('.sponsors-grid img'));
+            gridAll.innerHTML = '';
+            logos.forEach(img => {
+                const clone = img.cloneNode(true);
+                const wrap = document.createElement('div');
+                wrap.appendChild(clone);
+                gridAll.appendChild(wrap);
+            });
+
+            modalAll.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            modalAll.setAttribute('aria-hidden', 'false');
+        });
+    }
 });
 
 // ===== FUNÇÕES DE MODAL DE PATROCINADOR =====
@@ -120,4 +142,68 @@ function attachSponsorListeners() {
             }
         });
     }
+})();
+
+document.getElementById('openAllSponsorsSticky')?.addEventListener('click', function () {
+    const modalAll = document.getElementById('allSponsorsModal');
+    const gridAll = document.getElementById('allSponsorsGrid');
+    if (!modalAll || !gridAll) return;
+
+    // Coleta todas as imagens dos patrocinadores existentes na grade principal
+    const logos = Array.from(document.querySelectorAll('.sponsors-grid img'));
+    gridAll.innerHTML = '';
+    logos.forEach(img => {
+        const clone = img.cloneNode(true);
+        const wrap = document.createElement('div');
+        wrap.appendChild(clone);
+        gridAll.appendChild(wrap);
+    });
+
+    modalAll.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    modalAll.setAttribute('aria-hidden', 'false');
+});
+
+// ===== MODAL DE TODAS AS LOGOS =====
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const btnAll = document.getElementById('openAllSponsors');
+        const modalAll = document.getElementById('allSponsorsModal');
+        const gridAll = document.getElementById('allSponsorsGrid');
+
+        if (!btnAll || !modalAll || !gridAll) return;
+
+        btnAll.addEventListener('click', function() {
+            // Coleta todas as imagens dos patrocinadores existentes na grade principal
+            const logos = Array.from(document.querySelectorAll('.sponsors-grid img'));
+            gridAll.innerHTML = '';
+            logos.forEach(img => {
+                const clone = img.cloneNode(true);
+                const wrap = document.createElement('div');
+                wrap.appendChild(clone);
+                gridAll.appendChild(wrap);
+            });
+
+            modalAll.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            modalAll.setAttribute('aria-hidden', 'false');
+        });
+
+        // Fechar clicando fora ou no X
+        modalAll.addEventListener('click', function(e) {
+            if (e.target.id === 'allSponsorsModal' || e.target.classList.contains('img-modal-close')) {
+                modalAll.style.display = 'none';
+                document.body.style.overflow = '';
+                modalAll.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modalAll.style.display === 'flex') {
+                modalAll.style.display = 'none';
+                document.body.style.overflow = '';
+                modalAll.setAttribute('aria-hidden', 'true');
+            }
+        });
+    });
 })();
