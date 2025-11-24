@@ -32,6 +32,156 @@
             'page_path': window.location.pathname
         });
     </script>
+
+    <style>
+        .thank-you-section {
+            position: relative;
+            background: linear-gradient(135deg, #ff9800 0%, #ff5252 100%);
+            border-radius: 20px;
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            margin: 25px 0;
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 12px 40px rgba(255, 107, 107, 0.6);
+            }
+
+            100% {
+                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            }
+        }
+
+        #confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .thank-you-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .thank-you-subtitle {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards 0.3s;
+        }
+
+        .success-badge {
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            animation: pulse-badge 2s infinite;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .floating-burger {
+            position: absolute;
+            font-size: 2.5em;
+            z-index: 2;
+            animation: float-element 4s ease-in-out infinite;
+            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.2));
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            80% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse-badge {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float-element {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-title {
+                font-size: 2rem;
+            }
+
+            .thank-you-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .floating-burger {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 
 <body style="margin:0; padding:0;">
@@ -62,55 +212,43 @@
             <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank"><img src="Facebook_Icon.png" alt="Facebook" /></a>
         </div>
     </div>
-    
+
     <div class="content">
         <div class="event-info-box">
 
-            <h3 class="sponsors-title" style="color:white;"><b>🍔 6º Burger Solidário - 2025 🍔 <br />📅 22/11/2025 📅</b></h3>
-
-            <div style="text-align:center; margin:25px 0;">
-                <a href="https://wa.me/5543991205772?text=Quero%20comprar%20meu%20convite!" target="_blank" class="btn-convite-destaque">
-                    COMPRE JÁ SEU CONVITE!<br>
-                    <span style="font-size:1.1em; font-weight:800;">🍔BURGER🍔<br />R$ 25,00</span>
-                </a>
+            <div class="text-center mb-4">
+                <h3 style="color: #333; font-weight:800; margin-top:10px;">6º Burger Solidário - 2025</h3>
+                <p class="text-muted">📅 Realizado em 22/11/2025</p>
             </div>
 
-            <div class="top-sponsors-tier">
-                <div class="diamond-sponsor-section">
-                    <div style="text-align: center;">
-                        <div class="diamond-sponsor-badge">
-                            💎 PATROCINADOR DIAMANTE 💎
-                        </div>
-                        <h2 class="diamond-sponsor-title">STI MÁQUINAS</h2>
+            <div class="thank-you-section">
+                <canvas id="confetti-canvas"></canvas>
+
+                <div class="floating-burger" style="top: 15%; left: 8%; animation-delay: 0s;">🍔</div>
+                <div class="floating-burger" style="bottom: 20%; right: 8%; animation-delay: 1s;">🎉</div>
+                <div class="floating-burger" style="top: 20%; right: 15%; animation-delay: 2s; font-size: 1.8em;">❤️</div>
+
+                <div class="thank-you-content">
+                    <div class="success-badge">✨ MISSÃO CUMPRIDA COM SUCESSO! ✨</div>
+
+                    <div class="thank-you-title">
+                        OBRIGADO!
                     </div>
-                    <div class="diamond-sponsor-logo-container">
-                        <a href="#" class="sponsor-card" data-full="patrocinadores/sti_technology.png" data-link="https://www.instagram.com/sti_maquinas/" title="STI Máquinas">
-                            <img src="patrocinadores/sti_technology.png" alt="STI Máquinas - Patrocinador Diamante" />
-                        </a>
+
+                    <div class="thank-you-subtitle">
+                        A TODOS OS PATROCINADORES,<br>COLABORADORES E PARTICIPANTES
                     </div>
-                </div>
-                <div class="gold-sponsor-section">
-                    <div style="text-align: center;">
-                        <div class="gold-sponsor-badge">
-                            ⭐ PATROCINADOR OURO ⭐
-                        </div>
-                        <h2 class="gold-sponsor-title">LANT CONSULTORIA</h2>
-                    </div>
-                    <div class="gold-sponsor-logo-container">
-                        <a href="#" class="sponsor-card" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro">
-                            <img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" />
-                        </a>
+
+                    <div style="font-size: 1.1em; max-width: 600px; margin: 0 auto; line-height: 1.5; font-weight: 500;">
+                        Estamos finalizando o balanço e logo divulgaremos o resultado oficial!
                     </div>
                 </div>
             </div>
-
-
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 20px; text-align: center;">
                 <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar também e apoiar esta causa</a>
             </div>
 
-
-            <img src="6oBurger/Convite Burger.jpg" style="max-width:80%" />
+            <img src="6oBurger/Convite Burger.jpg" style="max-width:80%; margin-top: 20px;" />
             <p class="sponsors-title-smaller">Instituições beneficiadas neste ano</p>
 
             <div class="institutions-title">Instituições beneficiadas neste ano</div>
@@ -210,7 +348,6 @@
                     </div>
                 </a>
 
-
                 <a href="#" class="sponsor-card" data-full="patrocinadores/tocadocateto.png" data-link="https://www.instagram.com/tocadocateto/" title="Toca do Cateto">
                     <img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" />
                 </a>
@@ -218,7 +355,6 @@
                 <a href="#" class="sponsor-card" data-full="patrocinadores/morcellicervejaria.jpg" data-link="https://www.instagram.com/morcellicervejaria/" title="Morcelli Cerevejaria">
                     <img src="patrocinadores/morcellicervejaria.jpg" alt="Morcelli Cerevejaria" />
                 </a>
-                
 
                 <a href="#" class="sponsor-card" data-full="patrocinadores/SinproLondrina.jpg" data-link="https://www.instagram.com/sinprolondrina/" title="SinPro Londrina">
                     <img src="patrocinadores/SinproLondrina.jpg" alt="SinPro Londrina" />
@@ -228,7 +364,7 @@
                     <img src="patrocinadores/wccarnes.jpg" alt="WC - Distribuidora de Carnes" />
                 </a>
 
-                <a href="#" class="sponsor-card" data-full="patrocinadores/conceptkidsteen.jpg" data-link="https://www.instagram.com/conceptkids.londrina/" title="Concept - Kids and Teen">
+                <a href="#" class="sponsor-card" data-full="patrocinadores/conceptkidsteen.jpg" data-link=" https://www.instagram.com/conceptkids.londrina/" title="Concept - Kids and Teen">
                     <img src="patrocinadores/conceptkidsteen.jpg" alt="Concept - Kids and Teen" />
                 </a>
 
@@ -251,8 +387,6 @@
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/casacarnessanrafael.jpg" data-link="https://www.instagram.com/casadecarnessanrafael_/" title="Casa de Carnes San Rafael">
                     <img src="/patrocinadores/casacarnessanrafael.jpg" alt="Casa de Carnes San Rafael" />
                 </a>
-
-
 
                 <a href="#" class="sponsor-card" data-full="patrocinadores/medclin.png" data-link="https://www.facebook.com/medclinocupacional/?locale=pt_BR" title="Medclin Ocupacional">
                     <img src="/patrocinadores/medclin.png" alt="Medclin Ocupacional" />
@@ -392,7 +526,7 @@
                 <div id="allSponsorsGrid" class="all-sponsors-grid"></div>
             </div>
         </div>
-        <script src="js/site.js"></script>
+
     </div>
 
     <div class="sticky-sponsors">
@@ -418,7 +552,6 @@
                 <a href="#" class="sponsor-card gold-animation" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro">
                     <div class="sponsor-image-container">
                         <img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" />
-
                     </div>
                 </a>
 
@@ -461,7 +594,6 @@
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/casacarnessanrafael.jpg" data-link="https://www.instagram.com/casadecarnessanrafael_/" title="Casa de Carnes San Rafael">
                     <img src="/patrocinadores/casacarnessanrafael.jpg" alt="Casa de Carnes San Rafael" />
                 </a>
-
 
                 <a href="#" class="sponsor-card" data-full="patrocinadores/medclin.png" data-link="https://www.facebook.com/medclinocupacional/?locale=pt_BR" title="Medclin Ocupacional">
                     <img src="/patrocinadores/medclin.png" alt="Medclin Ocupacional" />
@@ -510,7 +642,6 @@
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/seminovoslondrinaautos.png" data-link="https://www.instagram.com/seminovos.londrina/" title="Seminovos Londrina - Autos">
                     <img src="/patrocinadores/seminovoslondrinaautos.png" alt="Seminovos Londrina - Autos" />
                 </a>
-
 
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/bmbacilimetais.jpg" data-link="https://www.instagram.com/bacilimetais/" title="BM Bacili Metais">
                     <img src="/patrocinadores/bmbacilimetais.jpg" alt="BM Bacili Metais" />
@@ -575,16 +706,82 @@
                     <img src="patrocinadores/tkacabamentos.png" alt="Tk Acabamentos Londrina" />
                 </a>
             </div>
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const track = document.querySelector('.sponsor-track');
-                    if (track) {
-                        const content = track.innerHTML;
-                        track.innerHTML += content;
-                    }
-                });
-            </script>
         </div>
     </div>
+    <script src="js/site.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inicializa o Canvas
+            const canvas = document.getElementById('confetti-canvas');
+            if (!canvas) return; // Segurança caso o canvas não exista
+
+            const ctx = canvas.getContext('2d');
+
+            // Ajusta tamanho inicial
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+            }
+            resizeCanvas();
+
+            let particles = [];
+            const colors = ['#ffffff', '#ffeb3b', '#ff9800', '#ff5722', '#ffc107'];
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height - canvas.height; // Começa acima
+                    this.size = Math.random() * 8 + 3;
+                    this.speedY = Math.random() * 2 + 1;
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.rotation = Math.random() * 360;
+                    this.rotationSpeed = Math.random() * 2 - 1;
+                }
+                update() {
+                    this.y += this.speedY;
+                    this.rotation += this.rotationSpeed;
+
+                    // Reset se passar do fundo
+                    if (this.y > canvas.height) {
+                        this.y = -20;
+                        this.x = Math.random() * canvas.width;
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation * Math.PI / 180);
+                    ctx.fillStyle = this.color;
+                    ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                    ctx.restore();
+                }
+            }
+
+            function initParticles() {
+                for (let i = 0; i < 70; i++) particles.push(new Particle());
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+
+            initParticles();
+            animateParticles();
+
+            // Resize listener
+            window.addEventListener('resize', resizeCanvas);
+
+            // Código do Carrossel (Duplicação)
+            const track = document.querySelector('.sponsor-track');
+            if (track) {
+                track.innerHTML += track.innerHTML;
+            }
+        });
+    </script>
 </body>
 </html>
