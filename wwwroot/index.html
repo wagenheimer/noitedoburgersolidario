@@ -34,6 +34,78 @@
     </script>
 
     <style>
+        /* --- NOVOS ESTILOS PARA TÍTULO E BOTÃO --- */
+
+        /* Animação e estilo do Título Principal */
+        @keyframes title-glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(255, 235, 59, 0.6), 0 0 30px rgba(255, 87, 34, 0.4);
+                transform: scale(1.02);
+            }
+
+            100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+                transform: scale(1);
+            }
+        }
+
+        .main-event-title {
+            color: #ffffff !important; /* Branco para fundo escuro */
+            font-weight: 900;
+            margin-top: 10px;
+            font-size: 1.8rem;
+            display: inline-block;
+            animation: title-glow 3s infinite ease-in-out;
+        }
+
+        /* Animação e estilo do Botão Vermelho */
+        @keyframes button-pulse-red {
+            0% {
+                box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+                transform: scale(1);
+            }
+
+            50% {
+                box-shadow: 0 8px 25px rgba(255, 82, 82, 0.6);
+                transform: scale(1.03);
+            }
+
+            100% {
+                box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+                transform: scale(1);
+            }
+        }
+
+        .btn-patrocinar-whatsapp {
+            display: inline-block;
+            /* Degradê Vermelho */
+            background: linear-gradient(135deg, #d32f2f 0%, #ff5252 100%);
+            color: white !important;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            border: none;
+            /* Animação constante */
+            animation: button-pulse-red 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+            .btn-patrocinar-whatsapp:hover {
+                animation: none; /* Para a animação de pulso no hover */
+                transform: translateY(-3px) scale(1.05); /* Aumenta um pouco mais no hover */
+                box-shadow: 0 12px 30px rgba(255, 50, 50, 0.8);
+                color: white;
+            }
+
+        /* --- Estilos da Animação de Agradecimento (Mantidos) --- */
         .thank-you-section {
             position: relative;
             background: linear-gradient(135deg, #ff9800 0%, #ff5252 100%);
@@ -44,10 +116,10 @@
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
             margin: 25px 0;
-            animation: pulse-glow 3s infinite;
+            animation: pulse-glow-card 3s infinite;
         }
 
-        @keyframes pulse-glow {
+        @keyframes pulse-glow-card {
             0% {
                 box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
             }
@@ -180,6 +252,15 @@
             .floating-burger {
                 font-size: 1.8em;
             }
+
+            .btn-patrocinar-whatsapp {
+                font-size: 0.9em;
+                padding: 12px 20px;
+            }
+
+            .main-event-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -217,8 +298,8 @@
         <div class="event-info-box">
 
             <div class="text-center mb-4">
-                <h3 style="color: #333; font-weight:800; margin-top:10px;">6º Burger Solidário - 2025</h3>
-                <p class="text-muted">📅 Realizado em 22/11/2025</p>
+                <h3 class="main-event-title">🍔 6º Burger Solidário - 2025 🍔</h3>
+                <p class="text-muted" style="font-weight: 600; color: #ccc !important;">📅 Realizado em 22/11/2025</p>
             </div>
 
             <div class="thank-you-section">
@@ -244,8 +325,10 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 20px; text-align: center;">
-                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar também e apoiar esta causa</a>
+            <div style="margin: 35px 0; text-align: center;">
+                <a href="https://wa.me/5543991205772?text=Burger Solidário - Em 2026 quero ser um patrocinador!" target="_blank" class="btn-patrocinar-whatsapp">
+                    🍔 EM 2026 QUERO SER UM PATROCINADOR TAMBÉM!
+                </a>
             </div>
 
             <img src="6oBurger/Convite Burger.jpg" style="max-width:80%; margin-top: 20px;" />
@@ -317,7 +400,9 @@
             </div>
 
             <div style="margin-top:28px; text-align: center;">
-                <a href="6oBurger/Folder Patrocinio.jpg" target="_blank" class="patrocinador-animado">Quero patrocinar e apoiar esta causa</a>
+                <a href="https://wa.me/5543991205772" target="_blank" class="btn-patrocinar-whatsapp">
+                    🍔 EM 2026 QUERO SER UM PATROCINADOR TAMBÉM!
+                </a>
             </div>
         </div>
 
@@ -593,117 +678,6 @@
 
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/casacarnessanrafael.jpg" data-link="https://www.instagram.com/casadecarnessanrafael_/" title="Casa de Carnes San Rafael">
                     <img src="/patrocinadores/casacarnessanrafael.jpg" alt="Casa de Carnes San Rafael" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/medclin.png" data-link="https://www.facebook.com/medclinocupacional/?locale=pt_BR" title="Medclin Ocupacional">
-                    <img src="/patrocinadores/medclin.png" alt="Medclin Ocupacional" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/alphasonic.jpg" data-link="https://www.alphasonic.com.br/" title="AlphaSonic">
-                    <img src="/patrocinadores/alphasonic.jpg" alt="AlphaSonic" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/mixcontainer.png" data-link="https://instagram.com/mixcontainerlondrina/" title="Mix Container">
-                    <img src="/patrocinadores/mixcontainer.png" alt="Mix Container" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/hsconsorcios.png" data-link="https://www.instagram.com/hsconsorciosoficial/" title="HS Consórcios">
-                    <img src="/patrocinadores/hsconsorcios.png" alt="HS Consórcios" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/ltzconsorcios.png" data-link="https://www.instagram.com/ltzconsorcios/" title="LTZ Consórcios">
-                    <img src="/patrocinadores/ltzconsorcios.png" alt="LTZ Consórcios" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/classicbaterias.png" data-link="https://www.instagram.com/classic.baterias/" title="Classic Baterias">
-                    <img src="/patrocinadores/classicbaterias.png" alt="Classic Baterias" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/petroshop.png" data-link="https://www.instagram.com/petroshopbrinquedosantigos/" title="PetroShop - Brinquedos Antigos">
-                    <img src="/patrocinadores/petroshop.png" alt="PetroShop - Brinquedos Antigos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/depositobetel.png" data-link="https://www.instagram.com/depositobetellda/" title="Depósito Betel">
-                    <img src="/patrocinadores/depositobetel.png" alt="Depósito Betel" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/eletrofm.png" data-link="https://www.instagram.com/eletrofm.materiaiseletricos/" title="EletroFM - Materiais Elétricos">
-                    <img src="/patrocinadores/eletrofm.png" alt="EletroFM - Materiais Elétricos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/koi.jpg" data-link="https://www.instagram.com/koipremium/" title="Koi Premium">
-                    <img src="/patrocinadores/koi.jpg" alt="Koi Premium" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/londricabos.png" data-link="https://londricabos.com.br/" title="Eletro Londricabos">
-                    <img src="/patrocinadores/londricabos.png" alt="Eletro Londricabos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/seminovoslondrinaautos.png" data-link="https://www.instagram.com/seminovos.londrina/" title="Seminovos Londrina - Autos">
-                    <img src="/patrocinadores/seminovoslondrinaautos.png" alt="Seminovos Londrina - Autos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/bmbacilimetais.jpg" data-link="https://www.instagram.com/bacilimetais/" title="BM Bacili Metais">
-                    <img src="/patrocinadores/bmbacilimetais.jpg" alt="BM Bacili Metais" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/inovawash.jpg" data-link="https://www.instagram.com/inova.wash_londrina/" title="InovaWash Limpeza e Impermeabilização de Colchões e Tapetes">
-                    <img src="/patrocinadores/inovawash.jpg" alt="InovaWash Limpeza e Impermeabilização de Colchões e Tapetesr" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/prosa.png" data-link="https://www.instagram.com/prosacozinhasecreta/" title="Prosa Cozinha Secreta">
-                    <img src="/patrocinadores/prosa.png" alt="Prosa Cozinha Secreta" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/BarracoDaSopa.png" data-link="https://www.barracodasopa.com.br/" title="Barraco da Sopa">
-                    <img src="patrocinadores/BarracoDaSopa.png" alt="Barraco da Sopa" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/angico.png" data-link="https://www.instagram.com/angico_restaurante/" title="Restaurante Angico">
-                    <img src="patrocinadores/angico.png" alt="Restaurante Angico" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/logo-mascote-ze-lanches.png" data-link="https://www.instagram.com/zelanches/" title="Zé Lanches">
-                    <img src="patrocinadores/logo-mascote-ze-lanches.png" alt="Zé Lanches" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantimoveis/" title="Lant Imóveis">
-                    <img src="patrocinadores/lantimoveis.jpg" alt="Lant Imóveis" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/solucaoagropecuaria.jpg" data-link="https://www.instagram.com/solucao_agropecuaria/" title="Solução Agropecuária">
-                    <img src="patrocinadores/solucaoagropecuaria.jpg" alt="Solução Agropecuária" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/patrocinador_frigocenter.jpg" data-link="https://wa.me/5543996573241" title="Frigocenter">
-                    <img src="6oBurger/patrocinador_frigocenter.jpg" alt="Frigocenter" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/RSEngenharia.jpg" data-link="https://wa.me/55043996608099" title="RS Engenharia">
-                    <img src="6oBurger/RSEngenharia.jpg" alt="RS Engenharia" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/imprimaplus.png" data-link="https://imprimaplus.com.br/index.php" title="Imprima Plus">
-                    <img src="patrocinadores/imprimaplus.png" alt="Imprima Plus" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/bodes.png" data-link="https://bodesdoasfaltolondrina.com.br/" title="Bodes do Asfalto - Facção Londrina">
-                    <img src="patrocinadores/bodes.png" alt="Bodes do Asfalto" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/jabuti.jpg" data-link="https://www.instagram.com/jabutilazereconhecimento/" title="Jabuti Lazer e Conhecimento">
-                    <img src="patrocinadores/jabuti.jpg" alt="Jabuti Lazer e Conhecimento" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/mapa.png" data-link="https://mapasecuritizadora.com.br/" title="Mapa Securitizadora">
-                    <img src="patrocinadores/mapa.png" alt="Mapa Securitizadora" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/depositoroseira.png" data-link="https://depositoroseira.com.br/" title="Depósito Roseira">
-                    <img src="patrocinadores/depositoroseira.png" alt="Depósito Roseira" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/alugueuse.jpg" data-link="https://www.alugueuse.com.br/" title="Alugueuse">
-                    <img src="patrocinadores/alugueuse.jpg" alt="Alugueuse" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/FabianoPerito.png" data-link="https://www.instagram.com/peritofabianoabucarub/" title="Fabiano Abucarub - Perito">
-                    <img src="6oBurger/FabianoPerito.png" alt="Fabiano Abucarub - Perito" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/casadasfraldaslondrina.jpg" data-link="https://www.instagram.com/casadasfraldas.londrina/" title="Casa das Fraldas - Londrina">
-                    <img src="6oBurger/casadasfraldaslondrina.jpg" alt="Casa das Fraldas - Londrina" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/manaiaimoveis.jpg" data-link="https://www.instagram.com/manaiaimoveis/" title="Manaia Imóveis">
-                    <img src="patrocinadores/manaiaimoveis.jpg" alt="Manaia Imóveis" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/tkacabamentos.png" data-link="https://www.instagram.com/tklondrina/" title="Tk Acabamentos Londrina">
-                    <img src="patrocinadores/tkacabamentos.png" alt="Tk Acabamentos Londrina" />
                 </a>
             </div>
         </div>
