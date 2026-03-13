@@ -1,1 +1,458 @@
-﻿
+﻿body.home-2026 {
+	--bg-dark: #16070b;
+	--bg-deep: #2a0d16;
+	--card-dark: rgba(28, 8, 13, 0.84);
+	--card-soft: rgba(255, 255, 255, 0.08);
+	--line-soft: rgba(255, 210, 128, 0.2);
+	--text-main: #fff7ef;
+	--text-soft: #f3d9c3;
+	--accent-gold: #ffbf47;
+	--accent-orange: #ff7b2c;
+	--accent-red: #d6373b;
+	--accent-cream: #fff1d2;
+	background:
+		radial-gradient(circle at top left, rgba(255, 143, 77, 0.18), transparent 30%),
+		radial-gradient(circle at 85% 10%, rgba(214, 55, 59, 0.22), transparent 25%),
+		linear-gradient(180deg, #120407 0%, #210710 42%, #120407 100%);
+	color: var(--text-main);
+	font-family: 'DM Sans', sans-serif;
+	padding-bottom: 80px !important;
+}
+
+body.home-2026::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+	background-size: 28px 28px;
+	pointer-events: none;
+	opacity: 0.28;
+}
+
+body.home-2026 .content {
+	max-width: none;
+}
+
+body.home-2026 .top-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: rgba(17, 4, 7, 0.82);
+	backdrop-filter: blur(18px);
+	border-bottom: 1px solid rgba(255, 191, 71, 0.16);
+	padding: 12px 22px;
+}
+
+body.home-2026 .top-button.current-year {
+	background: linear-gradient(135deg, var(--accent-gold), #ffd98b);
+}
+
+body.home-2026 .desktop-nav .top-button,
+body.home-2026 #mobile-nav .top-button,
+body.home-2026 .top-bar-content > .top-button {
+	font-family: 'Bebas Neue', sans-serif;
+	letter-spacing: 1px;
+	font-size: 1.2rem;
+}
+
+body.home-2026 .floating-icons a {
+	background: rgba(255,255,255,0.08);
+	border: 1px solid rgba(255,191,71,0.15);
+}
+
+.year-landing {
+	width: min(1280px, calc(100% - 36px));
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+}
+
+.hero-shell,
+.video-showcase,
+.why-sponsor,
+.sponsor-path,
+.institutions-preview,
+.archive-bridge {
+	margin-bottom: 28px;
+}
+
+.hero-shell {
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: 28px;
+	align-items: stretch;
+	padding: 34px;
+	border-radius: 30px;
+	background:
+		linear-gradient(140deg, rgba(255, 123, 44, 0.12), rgba(214, 55, 59, 0.08)),
+		rgba(22, 7, 11, 0.86);
+	border: 1px solid rgba(255, 191, 71, 0.24);
+	box-shadow: 0 25px 80px rgba(0, 0, 0, 0.34);
+	overflow: hidden;
+}
+
+.hero-shell::after {
+	content: "";
+	position: absolute;
+	width: 320px;
+	height: 320px;
+	right: -80px;
+	top: -60px;
+	background: radial-gradient(circle, rgba(255, 191, 71, 0.22), transparent 70%);
+	filter: blur(10px);
+	pointer-events: none;
+}
+
+.hero-copy,
+.hero-media,
+.archive-card,
+.video-showcase,
+.institutions-preview,
+.why-sponsor,
+.sponsor-path {
+	position: relative;
+	z-index: 1;
+}
+
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 7px 14px;
+	border-radius: 999px;
+	text-transform: uppercase;
+	font-size: 0.78rem;
+	letter-spacing: 0.22em;
+	color: var(--accent-cream);
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid rgba(255, 191, 71, 0.18);
+}
+
+.hero-copy h1,
+.section-heading h2,
+.archive-card h2 {
+	font-family: 'Bebas Neue', sans-serif;
+	letter-spacing: 1px;
+	line-height: 0.98;
+	margin: 18px 0 0;
+}
+
+.hero-copy h1 {
+	font-size: clamp(3rem, 7vw, 6.3rem);
+	max-width: 10ch;
+}
+
+.hero-lead,
+.hero-subcopy,
+.reason-card p,
+.path-card p,
+.institutions-preview p,
+.archive-card p {
+	color: var(--text-soft);
+	font-size: 1.04rem;
+	line-height: 1.75;
+}
+
+.hero-lead {
+	margin-top: 20px;
+	max-width: 66ch;
+}
+
+.hero-subcopy {
+	max-width: 60ch;
+}
+
+.cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+	margin-top: 28px;
+}
+
+.primary-cta,
+.secondary-cta,
+.contact-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 54px;
+	padding: 14px 24px;
+	border-radius: 999px;
+	text-decoration: none;
+	font-weight: 800;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primary-cta {
+	color: #200608;
+	background: linear-gradient(135deg, var(--accent-gold), #ffe29d);
+	box-shadow: 0 14px 30px rgba(255, 191, 71, 0.28);
+}
+
+.secondary-cta,
+.contact-link {
+	color: var(--text-main);
+	background: rgba(255, 255, 255, 0.07);
+	border: 1px solid rgba(255, 191, 71, 0.18);
+}
+
+.primary-cta:hover,
+.secondary-cta:hover,
+.contact-link:hover {
+	transform: translateY(-2px);
+	color: inherit;
+}
+
+.hero-impact-grid,
+.reason-grid,
+.path-grid {
+	display: grid;
+	gap: 16px;
+}
+
+.hero-impact-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	margin-top: 28px;
+}
+
+.impact-card,
+.reason-card,
+.path-card,
+.archive-card,
+.institutions-preview,
+.video-showcase {
+	background: var(--card-dark);
+	border: 1px solid var(--line-soft);
+	border-radius: 24px;
+	box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+}
+
+.impact-card {
+	padding: 18px;
+}
+
+.impact-card strong {
+	display: block;
+	font-size: 1.25rem;
+	color: var(--accent-cream);
+}
+
+.impact-card span {
+	display: block;
+	color: var(--text-soft);
+	margin-top: 8px;
+	line-height: 1.55;
+}
+
+.hero-media {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.logo-card {
+	padding: 18px;
+	border-radius: 28px;
+	background:
+		linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+		rgba(19,5,9,0.92);
+	border: 1px solid rgba(255, 191, 71, 0.2);
+	min-height: 100%;
+}
+
+.logo-card img {
+	width: 100%;
+	display: block;
+	margin: 0;
+	border-radius: 18px;
+}
+
+.hero-note {
+	padding: 18px 20px;
+	border-radius: 22px;
+	background: linear-gradient(135deg, rgba(214, 55, 59, 0.18), rgba(255, 123, 44, 0.14));
+	border: 1px solid rgba(255, 191, 71, 0.16);
+}
+
+.hero-note span {
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	font-size: 0.76rem;
+	color: var(--accent-gold);
+}
+
+.hero-note strong {
+	display: block;
+	margin-top: 10px;
+	font-size: 1.08rem;
+	line-height: 1.55;
+}
+
+.video-showcase,
+.why-sponsor,
+.sponsor-path,
+.institutions-preview,
+.archive-card {
+	padding: 28px;
+}
+
+.section-heading {
+	max-width: 900px;
+	margin: 0 auto 22px;
+	text-align: center;
+}
+
+.section-heading.align-left {
+	margin-left: 0;
+	text-align: left;
+}
+
+.section-heading h2,
+.archive-card h2 {
+	font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.video-frame {
+	padding: 10px;
+	border-radius: 24px;
+	background: linear-gradient(135deg, rgba(255,191,71,0.22), rgba(214,55,59,0.18));
+}
+
+.video-frame video {
+	width: 100%;
+	display: block;
+	border-radius: 18px;
+	aspect-ratio: 16 / 9;
+	background: #000;
+}
+
+.reason-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.reason-card,
+.path-card {
+	padding: 24px;
+}
+
+.reason-card h3,
+.path-card h3 {
+	margin: 0 0 14px;
+	font-family: 'Bebas Neue', sans-serif;
+	letter-spacing: 0.8px;
+	font-size: 2rem;
+	color: var(--accent-cream);
+}
+
+.path-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-card {
+	background: linear-gradient(155deg, rgba(255, 123, 44, 0.17), rgba(214, 55, 59, 0.16));
+}
+
+.contact-card strong {
+	font-size: 1.7rem;
+	color: var(--accent-gold);
+}
+
+.institutions-preview {
+	text-align: center;
+	background:
+		radial-gradient(circle at top, rgba(255,191,71,0.12), transparent 55%),
+		var(--card-dark);
+}
+
+.archive-card {
+	text-align: left;
+}
+
+.cta-row.compact {
+	margin-top: 18px;
+}
+
+.reveal-up {
+	animation: revealUp 0.8s ease both;
+}
+
+.delay-1 {
+	animation-delay: 0.08s;
+}
+
+.delay-2 {
+	animation-delay: 0.16s;
+}
+
+.delay-3 {
+	animation-delay: 0.24s;
+}
+
+@keyframes revealUp {
+	from {
+		opacity: 0;
+		transform: translateY(22px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 1100px) {
+	.hero-shell,
+	.reason-grid,
+	.path-grid,
+	.hero-impact-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.hero-copy h1 {
+		max-width: none;
+	}
+}
+
+@media (max-width: 768px) {
+	body.home-2026 {
+		padding-bottom: 40px !important;
+	}
+
+	.year-landing {
+		width: min(100%, calc(100% - 18px));
+	}
+
+	.hero-shell,
+	.video-showcase,
+	.why-sponsor,
+	.sponsor-path,
+	.institutions-preview,
+	.archive-card {
+		padding: 20px;
+		border-radius: 22px;
+	}
+
+	.hero-copy h1 {
+		font-size: clamp(2.5rem, 14vw, 4.2rem);
+	}
+
+	.reason-card h3,
+	.path-card h3 {
+		font-size: 1.7rem;
+	}
+
+	.cta-row {
+		flex-direction: column;
+	}
+
+	.primary-cta,
+	.secondary-cta,
+	.contact-link {
+		width: 100%;
+	}
+}

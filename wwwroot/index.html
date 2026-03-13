@@ -3,23 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noite do Burger Solidário - 2025</title>
+    <title>7ª Noite do Burger Solidário | Patrocinadores 2026</title>
     <base href="/" />
 
-    <meta property="og:title" content="Noite do Burger Solidário - 2025" />
-    <meta property="og:description" content="Participe do Burger Solidário e apoie instituições de Londrina!" />
-    <meta property="og:image" content="https://www.noitedoburgersolidario.com.br/6oBurger/Logo6oBurger.jpg" />
+    <meta name="description" content="Apoie a 7ª Noite do Burger Solidário. Seja patrocinador de um evento social que quer ir ainda mais longe em 2026." />
+    <meta property="og:title" content="7ª Noite do Burger Solidário | Patrocinadores 2026" />
+    <meta property="og:description" content="Estamos construindo uma edição ainda maior. Fale sobre patrocínio pelo telefone (43) 99120-5772 e participe desta corrente do bem." />
+    <meta property="og:image" content="https://www.noitedoburgersolidario.com.br/2026-7Burger/7Burger.jpg" />
     <meta property="og:url" content="https://www.noitedoburgersolidario.com.br/" />
     <meta property="og:type" content="website" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/blazorise@0.9.3.4/blazorise.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/blazorise.bootstrap@0.9.3.4/blazorise.bootstrap5.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
     <link rel="stylesheet" href="./css/app.css" />
-    <link rel="stylesheet" href="./css/burger.css" />
     <link rel="stylesheet" href="./css/burger-style.css" />
-
+    <link rel="stylesheet" href="./css/burger.css" />
     <link rel="icon" type="image/png" href="./favicon.png" />
     <link href="./NoiteBurgerSolidario.styles.css" rel="stylesheet" />
 
@@ -32,248 +34,17 @@
             'page_path': window.location.pathname
         });
     </script>
-
-    <style>
-        /* --- NOVOS ESTILOS PARA TÍTULO E BOTÃO --- */
-
-        /* Animação e estilo do Título Principal */
-        @keyframes title-glow {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-                transform: scale(1);
-            }
-
-            50% {
-                text-shadow: 0 0 20px rgba(255, 235, 59, 0.6), 0 0 30px rgba(255, 87, 34, 0.4);
-                transform: scale(1.02);
-            }
-
-            100% {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-                transform: scale(1);
-            }
-        }
-
-        .main-event-title {
-            color: #ffffff !important; /* Branco para fundo escuro */
-            font-weight: 900;
-            margin-top: 10px;
-            font-size: 1.8rem;
-            display: inline-block;
-            animation: title-glow 3s infinite ease-in-out;
-        }
-
-        /* Animação e estilo do Botão Vermelho */
-        @keyframes button-pulse-red {
-            0% {
-                box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
-                transform: scale(1);
-            }
-
-            50% {
-                box-shadow: 0 8px 25px rgba(255, 82, 82, 0.6);
-                transform: scale(1.03);
-            }
-
-            100% {
-                box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
-                transform: scale(1);
-            }
-        }
-
-        .btn-patrocinar-whatsapp {
-            display: inline-block;
-            /* Degradê Vermelho */
-            background: linear-gradient(135deg, #d32f2f 0%, #ff5252 100%);
-            color: white !important;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            border: none;
-            /* Animação constante */
-            animation: button-pulse-red 2s infinite ease-in-out;
-            transition: all 0.3s ease;
-        }
-
-            .btn-patrocinar-whatsapp:hover {
-                animation: none; /* Para a animação de pulso no hover */
-                transform: translateY(-3px) scale(1.05); /* Aumenta um pouco mais no hover */
-                box-shadow: 0 12px 30px rgba(255, 50, 50, 0.8);
-                color: white;
-            }
-
-        /* --- Estilos da Animação de Agradecimento (Mantidos) --- */
-        .thank-you-section {
-            position: relative;
-            background: linear-gradient(135deg, #ff9800 0%, #ff5252 100%);
-            border-radius: 20px;
-            padding: 50px 20px;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            margin: 25px 0;
-            animation: pulse-glow-card 3s infinite;
-        }
-
-        @keyframes pulse-glow-card {
-            0% {
-                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            }
-
-            50% {
-                box-shadow: 0 12px 40px rgba(255, 107, 107, 0.6);
-            }
-
-            100% {
-                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            }
-        }
-
-        #confetti-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .thank-you-content {
-            position: relative;
-            z-index: 3;
-        }
-
-        .thank-you-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
-            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .thank-you-subtitle {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: slideUp 0.8s ease forwards 0.3s;
-        }
-
-        .success-badge {
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.5);
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            animation: pulse-badge 2s infinite;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .floating-burger {
-            position: absolute;
-            font-size: 2.5em;
-            z-index: 2;
-            animation: float-element 4s ease-in-out infinite;
-            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.2));
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            80% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes pulse-badge {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float-element {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .thank-you-title {
-                font-size: 2rem;
-            }
-
-            .thank-you-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .floating-burger {
-                font-size: 1.8em;
-            }
-
-            .btn-patrocinar-whatsapp {
-                font-size: 0.9em;
-                padding: 12px 20px;
-            }
-
-            .main-event-title {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
-
-<body style="margin:0; padding:0;">
-    <div class="top-bar" style="margin:0; padding:0;">
+<body class="home-2026">
+    <div class="top-bar">
         <div class="top-bar-content">
-            <a href="index.html" class="top-button">
-                6º Burger Solidário - 2025
+            <a href="index.html" class="top-button current-year">
+                Evento Deste Ano
             </a>
 
             <nav class="desktop-nav">
-                <a href="burger2024.html" class="top-button">5º Burger Solidário - 2024</a>
+                <a href="burger2025.html" class="top-button">2025</a>
+                <a href="burger2024.html" class="top-button">2024</a>
                 <a href="burger2024.html#historia" class="top-button">Histórico</a>
             </nav>
 
@@ -283,495 +54,149 @@
         </div>
 
         <nav id="mobile-nav" class="mobile-nav">
-            <a href="burger2024.html" class="top-button">5º Burger Solidário - 2024</a>
+            <a href="index.html" class="top-button">Evento Deste Ano</a>
+            <a href="burger2025.html" class="top-button">2025</a>
+            <a href="burger2024.html" class="top-button">2024</a>
             <a href="burger2024.html#historia" class="top-button">Histórico</a>
         </nav>
 
         <div class="floating-icons">
-            <a href="https://wa.me/5543991205772" target="_blank"><img src="whatsapp.png" alt="WhatsApp" /></a>
+            <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank"><img src="whatsapp.png" alt="WhatsApp" /></a>
             <a href="https://www.instagram.com/noitedoburgersolidario/" target="_blank"><img src="Instagram_icon.png" alt="Instagram" /></a>
             <a href="https://www.facebook.com/people/Noite-do-Burger-Solid%C3%A1rio-Arte-Ci%C3%AAncia/61561361584951/" target="_blank"><img src="Facebook_Icon.png" alt="Facebook" /></a>
         </div>
     </div>
 
-    <div class="content">
-        <div class="event-info-box">
+    <main class="year-landing">
+        <section class="hero-shell reveal-up">
+            <div class="hero-copy">
+                <span class="eyebrow">7ª Noite do Burger Solidário</span>
+                <h1>Em 2026 queremos fazer um evento ainda maior.</h1>
+                <p class="hero-lead">No ano passado, a nossa corrente do bem distribuiu mais de <strong>R$52 mil</strong> para instituições beneficiadas. Agora estamos construindo a próxima edição e abrindo espaço para empresas, marcas e parceiros que desejam participar desde o começo de um projeto social com impacto real em Londrina.</p>
+                <p class="hero-subcopy">Se a sua marca acredita em visibilidade com propósito, relacionamento com a comunidade e participação em uma causa séria, este é o momento de entrar conosco. As novidades sobre as instituições beneficiadas deste ano serão anunciadas em breve.</p>
 
-            <div class="text-center mb-4">
-                <h3 class="main-event-title">🍔 6º Burger Solidário - 2025 🍔</h3>
-                <p class="text-muted" style="font-weight: 600; color: #ccc !important;">📅 Realizado em 22/11/2025</p>
-            </div>
+                <div class="cta-row">
+                    <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20ser%20patrocinador%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="primary-cta">Quero ser patrocinador</a>
+                    <a href="tel:+5543991205772" class="secondary-cta">Informações: (43) 99120-5772</a>
+                </div>
 
-            <div class="thank-you-section">
-                <canvas id="confetti-canvas"></canvas>
-
-                <div class="floating-burger" style="top: 15%; left: 8%; animation-delay: 0s;">🍔</div>
-                <div class="floating-burger" style="bottom: 20%; right: 8%; animation-delay: 1s;">🎉</div>
-                <div class="floating-burger" style="top: 20%; right: 15%; animation-delay: 2s; font-size: 1.8em;">❤️</div>
-
-                <div class="thank-you-content">
-                    <div class="success-badge">✨ MISSÃO CUMPRIDA COM SUCESSO! ✨</div>
-
-                    <div class="thank-you-title">
-                        OBRIGADO!
-                    </div>
-
-                    <div class="thank-you-subtitle">
-                        A TODOS OS PATROCINADORES,<br>COLABORADORES E PARTICIPANTES
-                    </div>
-
-                    <div style="font-size: 1.1em; max-width: 600px; margin: 0 auto; line-height: 1.5; font-weight: 500;">
-                        Resultado oficial divulgado: <strong>R$52.756,59</strong> arrecadados e distribuídos para as instituições beneficiadas.
-                    </div>
+                <div class="hero-impact-grid">
+                    <article class="impact-card reveal-up delay-1">
+                        <strong>Mais de R$52 mil</strong>
+                        <span>distribuídos na edição passada</span>
+                    </article>
+                    <article class="impact-card reveal-up delay-2">
+                        <strong>Evento em expansão</strong>
+                        <span>meta de fazer uma edição ainda maior em 2026</span>
+                    </article>
+                    <article class="impact-card reveal-up delay-3">
+                        <strong>Patrocínio com propósito</strong>
+                        <span>marca presente em uma ação social de verdade</span>
+                    </article>
                 </div>
             </div>
 
-            <div style="margin: 26px auto 30px; max-width: 860px; background: rgba(255, 152, 0, 0.08); border: 1px solid rgba(255, 152, 0, 0.35); border-radius: 14px; padding: 18px 16px; text-align: center;">
-                <h4 style="color: #ffcc80; margin-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Resultado do 6º Burger Solidário</h4>
-                <p style="margin: 0 0 8px; font-size: 1.1em; line-height: 1.55; color: #fff;">
-                    Com muita gratidão, anunciamos o total de <strong style="color: #ffd54f;">R$52.756,59</strong> distribuído para as instituições:
-                    <strong>Associação Flávia Cristina (AFC)</strong> e <strong>Casa de Apoio Madre Leônia</strong>.
-                </p>
-                <p style="margin: 0; color: #ffe0b2; font-weight: 600;">Obrigado por fazer parte desta corrente do bem.</p>
-            </div>
-
-            <div style="margin: 20px 0 10px; text-align: center;">
-                <img src="6oBurger/resultado.jpg" alt="Resultado oficial do 6º Burger Solidário" style="width: 100%; max-width: 760px; height: auto; border-radius: 14px; border: 3px solid #ff9800; box-shadow: 0 10px 30px rgba(0,0,0,0.28);" />
-            </div>
-
-            <div style="margin: 35px 0; text-align: center;">
-                <a href="https://wa.me/5543991205772?text=Burger Solidário - Em 2026 quero ser um patrocinador!" target="_blank" class="btn-patrocinar-whatsapp">
-                    🍔 EM 2026 QUERO SER UM PATROCINADOR TAMBÉM!
-                </a>
-            </div>
-
-            <img src="6oBurger/Convite Burger.jpg" style="max-width:80%; margin-top: 20px;" />
-            <p class="sponsors-title-smaller">Instituições beneficiadas neste ano</p>
-
-            <div class="institutions-title">Instituições beneficiadas neste ano</div>
-
-            <div class="institutions-container">
-                <div class="institution-card">
-                    <div class="institution-header">
-                        <img src="/6oBurger/afclondrina.jpg" alt="Associação Flávia Cristina" class="institution-logo" />
-                        <div class="institution-title">
-                            <h4>✨ Associação Flávia Cristina</h4>
-                            <p class="institution-subtitle">Atendimento especializado desde 1996</p>
-                        </div>
-                    </div>
-                    <div class="institution-summary">
-                        Oferece atendimento gratuito e especializado para crianças, jovens e adolescentes com necessidades educacionais especiais, além de reabilitação para adultos.
-                    </div>
-                    <div id="afc-details" class="institution-details">
-                        <h5>🏥 História e Evolução</h5>
-                        <p>A Associação Flávia Cristina nasceu em 1996 através de uma ação filantrópica com objetivo de desenvolver o atendimento gratuito e especializado para crianças, jovens e adolescentes com necessidades educacionais especiais.</p>
-                        <p>A partir de 2006 passou a integrar atividades de atendimento clínico à pessoa com deficiência, abrangendo hoje a reabilitação de adultos e a comunidade em geral. Além do atendimento pelo SUS, o centro clínico possibilita outros atendimentos à população através de projetos solidários.</p>
-                        <h5>🎯 Missão</h5>
-                        <p>Promover o desenvolvimento das pessoas com deficiência através de programas e serviços especializados nas áreas da assistência social, educação e saúde. Estamos comprometidos em romper a barreira do preconceito e lutar pela dignidade humana propiciando condições para uma sociedade inclusiva.</p>
-                        <a href="https://afc.org.br/" target="_blank" rel="noopener noreferrer" class="visit-link">
-                            🌐 Visitar site oficial
-                        </a>
-                    </div>
+            <div class="hero-media reveal-up delay-2">
+                <div class="logo-card">
+                    <img src="2026-7Burger/7Burger.jpg" alt="Logo da 7ª Noite do Burger Solidário" />
                 </div>
-
-                <div class="institution-card">
-                    <div class="institution-header">
-                        <img src="/6oBurger/casaapoiomadreleonia.jpg" alt="Casa de Apoio Madre Leônia Milito" class="institution-logo" />
-                        <div class="institution-title">
-                            <h4>🏡 Casa de Apoio Madre Leônia Milito</h4>
-                            <p class="institution-subtitle">Acolhimento humanizado para pacientes oncológicos</p>
-                        </div>
-                    </div>
-                    <div class="institution-summary">
-                        Recebe pacientes e acompanhantes em tratamento no Hospital do Câncer de Londrina, oferecendo hospedagem, alimentação e acompanhamento integral.
-                    </div>
-                    <div id="casa-details" class="institution-details">
-                        <h5>🏠 Serviços Oferecidos</h5>
-                        <p>A Casa de Apoio Madre Leônia recebe diariamente pacientes e acompanhantes advindos de outros municípios e que se encontram em tratamento no Hospital do Câncer de Londrina. Durante a permanência na casa recebem o acolhimento humanizado com local para descanso e alimentação, hospedagem, atendimento espiritual, social e psicológico.</p>
-                        <h5>🍽️ Modalidades de Atendimento</h5>
-                        <p><strong>Hospedagem completa:</strong> Pouso, banho e cinco refeições diárias (café da manhã, almoço, café da tarde, jantar e ceia).</p>
-                        <p><strong>Modalidade itinerante:</strong> Acolhimento para refeições (café da manhã, almoço e café da tarde) enquanto aguardam o retorno ao município de origem.</p>
-                        <h5>🎯 Objetivo</h5>
-                        <p>Realizar o acolhimento humanizado aos pacientes em tratamento de câncer no município de Londrina e a seus acompanhantes, visando oferecer um local seguro e agradável que favoreça o bem-estar e a tranquilidade durante o período da estadia.</p>
-                        <a href="https://casadeapoiomadreleonia.org.br/" target="_blank" rel="noopener noreferrer" class="visit-link">
-                            🌐 Visitar site oficial
-                        </a>
-                    </div>
+                <div class="hero-note">
+                    <span>Captação aberta para patrocinadores</span>
+                    <strong>Empresas que entram agora ajudam a construir a edição desde a base.</strong>
                 </div>
             </div>
+        </section>
 
-            <div style="text-align:center; margin-bottom:18px;">
-                <button id="expandAllBtn" class="expand-indicator">
-                    <span class="expand-text">Saiba mais</span> ▼
-                </button>
+        <section class="video-showcase reveal-up">
+            <div class="section-heading">
+                <span class="eyebrow">Clima do evento</span>
+                <h2>Uma noite feita para mobilizar pessoas, empresas e comunidade.</h2>
             </div>
-
-            <div style="margin:30px 0; text-align: center;">
-                <p class="sponsors-title-smaller" style="margin-bottom: 10px;">Video oficial do resultado</p>
-                <video controls muted autoplay loop playsinline preload="metadata" style="width:100%; max-width:520px; height:auto; aspect-ratio:16/9; border: 4px solid #ff9800; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
-                    <source src="6oBurger/Resultado 3.mp4" type="video/mp4" />
-                    <source src="6oBurger/Resultado%203.mp4" type="video/mp4" />
-                    Seu navegador nao suporta o video.
+            <div class="video-frame">
+                <video controls autoplay muted loop playsinline preload="metadata" poster="2026-7Burger/7Burger.jpg">
+                    <source src="2026-7Burger/Burger 2026.mp4" type="video/mp4" />
+                    <source src="2026-7Burger/Burger%202026.mp4" type="video/mp4" />
+                    Seu navegador não suporta o vídeo.
                 </video>
             </div>
+        </section>
 
-            <div style="margin-top:28px; text-align: center;">
-                <a href="https://wa.me/5543991205772" target="_blank" class="btn-patrocinar-whatsapp">
-                    🍔 EM 2026 QUERO SER UM PATROCINADOR TAMBÉM!
-                </a>
+        <section class="why-sponsor reveal-up">
+            <div class="section-heading align-left">
+                <span class="eyebrow">Por que patrocinar este ano</span>
+                <h2>Patrocinar a 7ª Noite do Burger Solidário é investir em impacto social, reputação e presença local.</h2>
             </div>
-        </div>
-
-        <div class="event-info-box" style="margin-top: 28px;">
-            <h3 class="sponsors-title" style="color:white;"><b>Patrocinadores confirmados</b></h3>
-
-            <div class="sponsors-actions" style="text-align:center; margin:10px 16px;"> <button id="openAllSponsors" type="button" class="btn-convite-destaque" style="font-size:1.05em; padding:10px 18px;"> Ver todas as logos em tela cheia </button> </div>
-            <div class="sponsors-grid">
-
-                <a href="#" class="sponsor-card diamond-animation" data-full="patrocinadores/sti_technology.png" data-link="https://www.instagram.com/sti_maquinas/" title="STI Máquinas">
-                    <div class="sponsor-image-container">
-                        <img src="patrocinadores/sti_technology.png" alt="STI Máquinas - Patrocinador Diamante" />
-                        <div class="sponsor-overlay">
-                            <div class="diamond-sponsor-badge">
-                                💎 DIAMANTE 💎
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="sponsor-card gold-animation" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro">
-                    <div class="sponsor-image-container">
-                        <img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" />
-                        <div class="sponsor-overlay">
-                            <div class="gold-sponsor-badge">
-                                ⭐ OURO ⭐
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/tocadocateto.png" data-link="https://www.instagram.com/tocadocateto/" title="Toca do Cateto">
-                    <img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/morcellicervejaria.jpg" data-link="https://www.instagram.com/morcellicervejaria/" title="Morcelli Cerevejaria">
-                    <img src="patrocinadores/morcellicervejaria.jpg" alt="Morcelli Cerevejaria" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/SinproLondrina.jpg" data-link="https://www.instagram.com/sinprolondrina/" title="SinPro Londrina">
-                    <img src="patrocinadores/SinproLondrina.jpg" alt="SinPro Londrina" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/wccarnes.jpg" data-link="https://wa.me/5543984523742" title="WC - Distribuidora de Carnes">
-                    <img src="patrocinadores/wccarnes.jpg" alt="WC - Distribuidora de Carnes" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/conceptkidsteen.jpg" data-link=" https://www.instagram.com/conceptkids.londrina/" title="Concept - Kids and Teen">
-                    <img src="patrocinadores/conceptkidsteen.jpg" alt="Concept - Kids and Teen" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/novakmadeiras.jpg" data-link="https://www.instagram.com/novakmadeiras/" title="Novak Madeiras">
-                    <img src="patrocinadores/novakmadeiras.jpg" alt="Novak Madeiras" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/barquebramola.jpg" data-link="https://share.google/igY0VgzftfoWaOw1n" title="Bar Quebra Mola">
-                    <img src="patrocinadores/barquebramola.jpg" alt="Bar Quebra Mola" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/automaq.jpg" data-link="https://www.instagram.com/automaq.londrina/" title="Automaq Automação Comercial">
-                    <img src="/patrocinadores/automaq.jpg" alt="Automaq Automação Comercial" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/ftitecnologia.jpg" data-link="https://www.instagram.com/fti_tecnologia/" title="FTI Tecnologia">
-                    <img src="/patrocinadores/ftitecnologia.jpg" alt="FTI Tecnologia" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/casacarnessanrafael.jpg" data-link="https://www.instagram.com/casadecarnessanrafael_/" title="Casa de Carnes San Rafael">
-                    <img src="/patrocinadores/casacarnessanrafael.jpg" alt="Casa de Carnes San Rafael" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/medclin.png" data-link="https://www.facebook.com/medclinocupacional/?locale=pt_BR" title="Medclin Ocupacional">
-                    <img src="/patrocinadores/medclin.png" alt="Medclin Ocupacional" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/alphasonic.jpg" data-link="https://www.alphasonic.com.br/" title="AlphaSonic">
-                    <img src="/patrocinadores/alphasonic.jpg" alt="AlphaSonic" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/mixcontainer.png" data-link="https://instagram.com/mixcontainerlondrina/" title="Mix Container">
-                    <img src="/patrocinadores/mixcontainer.png" alt="Mix Container" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/hsconsorcios.png" data-link="https://www.instagram.com/hsconsorciosoficial/" title="HS Consórcios">
-                    <img src="/patrocinadores/hsconsorcios.png" alt="HS Consórcios" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/ltzconsorcios.png" data-link="https://www.instagram.com/ltzconsorcios/" title="LTZ Consórcios">
-                    <img src="/patrocinadores/ltzconsorcios.png" alt="LTZ Consórcios" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/classicbaterias.png" data-link="https://www.instagram.com/classic.baterias/" title="Classic Baterias">
-                    <img src="/patrocinadores/classicbaterias.png" alt="Classic Baterias" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/petroshop.png" data-link="https://www.instagram.com/petroshopbrinquedosantigos/" title="PetroShop - Brinquedos Antigos">
-                    <img src="/patrocinadores/petroshop.png" alt="PetroShop - Brinquedos Antigos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/depositobetel.png" data-link="https://www.instagram.com/depositobetellda/" title="Depósito Betel">
-                    <img src="/patrocinadores/depositobetel.png" alt="Depósito Betel" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/eletrofm.png" data-link="https://www.instagram.com/eletrofm.materiaiseletricos/" title="EletroFM - Materiais Elétricos">
-                    <img src="/patrocinadores/eletrofm.png" alt="EletroFM - Materiais Elétricos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/koi.jpg" data-link="https://www.instagram.com/koipremium/" title="Koi Premium">
-                    <img src="/patrocinadores/koi.jpg" alt="Koi Premium" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/londricabos.png" data-link="https://londricabos.com.br/" title="Eletro Londricabos">
-                    <img src="/patrocinadores/londricabos.png" alt="Eletro Londricabos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/seminovoslondrinaautos.png" data-link="https://www.instagram.com/seminovos.londrina/" title="Seminovos Londrina - Autos">
-                    <img src="/patrocinadores/seminovoslondrinaautos.png" alt="Seminovos Londrina - Autos" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/bmbacilimetais.jpg" data-link="https://www.instagram.com/bacilimetais/" title="BM Bacili Metais">
-                    <img src="/patrocinadores/bmbacilimetais.jpg" alt="BM Bacili Metais" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/inovawash.jpg" data-link="https://www.instagram.com/inova.wash_londrina/" title="InovaWash Limpeza e Impermeabilização de Colchões e Tapetes">
-                    <img src="/patrocinadores/inovawash.jpg" alt="InovaWash Limpeza e Impermeabilização de Colchões e Tapetesr" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/prosa.png" data-link="https://www.instagram.com/prosacozinhasecreta/" title="Prosa Cozinha Secreta">
-                    <img src="/patrocinadores/prosa.png" alt="Prosa Cozinha Secreta" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/BarracoDaSopa.png" data-link="https://www.barracodasopa.com.br/" title="Barraco da Sopa">
-                    <img src="patrocinadores/BarracoDaSopa.png" alt="Barraco da Sopa" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/angico.png" data-link="https://www.instagram.com/angico_restaurante/" title="Restaurante Angico">
-                    <img src="patrocinadores/angico.png" alt="Restaurante Angico" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/logo-mascote-ze-lanches.png" data-link="https://www.instagram.com/zelanches/" title="Zé Lanches">
-                    <img src="patrocinadores/logo-mascote-ze-lanches.png" alt="Zé Lanches" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantimoveis/" title="Lant Imóveis">
-                    <img src="patrocinadores/lantimoveis.jpg" alt="Lant Imóveis" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/solucaoagropecuaria.jpg" data-link="https://www.instagram.com/solucao_agropecuaria/" title="Solução Agropecuária">
-                    <img src="patrocinadores/solucaoagropecuaria.jpg" alt="Solução Agropecuária" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/patrocinador_frigocenter.jpg" data-link="https://wa.me/5543996573241" title="Frigocenter">
-                    <img src="6oBurger/patrocinador_frigocenter.jpg" alt="Frigocenter" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/RSEngenharia.jpg" data-link="https://wa.me/55043996608099" title="RS Engenharia">
-                    <img src="6oBurger/RSEngenharia.jpg" alt="RS Engenharia" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/imprimaplus.png" data-link="https://imprimaplus.com.br/index.php" title="Imprima Plus">
-                    <img src="patrocinadores/imprimaplus.png" alt="Imprima Plus" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/bodes.png" data-link="https://bodesdoasfaltolondrina.com.br/" title="Bodes do Asfalto - Facção Londrina">
-                    <img src="patrocinadores/bodes.png" alt="Bodes do Asfalto" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/jabuti.jpg" data-link="https://www.instagram.com/jabutilazereconhecimento/" title="Jabuti Lazer e Conhecimento">
-                    <img src="patrocinadores/jabuti.jpg" alt="Jabuti Lazer e Conhecimento" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/mapa.png" data-link="https://mapasecuritizadora.com.br/" title="Mapa Securitizadora">
-                    <img src="patrocinadores/mapa.png" alt="Mapa Securitizadora" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/depositoroseira.png" data-link="https://depositoroseira.com.br/" title="Depósito Roseira">
-                    <img src="patrocinadores/depositoroseira.png" alt="Depósito Roseira" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/alugueuse.jpg" data-link="https://www.alugueuse.com.br/" title="Alugueuse">
-                    <img src="patrocinadores/alugueuse.jpg" alt="Alugueuse" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/FabianoPerito.png" data-link="https://www.instagram.com/peritofabianoabucarub/" title="Fabiano Abucarub - Perito">
-                    <img src="6oBurger/FabianoPerito.png" alt="Fabiano Abucarub - Perito" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="6oBurger/casadasfraldaslondrina.jpg" data-link="https://www.instagram.com/casadasfraldas.londrina/" title="Casa das Fraldas - Londrina">
-                    <img src="6oBurger/casadasfraldaslondrina.jpg" alt="Casa das Fraldas - Londrina" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/manaiaimoveis.jpg" data-link="https://www.instagram.com/manaiaimoveis/" title="Manaia Imóveis">
-                    <img src="patrocinadores/manaiaimoveis.jpg" alt="Manaia Imóveis" />
-                </a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/tkacabamentos.png" data-link="https://www.instagram.com/tklondrina/" title="Tk Acabamentos Londrina">
-                    <img src="patrocinadores/tkacabamentos.png" alt="Tk Acabamentos Londrina" />
-                </a>
+            <div class="reason-grid">
+                <article class="reason-card">
+                    <h3>Impacto comprovado</h3>
+                    <p>Não se trata de uma promessa abstrata. A edição passada entregou mais de R$52 mil para instituições beneficiadas. Esse resultado mostra que o projeto funciona, mobiliza pessoas e transforma colaboração em ajuda concreta. Ao apoiar a nova edição, sua empresa participa de algo que já demonstrou capacidade real de gerar resultado.</p>
+                </article>
+                <article class="reason-card">
+                    <h3>Marca conectada a uma causa séria</h3>
+                    <p>Hoje, empresas que geram confiança são aquelas que mostram compromisso com a comunidade onde atuam. Estar ao lado da Noite do Burger Solidário coloca sua marca em um ambiente de credibilidade, solidariedade e proximidade com o público local. É uma associação espontânea entre visibilidade e propósito.</p>
+                </article>
+                <article class="reason-card">
+                    <h3>Participação em uma edição maior</h3>
+                    <p>Em 2026 queremos fazer um evento ainda maior do que o do ano passado. Isso significa ampliar alcance, fortalecer mobilização e construir uma experiência ainda mais relevante para patrocinadores, apoiadores e participantes. Quem entra agora não apenas apoia, mas ajuda a moldar uma edição em crescimento.</p>
+                </article>
+                <article class="reason-card">
+                    <h3>Visibilidade com memória positiva</h3>
+                    <p>Diferente de uma exposição publicitária fria, aqui sua marca aparece dentro de uma narrativa que as pessoas lembram com carinho: união, solidariedade, participação e entrega. Esse tipo de lembrança gera valor emocional, reforça reputação e aproxima sua empresa de clientes e parceiros de forma mais autêntica.</p>
+                </article>
+                <article class="reason-card">
+                    <h3>Relacionamento e presença na comunidade</h3>
+                    <p>Patrocinar a Noite do Burger Solidário também é estar presente em uma rede de relacionamento local formada por organizadores, apoiadores, voluntários, famílias e empresas com visão semelhante. É uma oportunidade de fortalecer conexões, ampliar reconhecimento e estar ao lado de quem acredita em construir algo relevante para a cidade.</p>
+                </article>
+                <article class="reason-card">
+                    <h3>Convite para construir junto</h3>
+                    <p>Esta não é apenas uma chamada para colocar uma marca em um material. É um convite para participar da construção de uma nova edição desde o início, com diálogo direto, proximidade com a organização e a possibilidade de apoiar uma ação que cresce a cada ano. Se sua empresa quer fazer parte de algo maior, este é o momento certo.</p>
+                </article>
             </div>
-        </div>
+        </section>
 
-        <div class="event-info-box" style="margin-top: 28px;">
-            <h3 class="sponsors-title" style="color:white;"><b>Seja também um Patrocinador!</b></h3>
-            <img src="6oBurger/Folder Patrocinio.jpg" />
-        </div>
+        <section class="sponsor-path reveal-up">
+            <div class="section-heading align-left">
+                <span class="eyebrow">Próximo passo</span>
+                <h2>Entre em contato e receba informações sobre patrocínio.</h2>
+            </div>
+            <div class="path-grid">
+                <article class="path-card">
+                    <h3>Para quem é esta oportunidade</h3>
+                    <p>Empresas locais, marcas regionais, parceiros institucionais e apoiadores que desejam unir presença de marca com participação em uma iniciativa social respeitada e em expansão.</p>
+                </article>
+                <article class="path-card">
+                    <h3>O que conversar conosco</h3>
+                    <p>Formatos de apoio, presença da marca, possibilidades de parceria e detalhes sobre como participar da construção da edição de 2026 desde agora.</p>
+                </article>
+                <article class="path-card contact-card">
+                    <h3>Contato para informações sobre patrocínios</h3>
+                    <p><strong>(43) 99120-5772</strong></p>
+                    <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20receber%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="contact-link">Falar agora no WhatsApp</a>
+                </article>
+            </div>
+        </section>
 
-        <div id="imgModal" class="img-modal" aria-hidden="true">
-            <span class="img-modal-close" aria-label="Fechar">&times;</span>
-            <div class="img-modal-inner">
-                <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
-                <div class="img-modal-info">
-                    <h4 id="imgModalTitle"></h4>
-                    <a id="imgModalLink" href="#" target="_blank" rel="noopener noreferrer" class="visit-link" style="display:none;">
-                        🌐 Visitar patrocinador
-                    </a>
+        <section class="institutions-preview reveal-up">
+            <div class="section-heading">
+                <span class="eyebrow">Instituições deste ano</span>
+                <h2>Logo anunciaremos novidades sobre as instituições beneficiadas de 2026.</h2>
+            </div>
+            <p>Estamos preparando uma edição ainda mais forte, com o mesmo compromisso de transparência, seriedade e impacto social. Assim que as definições forem concluídas, publicaremos aqui todas as novidades.</p>
+        </section>
+
+        <section class="archive-bridge reveal-up">
+            <article class="archive-card">
+                <span class="eyebrow">Histórico recente</span>
+                <h2>Quer ver o impacto da edição passada?</h2>
+                <p>A página de 2025 continua disponível com resultado oficial, vídeo, instituições beneficiadas e patrocinadores já confirmados da última edição.</p>
+                <div class="cta-row compact">
+                    <a href="burger2025.html" class="secondary-cta">Ver página de 2025</a>
+                    <a href="burger2024.html" class="secondary-cta">Ver página de 2024</a>
                 </div>
-            </div>
-        </div>
-        <div id="allSponsorsModal" class="img-modal all-sponsors-modal" aria-hidden="true">
-            <span class="img-modal-close" aria-label="Fechar">&times;</span>
-            <div class="all-sponsors-modal-inner">
-                <div class="all-sponsors-modal-title">🍔 6ª Noite do Burger Solidário - 2025 🍔 </div>
-                <div class="all-sponsors-modal-subtitle">Patrocinadores</div>
-                <div id="allSponsorsGrid" class="all-sponsors-grid"></div>
-            </div>
-        </div>
+            </article>
+        </section>
+    </main>
 
-    </div>
-
-    <div class="sticky-sponsors">
-        <div class="sponsors-title-fixed">
-            <span>NOSSOS</span>
-            <strong>PATROCINADORES</strong>
-            <div style="text-align:center; margin:8px 0;">
-                <button id="openAllSponsorsSticky" type="button" class="btn-convite-destaque" style="font-size:1.05em; padding:8px 16px;">
-                    Ver Todos
-                </button>
-            </div>
-
-        </div>
-        <div class="sponsors-carousel-wrapper">
-            <div class="sponsor-track">
-
-                <a href="#" class="sponsor-card diamond-animation" data-full="patrocinadores/sti_technology.png" data-link="https://www.instagram.com/sti_maquinas/" title="STI Máquinas">
-                    <div class="sponsor-image-container">
-                        <img src="patrocinadores/sti_technology.png" alt="STI Máquinas - Patrocinador Diamante" />
-                    </div>
-                </a>
-
-                <a href="#" class="sponsor-card gold-animation" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro">
-                    <div class="sponsor-image-container">
-                        <img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" />
-                    </div>
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/tocadocateto.png" data-link="https://www.instagram.com/tocadocateto/" title="Toca do Cateto">
-                    <img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/morcellicervejaria.jpg" data-link="https://www.instagram.com/morcellicervejaria/" title="Morcelli Cerevejaria">
-                    <img src="patrocinadores/morcellicervejaria.jpg" alt="Morcelli Cerevejaria" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/SinproLondrina.jpg" data-link="https://www.instagram.com/sinprolondrina/" title="SinPro Londrina">
-                    <img src="patrocinadores/SinproLondrina.jpg" alt="SinPro Londrina" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/wccarnes.jpg" data-link="https://wa.me/5543984523742" title="WC - Distribuidora de Carnes">
-                    <img src="patrocinadores/wccarnes.jpg" alt="WC - Distribuidora de Carnes" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/conceptkidsteen.jpg" data-link=" https://www.instagram.com/conceptkids.londrina/" title="Concept - Kids and Teen">
-                    <img src="patrocinadores/conceptkidsteen.jpg" alt="Concept - Kids and Teen" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/novakmadeiras.jpg" data-link="https://www.instagram.com/novakmadeiras/" title="Novak Madeiras">
-                    <img src="patrocinadores/novakmadeiras.jpg" alt="Novak Madeiras" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/barquebramola.jpg" data-link="https://share.google/igY0VgzftfoWaOw1n" title="Bar Quebra Mola">
-                    <img src="patrocinadores/barquebramola.jpg" alt="Bar Quebra Mola" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="patrocinadores/automaq.jpg" data-link="https://www.instagram.com/automaq.londrina/" title="Automaq Automação Comercial">
-                    <img src="/patrocinadores/automaq.jpg" alt="Automaq Automação Comercial" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/ftitecnologia.jpg" data-link="https://www.instagram.com/fti_tecnologia/" title="FTI Tecnologia">
-                    <img src="/patrocinadores/ftitecnologia.jpg" alt="FTI Tecnologia" />
-                </a>
-
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/casacarnessanrafael.jpg" data-link="https://www.instagram.com/casadecarnessanrafael_/" title="Casa de Carnes San Rafael">
-                    <img src="/patrocinadores/casacarnessanrafael.jpg" alt="Casa de Carnes San Rafael" />
-                </a>
-            </div>
-        </div>
-    </div>
     <script src="js/site.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Inicializa o Canvas
-            const canvas = document.getElementById('confetti-canvas');
-            if (!canvas) return; // Segurança caso o canvas não exista
-
-            const ctx = canvas.getContext('2d');
-
-            // Ajusta tamanho inicial
-            function resizeCanvas() {
-                canvas.width = canvas.parentElement.offsetWidth;
-                canvas.height = canvas.parentElement.offsetHeight;
-            }
-            resizeCanvas();
-
-            let particles = [];
-            const colors = ['#ffffff', '#ffeb3b', '#ff9800', '#ff5722', '#ffc107'];
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height - canvas.height; // Começa acima
-                    this.size = Math.random() * 8 + 3;
-                    this.speedY = Math.random() * 2 + 1;
-                    this.color = colors[Math.floor(Math.random() * colors.length)];
-                    this.rotation = Math.random() * 360;
-                    this.rotationSpeed = Math.random() * 2 - 1;
-                }
-                update() {
-                    this.y += this.speedY;
-                    this.rotation += this.rotationSpeed;
-
-                    // Reset se passar do fundo
-                    if (this.y > canvas.height) {
-                        this.y = -20;
-                        this.x = Math.random() * canvas.width;
-                    }
-                }
-                draw() {
-                    ctx.save();
-                    ctx.translate(this.x, this.y);
-                    ctx.rotate(this.rotation * Math.PI / 180);
-                    ctx.fillStyle = this.color;
-                    ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-                    ctx.restore();
-                }
-            }
-
-            function initParticles() {
-                for (let i = 0; i < 70; i++) particles.push(new Particle());
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                requestAnimationFrame(animateParticles);
-            }
-
-            initParticles();
-            animateParticles();
-
-            // Resize listener
-            window.addEventListener('resize', resizeCanvas);
-
-            // Código do Carrossel (Duplicação)
-            const track = document.querySelector('.sponsor-track');
-            if (track) {
-                track.innerHTML += track.innerHTML;
-            }
-        });
-    </script>
 </body>
 </html>
