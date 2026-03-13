@@ -142,8 +142,34 @@ body.home-2026 .floating-icons a {
 }
 
 .hero-copy h1 {
-	font-size: clamp(3rem, 7vw, 6.3rem);
-	max-width: 10ch;
+	font-size: clamp(3rem, 6.6vw, 5.8rem);
+	max-width: 9ch;
+}
+
+.hero-kicker-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 16px;
+}
+
+.hero-kicker {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 14px;
+	border-radius: 999px;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	background: rgba(255, 191, 71, 0.14);
+	color: var(--accent-cream);
+	border: 1px solid rgba(255, 191, 71, 0.18);
+}
+
+.hero-kicker-muted {
+	background: rgba(255, 255, 255, 0.05);
+	color: var(--text-soft);
 }
 
 .hero-lead,
@@ -159,11 +185,12 @@ body.home-2026 .floating-icons a {
 
 .hero-lead {
 	margin-top: 20px;
-	max-width: 66ch;
+	max-width: 58ch;
+	font-size: 1.1rem;
 }
 
 .hero-subcopy {
-	max-width: 60ch;
+	max-width: 58ch;
 }
 
 .cta-row {
@@ -261,6 +288,9 @@ body.home-2026 .floating-icons a {
 		rgba(19,5,9,0.92);
 	border: 1px solid rgba(255, 191, 71, 0.2);
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
 .logo-card img {
@@ -268,8 +298,41 @@ body.home-2026 .floating-icons a {
 	display: block;
 	margin: 0;
 	border-radius: 18px;
-	aspect-ratio: 1 / 1;
-	object-fit: cover;
+	max-height: 430px;
+	object-fit: contain;
+	background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.08));
+}
+
+.logo-card-badge {
+	align-self: flex-start;
+	display: inline-flex;
+	padding: 8px 14px;
+	border-radius: 999px;
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--accent-gold);
+	background: rgba(255, 191, 71, 0.08);
+	border: 1px solid rgba(255, 191, 71, 0.16);
+}
+
+.logo-card-caption {
+	display: grid;
+	gap: 6px;
+	padding: 2px 4px 4px;
+}
+
+.logo-card-caption strong {
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 2rem;
+	letter-spacing: 0.8px;
+	color: var(--accent-cream);
+}
+
+.logo-card-caption span {
+	color: var(--text-soft);
+	line-height: 1.6;
 }
 
 .hero-side-grid {
@@ -287,6 +350,7 @@ body.home-2026 .floating-icons a {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	backdrop-filter: blur(4px);
 }
 
 .hero-mini-card span {
@@ -335,6 +399,8 @@ body.home-2026 .floating-icons a {
 	justify-content: space-between;
 	gap: 14px;
 	flex-wrap: wrap;
+	padding-top: 16px;
+	padding-bottom: 16px;
 }
 
 .hero-note-compact strong {
@@ -496,6 +562,10 @@ body.home-2026 .floating-icons a {
 
 	.hero-copy h1 {
 		max-width: none;
+	}
+
+	.logo-card img {
+		max-height: none;
 	}
 }
 
