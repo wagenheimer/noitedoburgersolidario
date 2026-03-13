@@ -82,7 +82,7 @@ body.home-2026 .floating-icons a {
 
 .hero-shell {
 	display: grid;
-	grid-template-columns: 1.28fr 0.72fr;
+	grid-template-columns: 1.38fr 0.62fr;
 	gap: 28px;
 	align-items: start;
 	padding: 34px;
@@ -118,6 +118,10 @@ body.home-2026 .floating-icons a {
 	z-index: 1;
 }
 
+.hero-copy {
+	padding-right: 12px;
+}
+
 .eyebrow {
 	display: inline-flex;
 	align-items: center;
@@ -142,10 +146,11 @@ body.home-2026 .floating-icons a {
 }
 
 .hero-copy h1 {
-	font-size: clamp(2.8rem, 5.6vw, 5rem);
-	max-width: 8.5ch;
-	line-height: 0.92;
+	font-size: clamp(2.9rem, 4.9vw, 4.85rem);
+	max-width: 12.5ch;
+	line-height: 0.96;
 	text-wrap: balance;
+	letter-spacing: 0.4px;
 }
 
 .hero-kicker-row {
@@ -187,12 +192,12 @@ body.home-2026 .floating-icons a {
 
 .hero-lead {
 	margin-top: 20px;
-	max-width: 62ch;
+	max-width: 60ch;
 	font-size: 1.1rem;
 }
 
 .hero-subcopy {
-	max-width: 62ch;
+	max-width: 60ch;
 }
 
 .cta-row {
@@ -282,6 +287,7 @@ body.home-2026 .floating-icons a {
 .hero-media {
 	display: grid;
 	gap: 18px;
+	align-content: start;
 }
 
 .logo-card {
@@ -302,7 +308,7 @@ body.home-2026 .floating-icons a {
 	display: block;
 	margin: 0;
 	border-radius: 18px;
-	max-height: 430px;
+	max-height: 390px;
 	object-fit: contain;
 	background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.08));
 }
@@ -558,6 +564,10 @@ body.home-2026 .floating-icons a {
 	.path-grid,
 	.hero-impact-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.hero-copy {
+		padding-right: 0;
 	}
 
 	.hero-side-grid {
