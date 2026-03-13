@@ -84,7 +84,7 @@ body.home-2026 .floating-icons a {
 	display: grid;
 	grid-template-columns: 1.15fr 0.85fr;
 	gap: 28px;
-	align-items: stretch;
+	align-items: start;
 	padding: 34px;
 	border-radius: 30px;
 	background:
@@ -249,19 +249,18 @@ body.home-2026 .floating-icons a {
 }
 
 .hero-media {
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	gap: 18px;
 }
 
 .logo-card {
-	padding: 18px;
+	padding: 14px;
 	border-radius: 28px;
 	background:
 		linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
 		rgba(19,5,9,0.92);
 	border: 1px solid rgba(255, 191, 71, 0.2);
-	min-height: 100%;
+	overflow: hidden;
 }
 
 .logo-card img {
@@ -269,6 +268,43 @@ body.home-2026 .floating-icons a {
 	display: block;
 	margin: 0;
 	border-radius: 18px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+.hero-side-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.hero-mini-card {
+	padding: 16px 18px;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 191, 71, 0.16);
+	min-height: 120px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.hero-mini-card span {
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	font-size: 0.72rem;
+	color: var(--accent-gold);
+}
+
+.hero-mini-card strong {
+	font-size: 1.08rem;
+	line-height: 1.45;
+	color: var(--accent-cream);
+}
+
+.hero-mini-card.emphasis-card {
+	grid-column: 1 / -1;
+	background: linear-gradient(135deg, rgba(214, 55, 59, 0.2), rgba(255, 123, 44, 0.16));
 }
 
 .hero-note {
@@ -291,6 +327,47 @@ body.home-2026 .floating-icons a {
 	margin-top: 10px;
 	font-size: 1.08rem;
 	line-height: 1.55;
+}
+
+.hero-note-compact {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	flex-wrap: wrap;
+}
+
+.hero-note-compact strong {
+	margin-top: 0;
+	font-size: 1.4rem;
+	color: var(--accent-cream);
+}
+
+.hero-phone-link,
+.contact-phone-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.hero-phone-link:hover,
+.contact-phone-link:hover {
+	color: inherit;
+}
+
+.hero-note-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 16px;
+	border-radius: 999px;
+	text-decoration: none;
+	font-weight: 800;
+	color: #2a0d16;
+	background: linear-gradient(135deg, var(--accent-gold), #ffe29d);
+}
+
+.hero-note-link:hover {
+	color: #2a0d16;
 }
 
 .video-showcase,
@@ -413,6 +490,10 @@ body.home-2026 .floating-icons a {
 		grid-template-columns: 1fr;
 	}
 
+	.hero-side-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
 	.hero-copy h1 {
 		max-width: none;
 	}
@@ -439,6 +520,14 @@ body.home-2026 .floating-icons a {
 
 	.hero-copy h1 {
 		font-size: clamp(2.5rem, 14vw, 4.2rem);
+	}
+
+	.hero-side-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.hero-mini-card.emphasis-card {
+		grid-column: auto;
 	}
 
 	.reason-card h3,
