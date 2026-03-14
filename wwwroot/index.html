@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="./css/burger-style.css" />
     <link rel="stylesheet" href="./css/burger.css" />
     <link rel="icon" type="image/png" href="./favicon.png" />
-    <link href="./NoiteBurgerSolidario.styles.css" rel="stylesheet" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWG2697526"></script>
     <script>
@@ -39,7 +38,7 @@
     <div class="top-bar">
         <div class="top-bar-content">
             <a href="index.html" class="top-button current-year">
-                Evento Deste Ano
+                EDIÇÃO 2026
             </a>
 
             <nav class="desktop-nav">
@@ -54,7 +53,7 @@
         </div>
 
         <nav id="mobile-nav" class="mobile-nav">
-            <a href="index.html" class="top-button">Evento Deste Ano</a>
+            <a href="index.html" class="top-button">EDIÇÃO 2026</a>
             <a href="burger2025.html" class="top-button">2025</a>
             <a href="burger2024.html" class="top-button">2024</a>
             <a href="burger2024.html#historia" class="top-button">Histórico</a>
@@ -102,7 +101,7 @@
 
             <div class="hero-media reveal-up delay-2">
                 <div class="logo-card">
-                    <div class="logo-card-badge">Evento deste ano</div>
+                    <div class="logo-card-badge">Edição 2026</div>
                     <img src="2026-7Burger/7Burger.jpg" alt="Logo da 7ª Noite do Burger Solidário" />
                     <div class="logo-card-caption">
                         <strong>7ª Noite do Burger Solidário</strong>
@@ -198,6 +197,45 @@
                     <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20receber%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="contact-link">Falar agora no WhatsApp</a>
                 </article>
             </div>
+        </section>
+
+        <section class="contact-section reveal-up" id="contato">
+            <div class="contact-intro">
+                <div class="section-heading align-left">
+                    <span class="eyebrow">Entre em contato</span>
+                    <h2>Fale com a organização pelo formulário.</h2>
+                </div>
+                <p>Preencha seus dados e sua mensagem. O envio vai direto para a equipe da Noite do Burger Solidário, sem depender de SMTP no servidor.</p>
+                <div class="contact-direct-list">
+                    <a href="mailto:veneravel@arteecienca.org">veneravel@arteecienca.org</a>
+                    <a href="mailto:wagenheimer@gmail.com">wagenheimer@gmail.com</a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="contact-form-grid">
+                    <label class="field-group">
+                        <span>Nome</span>
+                        <input type="text" name="name" autocomplete="name" required />
+                    </label>
+                    <label class="field-group">
+                        <span>Email</span>
+                        <input type="email" name="email" autocomplete="email" required />
+                    </label>
+                    <label class="field-group">
+                        <span>Telefone</span>
+                        <input type="tel" name="phone" autocomplete="tel" required />
+                    </label>
+                    <label class="field-group field-group-full">
+                        <span>Mensagem</span>
+                        <textarea name="message" rows="6" required></textarea>
+                    </label>
+                </div>
+                <div class="contact-form-actions">
+                    <button type="submit" class="primary-cta contact-submit">Enviar mensagem</button>
+                    <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+                </div>
+            </form>
         </section>
 
         <section class="institutions-preview reveal-up">

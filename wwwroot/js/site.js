@@ -110,6 +110,71 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-form-status');
+
+    if (contactForm && contactStatus) {
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const formData = new FormData(contactForm);
+            const payload = {
+                name: String(formData.get('name') || '').trim(),
+                email: String(formData.get('email') || '').trim(),
+                phone: String(formData.get('phone') || '').trim(),
+                message: String(formData.get('message') || '').trim()
+            };
+
+            if (!payload.name || !payload.email || !payload.phone || !payload.message) {
+                contactStatus.textContent = 'Preencha nome, email, telefone e mensagem.';
+                contactStatus.dataset.state = 'error';
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+            }
+
+            contactStatus.textContent = 'Enviando mensagem...';
+            contactStatus.dataset.state = 'loading';
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json().catch(function () {
+                    return null;
+                });
+
+                if (!response.ok) {
+                    const message = result && (result.message || result.detail)
+                        ? (result.message || result.detail)
+                        : 'Nao foi possivel enviar sua mensagem agora.';
+                    throw new Error(message);
+                }
+
+                contactForm.reset();
+                contactStatus.textContent = 'Mensagem enviada com sucesso. Em breve entraremos em contato.';
+                contactStatus.dataset.state = 'success';
+            } catch (error) {
+                contactStatus.textContent = error instanceof Error
+                    ? error.message
+                    : 'Nao foi possivel enviar sua mensagem agora.';
+                contactStatus.dataset.state = 'error';
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+            }
+        });
+    }
 });
 
 // ===== FUNÇÕES DE MODAL DE PATROCINADOR (INFO) =====
