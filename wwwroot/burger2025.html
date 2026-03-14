@@ -6,7 +6,7 @@
     <title>6º Burger Solidário | Resultado 2025</title>
     <base href="/" />
 
-    <meta name="description" content="Veja o resultado oficial da 6ª Noite do Burger Solidário, realizada em 2025, com instituições beneficiadas, patrocinadores confirmados e chamada para a edição de 2026." />
+    <meta name="description" content="Veja o resultado oficial da 6ª Noite do Burger Solidário, realizada em 2025, com instituições beneficiadas, patrocinadores confirmados e material oficial da campanha." />
     <meta property="og:title" content="6º Burger Solidário | Resultado 2025" />
     <meta property="og:description" content="A edição de 2025 arrecadou R$52.756,59 para a Associação Flávia Cristina e a Casa de Apoio Madre Leônia. Confira o resultado e os patrocinadores." />
     <meta property="og:image" content="https://www.noitedoburgersolidario.com.br/6oBurger/resultado.jpg" />
@@ -34,229 +34,6 @@
         });
     </script>
 
-    <style>
-        @keyframes title-glow {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-                transform: scale(1);
-            }
-
-            50% {
-                text-shadow: 0 0 20px rgba(255, 235, 59, 0.6), 0 0 30px rgba(255, 87, 34, 0.4);
-                transform: scale(1.02);
-            }
-
-            100% {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-                transform: scale(1);
-            }
-        }
-
-        .main-event-title {
-            color: #ffffff !important;
-            font-weight: 900;
-            margin-top: 10px;
-            font-size: 1.8rem;
-            display: inline-block;
-            animation: title-glow 3s infinite ease-in-out;
-        }
-
-        @keyframes button-pulse-red {
-            0% {
-                box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
-                transform: scale(1);
-            }
-
-            50% {
-                box-shadow: 0 8px 25px rgba(255, 82, 82, 0.6);
-                transform: scale(1.03);
-            }
-
-            100% {
-                box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
-                transform: scale(1);
-            }
-        }
-
-        .btn-patrocinar-whatsapp {
-            display: inline-block;
-            background: linear-gradient(135deg, #d32f2f 0%, #ff5252 100%);
-            color: white !important;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            border: none;
-            animation: button-pulse-red 2s infinite ease-in-out;
-            transition: all 0.3s ease;
-        }
-
-        .btn-patrocinar-whatsapp:hover {
-            animation: none;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 30px rgba(255, 50, 50, 0.8);
-            color: white;
-        }
-
-        .thank-you-section {
-            position: relative;
-            background: linear-gradient(135deg, #ff9800 0%, #ff5252 100%);
-            border-radius: 20px;
-            padding: 50px 20px;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            margin: 25px 0;
-            animation: pulse-glow-card 3s infinite;
-        }
-
-        @keyframes pulse-glow-card {
-            0% {
-                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            }
-
-            50% {
-                box-shadow: 0 12px 40px rgba(255, 107, 107, 0.6);
-            }
-
-            100% {
-                box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
-            }
-        }
-
-        #confetti-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .thank-you-content {
-            position: relative;
-            z-index: 3;
-        }
-
-        .thank-you-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            margin-bottom: 10px;
-            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .thank-you-subtitle {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            animation: slideUp 0.8s ease forwards 0.3s;
-        }
-
-        .success-badge {
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.5);
-            padding: 8px 20px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            animation: pulse-badge 2s infinite;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .floating-burger {
-            position: absolute;
-            font-size: 2.5em;
-            z-index: 2;
-            animation: float-element 4s ease-in-out infinite;
-            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.2));
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            80% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes pulse-badge {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float-element {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .thank-you-title {
-                font-size: 2rem;
-            }
-
-            .thank-you-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .floating-burger {
-                font-size: 1.8em;
-            }
-
-            .btn-patrocinar-whatsapp {
-                font-size: 0.9em;
-                padding: 12px 20px;
-            }
-
-            .main-event-title {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body class="archive-home home-2025">
     <div class="top-bar">
@@ -300,7 +77,7 @@
                 </div>
                 <h1>2025 elevou o impacto da noite solidária.</h1>
                 <p class="hero-lead">A 6ª edição arrecadou <strong>R$52.756,59</strong> para a <strong>Associação Flávia Cristina</strong> e a <strong>Casa de Apoio Madre Leônia</strong>, consolidando o evento como uma das ações solidárias mais fortes da campanha.</p>
-                <p class="hero-subcopy">Esta página reúne o resultado oficial, os patrocinadores confirmados, o material da campanha e as instituições beneficiadas. Também é o ponto de partida para empresas que querem entrar mais cedo na construção da edição de 2026.</p>
+                <p class="hero-subcopy">Esta página reúne o resultado oficial, os patrocinadores confirmados, o material da campanha e as instituições beneficiadas. Em relação a 2024, a edição de 2025 registrou crescimento de <strong>47,53%</strong> no valor arrecadado.</p>
 
                 <div class="cta-row">
                     <a href="https://wa.me/5543991205772?text=Burger%20Solid%C3%A1rio%20-%20Em%202026%20quero%20ser%20um%20patrocinador!" target="_blank" class="primary-cta">Quero patrocinar 2026</a>
@@ -310,15 +87,15 @@
                 <div class="hero-impact-grid">
                     <article class="impact-card reveal-up delay-1">
                         <strong>R$52.756,59</strong>
-                        <span>resultado oficial distribuído às instituições beneficiadas</span>
+                        <span>valor arrecadado e distribuído às instituições beneficiadas</span>
                     </article>
                     <article class="impact-card reveal-up delay-2">
-                        <strong>2 instituições</strong>
-                        <span>apoiadas com acolhimento, saúde, educação e reabilitação</span>
+                        <strong>+47,53%</strong>
+                        <span>crescimento em relação ao resultado oficial de 2024</span>
                     </article>
                     <article class="impact-card reveal-up delay-3">
-                        <strong>Patrocínio com continuidade</strong>
-                        <span>quem apoiou em 2025 ajuda a abrir o caminho para 2026</span>
+                        <strong>2 instituições</strong>
+                        <span>apoiadas com acolhimento, saúde, educação e reabilitação</span>
                     </article>
                 </div>
             </div>
@@ -343,8 +120,8 @@
                         <strong>22/11/2025</strong>
                     </article>
                     <article class="hero-mini-card stat-card">
-                        <span>Chamada seguinte</span>
-                        <strong>Captação 2026 já aberta</strong>
+                        <span>Rede mobilizada</span>
+                        <strong>Patrocinadores, voluntários e público puxaram a edição juntos.</strong>
                     </article>
                 </div>
 
@@ -356,55 +133,90 @@
             </div>
         </section>
 
-        <section class="archive-overview-grid archive-overview-grid-2025 reveal-up">
-            <article class="archive-highlight-card archive-result-card">
+        <section id="resultado-oficial" class="archive-overview-grid archive-overview-grid-2025 reveal-up">
+            <article class="archive-highlight-card archive-result-card archive-result-card-2025">
                 <div class="text-center mb-4">
                     <h3 class="main-event-title">🍔 6º Burger Solidário - 2025 🍔</h3>
-                    <p style="font-weight: 600; color: #ffe0b2; margin: 10px 0 0;">Resultado oficial divulgado e distribuição concluída.</p>
+                    <p class="main-event-subtitle">Resultado oficial divulgado e distribuição concluída.</p>
+                </div>
+
+                <div class="result-highlight-meta" aria-label="Síntese do resultado de 2025">
+                    <span class="result-highlight-pill">R$52.756,59 confirmados</span>
+                    <span class="result-highlight-pill">2 instituições beneficiadas</span>
+                    <span class="result-highlight-pill">Distribuição oficial concluída</span>
                 </div>
 
                 <div class="thank-you-section">
                     <canvas id="confetti-canvas"></canvas>
-                    <div class="floating-burger" style="top: 15%; left: 8%; animation-delay: 0s;">🍔</div>
-                    <div class="floating-burger" style="bottom: 20%; right: 8%; animation-delay: 1s;">🎉</div>
-                    <div class="floating-burger" style="top: 20%; right: 15%; animation-delay: 2s; font-size: 1.8em;">❤️</div>
+                    <div class="floating-burger floating-burger-left">🍔</div>
+                    <div class="floating-burger floating-burger-right">🎉</div>
+                    <div class="floating-burger floating-burger-top">❤️</div>
 
                     <div class="thank-you-content">
                         <div class="success-badge">✨ MISSÃO CUMPRIDA COM SUCESSO! ✨</div>
                         <div class="thank-you-title">OBRIGADO!</div>
                         <div class="thank-you-subtitle">A TODOS OS PATROCINADORES,<br />COLABORADORES E PARTICIPANTES</div>
-                        <div style="font-size: 1.1em; max-width: 600px; margin: 0 auto; line-height: 1.5; font-weight: 500;">
+                        <div class="thank-you-copy">
                             Resultado oficial divulgado: <strong>R$52.756,59</strong> arrecadados e distribuídos para as instituições beneficiadas.
                         </div>
                     </div>
                 </div>
             </article>
 
-            <article class="archive-summary-card archive-support-card">
+            <article class="archive-summary-card archive-support-card archive-support-card-2025">
                 <h3>Resumo da edição</h3>
-                <p>Com muita gratidão, anunciamos o total de <strong>R$52.756,59</strong> distribuído para a <strong>Associação Flávia Cristina (AFC)</strong> e para a <strong>Casa de Apoio Madre Leônia</strong>.</p>
-                <p>O resultado consolidou a edição de 2025 como uma noite de grande mobilização, com patrocinadores, voluntários e participantes conectados por uma mesma causa.</p>
+                <p>A edição de 2025 fechou com <strong>R$52.756,59</strong> oficialmente destinados à <strong>Associação Flávia Cristina (AFC)</strong> e à <strong>Casa de Apoio Madre Leônia</strong>.</p>
+                <p>Foi uma campanha com resultado concreto, boa adesão de marcas e entrega clara para quem acompanha a evolução do projeto.</p>
+                <div class="year-summary-metrics" aria-label="Destaques da edição de 2025">
+                    <a class="year-summary-metric" href="#resultado-oficial">
+                        <span>Data</span>
+                        <strong>22/11/2025 e resultado confirmado</strong>
+                    </a>
+                    <a class="year-summary-metric" href="#instituicoes-2025">
+                        <span>Instituições</span>
+                        <strong>AFC e Madre Leônia</strong>
+                    </a>
+                    <a class="year-summary-metric" href="#patrocinadores">
+                        <span>Patrocinadores</span>
+                        <strong>Ver marcas que sustentaram a edição</strong>
+                    </a>
+                </div>
                 <div class="archive-pill-row">
-                    <span class="archive-pill">Resultado oficial</span>
-                    <span class="archive-pill">Instituições beneficiadas</span>
-                    <span class="archive-pill">Campanha 2026 aberta</span>
+                    <a class="archive-pill" href="#resultado-oficial">Resultado oficial</a>
+                    <a class="archive-pill" href="#instituicoes-2025">Instituições beneficiadas</a>
+                    <a class="archive-pill" href="#material-campanha">Material da campanha</a>
                 </div>
                 <div class="archive-callout">
-                    Obrigado por fazer parte desta corrente do bem. Se a sua marca quer entrar na próxima edição desde o início, este é o melhor momento para falar com a organização.
+                    Cada patrocínio, compra e divulgação virou apoio real para duas instituições da cidade. O resumo desta página foi organizado para facilitar a leitura e a navegação entre resultado, campanha e patrocinadores.
                 </div>
                 <div class="archive-actions">
+                    <a href="#patrocinadores" class="secondary-cta">Ver patrocinadores de 2025</a>
                     <a href="https://wa.me/5543991205772?text=Burger%20Solid%C3%A1rio%20-%20Em%202026%20quero%20ser%20um%20patrocinador!" target="_blank" class="btn-patrocinar-whatsapp">🍔 Em 2026 quero ser um patrocinador também</a>
                 </div>
             </article>
 
-            <article class="archive-gallery-card archive-campaign-card">
+            <article id="material-campanha" class="archive-gallery-card archive-campaign-card archive-campaign-card-2025">
                 <h3>Material da campanha</h3>
-                <img src="6oBurger/Convite Burger.jpg" alt="Convite do 6º Burger Solidário" class="archive-poster" />
-                <p class="archive-media-caption">A identidade visual da edição reforçou o convite ao público, patrocinadores e apoiadores para uma noite de presença forte e propósito claro.</p>
+                <div class="campaign-story">
+                    <img src="6oBurger/Convite Burger.jpg" alt="Convite do 6º Burger Solidário" class="archive-poster" />
+                    <div class="campaign-story-copy">
+                        <p>O material de divulgação de 2025 apresentou com clareza a proposta do evento, o valor do convite e as instituições beneficiadas, fortalecendo a comunicação com público, parceiros e patrocinadores.</p>
+                        <div class="archive-pill-row">
+                            <a class="archive-pill" href="6oBurger/Convite Burger.jpg" target="_blank">Convite oficial</a>
+                            <a class="archive-pill" href="#patrocinadores">Patrocinadores visíveis</a>
+                            <a class="archive-pill" href="#instituicoes-2025">Marca com propósito</a>
+                        </div>
+                        <p class="archive-media-caption">A identidade visual da edição reforçou o convite ao público, patrocinadores e apoiadores para uma noite de presença forte e propósito claro.</p>
+                        <div class="archive-actions archive-actions-left">
+                            <a href="6oBurger/Convite Burger.jpg" target="_blank" class="secondary-cta">Abrir cartaz completo</a>
+                            <a href="https://wa.me/5543991205772?text=Burger%20Solid%C3%A1rio%20-%20Em%202026%20quero%20ser%20um%20patrocinador!" target="_blank" class="primary-cta">Quero apoiar 2026</a>
+                        </div>
+                    </div>
+                </div>
             </article>
         </section>
 
-        <section class="why-sponsor reveal-up">
+        <section id="instituicoes-2025" class="why-sponsor reveal-up">
             <div class="section-heading align-left">
                 <span class="eyebrow">Instituições de 2025</span>
                 <h2>O resultado foi direcionado para duas instituições com atuação relevante e impacto direto em Londrina.</h2>
@@ -471,14 +283,14 @@
                 </div>
             </div>
 
-            <div style="text-align:center; margin-top: 18px;">
+            <div class="expand-actions">
                 <button id="expandAllBtn" class="expand-indicator">
                     <span class="expand-text">Saiba mais</span> ▼
                 </button>
             </div>
         </section>
 
-        <section class="archive-aside-grid reveal-up">
+        <section class="archive-aside-grid archive-aside-single reveal-up">
             <article class="archive-panel">
                 <div class="section-heading align-left">
                     <span class="eyebrow">Resultado em vídeo</span>
@@ -490,21 +302,6 @@
                         <source src="6oBurger/Resultado%203.mp4" type="video/mp4" />
                         Seu navegador nao suporta o video.
                     </video>
-                </div>
-            </article>
-
-            <article class="archive-panel">
-                <div class="section-heading align-left">
-                    <span class="eyebrow">Próxima edição</span>
-                    <h2>Empresas interessadas em 2026 podem entrar agora.</h2>
-                </div>
-                <p>Se a sua empresa quer fazer parte da próxima campanha, a captação já está aberta. Entrar cedo aumenta a participação da marca e fortalece a construção da edição seguinte.</p>
-                <div class="archive-callout">
-                    O contato direto para informações sobre patrocínio continua no WhatsApp <strong>(43) 99120-5772</strong>.
-                </div>
-                <div class="cta-row compact">
-                    <a href="https://wa.me/5543991205772?text=Burger%20Solid%C3%A1rio%20-%20Em%202026%20quero%20ser%20um%20patrocinador!" target="_blank" class="primary-cta">Receber informações</a>
-                    <a href="index.html" class="secondary-cta">Ver página 2026</a>
                 </div>
             </article>
         </section>
@@ -532,18 +329,18 @@
 
             <p>Esta relação preserva os patrocinadores confirmados da edição de 2025 e reforça como a participação das marcas ajudou a transformar a campanha em entrega concreta para as instituições beneficiadas.</p>
 
-            <div class="sponsors-actions" style="text-align:center; margin:10px 0 18px;">
-                <button id="openAllSponsors" type="button" class="btn-convite-destaque" style="font-size:1.05em; padding:10px 18px;">Ver todas as logos em tela cheia</button>
+            <div class="sponsors-actions sponsors-actions-highlight">
+                <button id="openAllSponsors" type="button" class="btn-convite-destaque btn-convite-compact">Ver todas as logos em tela cheia</button>
             </div>
 
             <div class="sponsors-grid">
-                <a href="#" class="sponsor-card diamond-animation" data-full="patrocinadores/sti_technology.png" data-link="https://www.instagram.com/sti_maquinas/" title="STI Máquinas"><div class="sponsor-image-container"><img src="patrocinadores/sti_technology.png" alt="STI Máquinas - Patrocinador Diamante" /><div class="sponsor-overlay"><div class="diamond-sponsor-badge">💎 DIAMANTE 💎</div></div></div></a>
-                <a href="#" class="sponsor-card gold-animation" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro"><div class="sponsor-image-container"><img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" /><div class="sponsor-overlay"><div class="gold-sponsor-badge">⭐ OURO ⭐</div></div></div></a>
+                <a href="#" class="sponsor-card diamond-animation" data-full="patrocinadores/sti_technology.png" data-link="https://www.instagram.com/sti_maquinas/" title="STI Máquinas"><div class="sponsor-image-container"><img src="patrocinadores/sti_technology.png" alt="STI Máquinas - Patrocinador Diamante" /><div class="sponsor-overlay"><div class="diamond-sponsor-badge">Diamante</div></div></div></a>
+                <a href="#" class="sponsor-card gold-animation" data-full="patrocinadores/lantimoveis.jpg" data-link="https://www.instagram.com/lantconsultoria/" title="Lant Consultoria - Patrocinador Ouro"><div class="sponsor-image-container"><img src="patrocinadores/lantimoveis.jpg" alt="Lant Consultoria - Patrocinador Ouro" /><div class="sponsor-overlay"><div class="gold-sponsor-badge">Ouro</div></div></div></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/tocadocateto.png" data-link="https://www.instagram.com/tocadocateto/" title="Toca do Cateto"><img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" /></a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/morcellicervejaria.jpg" data-link="https://www.instagram.com/morcellicervejaria/" title="Morcelli Cerevejaria"><img src="patrocinadores/morcellicervejaria.jpg" alt="Morcelli Cerevejaria" /></a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/morcellicervejaria.jpg" data-link="https://www.instagram.com/morcellicervejaria/" title="Morcelli Cervejaria"><img src="patrocinadores/morcellicervejaria.jpg" alt="Morcelli Cervejaria" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/SinproLondrina.jpg" data-link="https://www.instagram.com/sinprolondrina/" title="SinPro Londrina"><img src="patrocinadores/SinproLondrina.jpg" alt="SinPro Londrina" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/wccarnes.jpg" data-link="https://wa.me/5543984523742" title="WC - Distribuidora de Carnes"><img src="patrocinadores/wccarnes.jpg" alt="WC - Distribuidora de Carnes" /></a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/conceptkidsteen.jpg" data-link=" https://www.instagram.com/conceptkids.londrina/" title="Concept - Kids and Teen"><img src="patrocinadores/conceptkidsteen.jpg" alt="Concept - Kids and Teen" /></a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/conceptkidsteen.jpg" data-link="https://www.instagram.com/conceptkids.londrina/" title="Concept - Kids and Teen"><img src="patrocinadores/conceptkidsteen.jpg" alt="Concept - Kids and Teen" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/novakmadeiras.jpg" data-link="https://www.instagram.com/novakmadeiras/" title="Novak Madeiras"><img src="patrocinadores/novakmadeiras.jpg" alt="Novak Madeiras" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/barquebramola.jpg" data-link="https://share.google/igY0VgzftfoWaOw1n" title="Bar Quebra Mola"><img src="patrocinadores/barquebramola.jpg" alt="Bar Quebra Mola" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/automaq.jpg" data-link="https://www.instagram.com/automaq.londrina/" title="Automaq Automação Comercial"><img src="/patrocinadores/automaq.jpg" alt="Automaq Automação Comercial" /></a>
@@ -562,7 +359,7 @@
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/londricabos.png" data-link="https://londricabos.com.br/" title="Eletro Londricabos"><img src="/patrocinadores/londricabos.png" alt="Eletro Londricabos" /></a>
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/seminovoslondrinaautos.png" data-link="https://www.instagram.com/seminovos.londrina/" title="Seminovos Londrina - Autos"><img src="/patrocinadores/seminovoslondrinaautos.png" alt="Seminovos Londrina - Autos" /></a>
                 <a href="#" class="sponsor-card" data-full="/patrocinadores/bmbacilimetais.jpg" data-link="https://www.instagram.com/bacilimetais/" title="BM Bacili Metais"><img src="/patrocinadores/bmbacilimetais.jpg" alt="BM Bacili Metais" /></a>
-                <a href="#" class="sponsor-card" data-full="/patrocinadores/inovawash.jpg" data-link="https://www.instagram.com/inova.wash_londrina/" title="InovaWash Limpeza e Impermeabilização de Colchões e Tapetes"><img src="/patrocinadores/inovawash.jpg" alt="InovaWash Limpeza e Impermeabilização de Colchões e Tapetesr" /></a>
+                <a href="#" class="sponsor-card" data-full="/patrocinadores/inovawash.jpg" data-link="https://www.instagram.com/inova.wash_londrina/" title="InovaWash Limpeza e Impermeabilização de Colchões e Tapetes"><img src="/patrocinadores/inovawash.jpg" alt="InovaWash Limpeza e Impermeabilização de Colchões e Tapetes" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/prosa.png" data-link="https://www.instagram.com/prosacozinhasecreta/" title="Prosa Cozinha Secreta"><img src="/patrocinadores/prosa.png" alt="Prosa Cozinha Secreta" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/BarracoDaSopa.png" data-link="https://www.barracodasopa.com.br/" title="Barraco da Sopa"><img src="patrocinadores/BarracoDaSopa.png" alt="Barraco da Sopa" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/angico.png" data-link="https://www.instagram.com/angico_restaurante/" title="Restaurante Angico"><img src="patrocinadores/angico.png" alt="Restaurante Angico" /></a>
@@ -580,7 +377,7 @@
                 <a href="#" class="sponsor-card" data-full="6oBurger/FabianoPerito.png" data-link="https://www.instagram.com/peritofabianoabucarub/" title="Fabiano Abucarub - Perito"><img src="6oBurger/FabianoPerito.png" alt="Fabiano Abucarub - Perito" /></a>
                 <a href="#" class="sponsor-card" data-full="6oBurger/casadasfraldaslondrina.jpg" data-link="https://www.instagram.com/casadasfraldas.londrina/" title="Casa das Fraldas - Londrina"><img src="6oBurger/casadasfraldaslondrina.jpg" alt="Casa das Fraldas - Londrina" /></a>
                 <a href="#" class="sponsor-card" data-full="patrocinadores/manaiaimoveis.jpg" data-link="https://www.instagram.com/manaiaimoveis/" title="Manaia Imóveis"><img src="patrocinadores/manaiaimoveis.jpg" alt="Manaia Imóveis" /></a>
-                <a href="#" class="sponsor-card" data-full="patrocinadores/tkacabamentos.png" data-link="https://www.instagram.com/tklondrina/" title="Tk Acabamentos Londrina"><img src="patrocinadores/tkacabamentos.png" alt="Tk Acabamentos Londrina" /></a>
+                <a href="#" class="sponsor-card" data-full="patrocinadores/tkacabamentos.png" data-link="https://www.instagram.com/tklondrina/" title="TK Acabamentos Londrina"><img src="patrocinadores/tkacabamentos.png" alt="TK Acabamentos Londrina" /></a>
             </div>
         </section>
 
@@ -613,7 +410,7 @@
             <img class="img-modal-content" id="imgModalContent" alt="Patrocinador" />
             <div class="img-modal-info">
                 <h4 id="imgModalTitle"></h4>
-                <a id="imgModalLink" href="#" target="_blank" rel="noopener noreferrer" class="visit-link" style="display:none;">🌐 Visitar patrocinador</a>
+                <a id="imgModalLink" href="#" target="_blank" rel="noopener noreferrer" class="visit-link modal-visit-link">🌐 Visitar patrocinador</a>
             </div>
         </div>
     </div>

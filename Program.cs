@@ -1,5 +1,6 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -35,54 +36,80 @@ internal class Program
 
             if (string.IsNullOrWhiteSpace(resendApiKey) || string.IsNullOrWhiteSpace(resendFromEmail))
             {
-                return Results.Problem(
-                    detail: "Servico de email nao configurado. Defina RESEND_API_KEY e RESEND_FROM_EMAIL no ambiente.",
+                return Results.Json(
+                    new { message = "O envio de email esta indisponivel no momento. Fale conosco pelo WhatsApp (43) 99120-5772." },
                     statusCode: StatusCodes.Status500InternalServerError);
             }
 
-            var client = httpClientFactory.CreateClient();
-            client.BaseAddress = new Uri("https://api.resend.com/");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resendApiKey);
-
-            var bodyText = $"""
-                Novo contato pelo site Noite do Burger Solidario
-
-                Nome: {request.Name}
-                Email: {request.Email}
-                Telefone: {request.Phone}
-
-                Mensagem:
-                {request.Message}
-                """;
-
-            var bodyHtml = $"""
-                <h2>Novo contato pelo site Noite do Burger Solidario</h2>
-                <p><strong>Nome:</strong> {System.Net.WebUtility.HtmlEncode(request.Name)}</p>
-                <p><strong>Email:</strong> {System.Net.WebUtility.HtmlEncode(request.Email)}</p>
-                <p><strong>Telefone:</strong> {System.Net.WebUtility.HtmlEncode(request.Phone)}</p>
-                <p><strong>Mensagem:</strong></p>
-                <p>{System.Net.WebUtility.HtmlEncode(request.Message).Replace(Environment.NewLine, "<br />").Replace("\n", "<br />")}</p>
-                """;
-
-            var resendRequest = new ResendEmailRequest(
-                resendFromEmail,
-                ["veneravel@arteecienca.org", "wagenheimer@gmail.com"],
-                $"Novo contato do site: {request.Name}",
-                bodyHtml,
-                bodyText,
-                request.Email);
-
-            using var response = await client.PostAsJsonAsync("emails", resendRequest, cancellationToken);
-
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                var errorBody = await response.Content.ReadAsStringAsync(cancellationToken);
-                return Results.Problem(
-                    detail: $"Falha ao enviar email pelo Resend: {errorBody}",
-                    statusCode: StatusCodes.Status502BadGateway);
-            }
+                var client = httpClientFactory.CreateClient();
+                client.BaseAddress = new Uri("https://api.resend.com/");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", resendApiKey);
 
-            return Results.Ok(new { message = "Mensagem enviada com sucesso." });
+                var bodyText = $"""
+                    Novo contato pelo site Noite do Burger Solidario
+
+                    Nome: {request.Name}
+                    Email: {request.Email}
+                    Telefone: {request.Phone}
+
+                    Mensagem:
+                    {request.Message}
+                    """;
+
+                var bodyHtml = $"""
+                    <h2>Novo contato pelo site Noite do Burger Solidario</h2>
+                    <p><strong>Nome:</strong> {System.Net.WebUtility.HtmlEncode(request.Name)}</p>
+                    <p><strong>Email:</strong> {System.Net.WebUtility.HtmlEncode(request.Email)}</p>
+                    <p><strong>Telefone:</strong> {System.Net.WebUtility.HtmlEncode(request.Phone)}</p>
+                    <p><strong>Mensagem:</strong></p>
+                    <p>{System.Net.WebUtility.HtmlEncode(request.Message).Replace(Environment.NewLine, "<br />").Replace("\n", "<br />")}</p>
+                    """;
+
+                var resendRequest = new ResendEmailRequest(
+                    resendFromEmail,
+                    ["veneravel@arteeciencia.org", "wagenheimer@gmail.com"],
+                    $"Novo contato do site: {request.Name}",
+                    bodyHtml,
+                    bodyText,
+                    request.Email);
+
+                using var response = await client.PostAsJsonAsync("emails", resendRequest, cancellationToken);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorBody = await response.Content.ReadAsStringAsync(cancellationToken);
+                    var providerMessage = TryExtractProviderMessage(errorBody);
+                    var message = string.IsNullOrWhiteSpace(providerMessage)
+                        ? "Nao foi possivel enviar sua mensagem agora. Tente novamente em instantes ou fale conosco no WhatsApp."
+                        : $"Nao foi possivel enviar sua mensagem agora. Detalhe: {providerMessage}";
+
+                    return Results.Json(
+                        new { message },
+                        statusCode: StatusCodes.Status502BadGateway);
+                }
+
+                return Results.Ok(new { message = "Mensagem enviada com sucesso. Em breve entraremos em contato." });
+            }
+            catch (HttpRequestException)
+            {
+                return Results.Json(
+                    new { message = "Nao foi possivel conectar ao servico de email agora. Tente novamente em instantes ou fale conosco no WhatsApp." },
+                    statusCode: StatusCodes.Status503ServiceUnavailable);
+            }
+            catch (TaskCanceledException)
+            {
+                return Results.Json(
+                    new { message = "O envio demorou mais do que o esperado. Tente novamente em instantes." },
+                    statusCode: StatusCodes.Status504GatewayTimeout);
+            }
+            catch (Exception)
+            {
+                return Results.Json(
+                    new { message = "Ocorreu um erro interno ao enviar sua mensagem. Tente novamente em instantes ou fale conosco no WhatsApp." },
+                    statusCode: StatusCodes.Status500InternalServerError);
+            }
         });
 
         app.UseDefaultFiles();
@@ -104,4 +131,44 @@ internal class Program
         [property: JsonPropertyName("html")] string Html,
         [property: JsonPropertyName("text")] string Text,
         [property: JsonPropertyName("reply_to")] string ReplyTo);
+
+    private static string? TryExtractProviderMessage(string? responseBody)
+    {
+        if (string.IsNullOrWhiteSpace(responseBody))
+        {
+            return null;
+        }
+
+        try
+        {
+            using var document = JsonDocument.Parse(responseBody);
+            var root = document.RootElement;
+
+            if (root.TryGetProperty("message", out var message) && message.ValueKind == JsonValueKind.String)
+            {
+                return message.GetString();
+            }
+
+            if (root.TryGetProperty("error", out var error))
+            {
+                if (error.ValueKind == JsonValueKind.String)
+                {
+                    return error.GetString();
+                }
+
+                if (error.ValueKind == JsonValueKind.Object
+                    && error.TryGetProperty("message", out var nestedMessage)
+                    && nestedMessage.ValueKind == JsonValueKind.String)
+                {
+                    return nestedMessage.GetString();
+                }
+            }
+        }
+        catch (JsonException)
+        {
+            return responseBody.Trim();
+        }
+
+        return responseBody.Trim();
+    }
 }

@@ -1,5 +1,33 @@
 ﻿// Scripts JS do site
 document.addEventListener('DOMContentLoaded', function () {
+    function extractErrorMessage(result, fallbackMessage) {
+        if (result && typeof result === 'object') {
+            if (typeof result.message === 'string' && result.message.trim()) {
+                return result.message.trim();
+            }
+
+            if (typeof result.detail === 'string' && result.detail.trim()) {
+                return result.detail.trim();
+            }
+
+            if (typeof result.title === 'string' && result.title.trim()) {
+                return result.title.trim();
+            }
+        }
+
+        return fallbackMessage;
+    }
+
+    function closeModalElement(modalElement) {
+        if (!modalElement) {
+            return;
+        }
+
+        modalElement.style.display = 'none';
+        modalElement.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
     // ===== MENU MOBILE =====
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
@@ -16,6 +44,22 @@ document.addEventListener('DOMContentLoaded', function () {
         const content = track.innerHTML;
         track.innerHTML += content;
     }
+
+    // ===== GARANTIR DESTINOS REAIS NOS CARDS CLICÁVEIS =====
+    document.querySelectorAll('.sponsors-grid .sponsor-card').forEach(function (card) {
+        const targetHref = (card.dataset.link || card.dataset.full || '').trim();
+
+        if (!targetHref) {
+            return;
+        }
+
+        card.setAttribute('href', targetHref);
+
+        if (/^(https?:)?\/\//i.test(targetHref) || /^https:/i.test(targetHref)) {
+            card.setAttribute('target', '_blank');
+            card.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
 
     // ===== ANEXAR EVENT LISTENERS PARA MODAL DE INFO =====
     attachSponsorListeners();
@@ -47,67 +91,98 @@ document.addEventListener('DOMContentLoaded', function () {
     const gridAll = document.getElementById('allSponsorsGrid');
 
     function openAllSponsorsModal() {
-        if (!modalAll || !gridAll) return;
-        
+        if (!modalAll || !gridAll) {
+            return;
+        }
+
         const logos = Array.from(document.querySelectorAll('.sponsors-grid .sponsor-card'));
         gridAll.innerHTML = '';
-        logos.forEach(card => {
+
+        logos.forEach(function (card) {
             const img = card.querySelector('img');
-            if (img) {
-                const clone = img.cloneNode(true);
-                const wrap = document.createElement('div');
-                // Copia os atributos do card original para o wrapper da logo
-                wrap.dataset.full = card.dataset.full;
-                wrap.dataset.link = card.dataset.link;
-                wrap.title = card.title;
-                wrap.classList.add('sponsor-card-ref'); // Classe para identificar
-                wrap.appendChild(clone);
-                gridAll.appendChild(wrap);
+            if (!img) {
+                return;
             }
+
+            const wrap = document.createElement('div');
+            wrap.dataset.full = card.dataset.full || img.getAttribute('src') || '';
+            wrap.dataset.link = (card.dataset.link || '').trim();
+            wrap.title = card.title;
+            wrap.tabIndex = 0;
+            wrap.setAttribute('role', 'button');
+            wrap.setAttribute('aria-label', card.title || img.alt || 'Abrir patrocinador');
+            wrap.classList.add('sponsor-card-ref');
+
+            card.classList.forEach(function (className) {
+                if (className !== 'sponsor-card') {
+                    wrap.classList.add(className);
+                }
+            });
+
+            const imageContainer = card.querySelector('.sponsor-image-container');
+            if (imageContainer) {
+                wrap.appendChild(imageContainer.cloneNode(true));
+            } else {
+                wrap.appendChild(img.cloneNode(true));
+            }
+
+            gridAll.appendChild(wrap);
         });
 
         modalAll.style.display = 'flex';
+        modalAll.scrollTop = 0;
         document.body.style.overflow = 'hidden';
         modalAll.setAttribute('aria-hidden', 'false');
     }
 
-    if (btnAll) btnAll.addEventListener('click', openAllSponsorsModal);
-    if (btnSticky) btnSticky.addEventListener('click', openAllSponsorsModal);
+    if (btnAll) {
+        btnAll.addEventListener('click', openAllSponsorsModal);
+    }
+
+    if (btnSticky) {
+        btnSticky.addEventListener('click', openAllSponsorsModal);
+    }
 
     if (modalAll) {
-        modalAll.style.overflowY = 'auto'; // Permitir scroll no modal
+        modalAll.style.overflowY = 'auto';
 
-        // Fechar modal
-        modalAll.addEventListener('click', function(e) {
+        modalAll.addEventListener('click', function (e) {
             if (e.target.id === 'allSponsorsModal' || e.target.classList.contains('img-modal-close')) {
-                modalAll.style.display = 'none';
-                document.body.style.overflow = '';
-                modalAll.setAttribute('aria-hidden', 'true');
+                closeModalElement(modalAll);
             }
         });
 
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && modalAll.style.display === 'flex') {
-                modalAll.style.display = 'none';
-                document.body.style.overflow = '';
-                modalAll.setAttribute('aria-hidden', 'true');
+                closeModalElement(modalAll);
             }
         });
     }
 
-    // Abrir popup de informações ao clicar na logo dentro do modal "Todos"
     if (gridAll) {
-        gridAll.addEventListener('click', function(e) {
+        gridAll.addEventListener('click', function (e) {
             const cardRef = e.target.closest('.sponsor-card-ref');
-            if (cardRef) {
-                // Fecha o modal de todas as logos antes de abrir o de informações
-                if (modalAll) {
-                    modalAll.style.display = 'none';
-                    modalAll.setAttribute('aria-hidden', 'true');
-                }
-                // Abre o modal de info usando os dados do card de referência
-                openSponsorModal(e, cardRef);
+            if (!cardRef) {
+                return;
             }
+
+            closeModalElement(modalAll);
+            openSponsorModal(e, cardRef);
+        });
+
+        gridAll.addEventListener('keydown', function (e) {
+            if (e.key !== 'Enter' && e.key !== ' ') {
+                return;
+            }
+
+            const cardRef = e.target.closest('.sponsor-card-ref');
+            if (!cardRef) {
+                return;
+            }
+
+            e.preventDefault();
+            closeModalElement(modalAll);
+            openSponsorModal(e, cardRef);
         });
     }
 
@@ -149,24 +224,38 @@ document.addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify(payload)
                 });
 
-                const result = await response.json().catch(function () {
-                    return null;
-                });
+                const responseText = await response.text();
+                let result = null;
+
+                if (responseText) {
+                    try {
+                        result = JSON.parse(responseText);
+                    } catch (parseError) {
+                        if (response.ok) {
+                            throw new SyntaxError('O servidor respondeu de forma inválida.');
+                        }
+
+                        throw new Error('O servidor não conseguiu processar sua mensagem agora. Tente novamente em instantes ou fale conosco no WhatsApp.');
+                    }
+                }
 
                 if (!response.ok) {
-                    const message = result && (result.message || result.detail)
-                        ? (result.message || result.detail)
-                        : 'Não foi possível enviar sua mensagem agora.';
-                    throw new Error(message);
+                    throw new Error(extractErrorMessage(result, 'Não foi possível enviar sua mensagem agora.'));
                 }
 
                 contactForm.reset();
-                contactStatus.textContent = 'Mensagem enviada com sucesso. Em breve entraremos em contato.';
+                contactStatus.textContent = extractErrorMessage(result, 'Mensagem enviada com sucesso. Em breve entraremos em contato.');
                 contactStatus.dataset.state = 'success';
             } catch (error) {
-                contactStatus.textContent = error instanceof Error
-                    ? error.message
-                    : 'Não foi possível enviar sua mensagem agora.';
+                const errorMessage = error instanceof SyntaxError
+                    ? 'O servidor respondeu de forma inválida. Tente novamente em instantes ou fale conosco no WhatsApp.'
+                    : error instanceof TypeError
+                        ? 'Não foi possível conectar ao servidor agora. Tente novamente em instantes ou fale conosco no WhatsApp.'
+                        : error instanceof Error && error.message
+                            ? error.message
+                            : 'Não foi possível enviar sua mensagem agora.';
+
+                contactStatus.textContent = errorMessage;
                 contactStatus.dataset.state = 'error';
             } finally {
                 if (submitButton) {
@@ -206,10 +295,10 @@ function openSponsorModal(e, el) {
 }
 
 function attachSponsorListeners() {
-    // Clicar nos cards da grade principal e do carrossel
+    // O modal permanece apenas para visualização dedicada; os cards principais seguem seus links reais.
     document.body.addEventListener('click', function(e) {
-        const sponsorCard = e.target.closest('.sponsors-grid .sponsor-card, .sponsor-track .sponsor-card');
-        if (sponsorCard && !e.target.closest('.all-sponsors-grid')) { // Evita conflito com o modal "Todos"
+        const sponsorCard = e.target.closest('.sponsor-track .sponsor-card');
+        if (sponsorCard && !e.target.closest('.all-sponsors-grid')) {
             e.preventDefault();
             openSponsorModal(e, sponsorCard);
         }

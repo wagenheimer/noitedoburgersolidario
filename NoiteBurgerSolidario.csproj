@@ -5,6 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>6d124826-3ab3-4848-9929-7368b30ed4c2</UserSecretsId>
+		<DefaultItemExcludes>$(DefaultItemExcludes);.artifacts/**;artifacts/**</DefaultItemExcludes>
 	</PropertyGroup>
 
 </Project>
