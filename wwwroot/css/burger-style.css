@@ -274,31 +274,52 @@ body {
         background: none;
     }
 
-.floating-icons {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+.top-bar-social {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 5000;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
 }
 
-    .floating-icons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        height: 70px;
-        background-color: white;
-        border-radius: 50%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
+.mobile-nav-social {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 8px 0 4px;
+}
 
-    .floating-icons img {
-        width: 40px;
-        height: 40px;
-    }
+.mobile-nav-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: rgba(255, 255, 255, 0.55);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.mobile-nav-social a:hover {
+    color: #FFD700;
+}
+
+.top-bar-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: rgba(255, 255, 255, 0.55);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+}
+
+.top-bar-social a:hover {
+    color: #FFD700;
+    background: rgba(255, 255, 255, 0.08);
+}
 
 /* Menu Mobile (Hamburger) */
 .menu-toggle {
@@ -677,31 +698,18 @@ body {
         max-width: 180px;
     }
 
-    body {
-        padding-bottom: 130px !important;
+    /* Ícones Sociais — ocultos na top-bar em mobile */
+    .top-bar-social {
+        display: none;
     }
-
-    /* Ícones Sociais */
-    .floating-icons {
-        top: 90px;
-        right: 10px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-        .floating-icons a {
-            width: 45px;
-            height: 45px;
-        }
-
-        .floating-icons img {
-            width: 25px;
-            height: 25px;
-        }
 }
 
 @media (max-width: 991px) {
     .desktop-nav {
+        display: none;
+    }
+
+    .top-bar-title {
         display: none;
     }
 
