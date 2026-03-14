@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!response.ok) {
                     const message = result && (result.message || result.detail)
                         ? (result.message || result.detail)
-                        : 'Nao foi possivel enviar sua mensagem agora.';
+                        : 'Não foi possível enviar sua mensagem agora.';
                     throw new Error(message);
                 }
 
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (error) {
                 contactStatus.textContent = error instanceof Error
                     ? error.message
-                    : 'Nao foi possivel enviar sua mensagem agora.';
+                    : 'Não foi possível enviar sua mensagem agora.';
                 contactStatus.dataset.state = 'error';
             } finally {
                 if (submitButton) {

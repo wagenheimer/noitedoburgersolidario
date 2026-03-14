@@ -572,6 +572,7 @@ body.home-2026 .floating-icons a {
 }
 
 .contact-intro p,
+.contact-topics,
 .contact-form-status,
 .field-group span,
 .contact-direct-list a {
@@ -583,6 +584,33 @@ body.home-2026 .floating-icons a {
 	line-height: 1.75;
 	margin-top: 8px;
 	max-width: 48ch;
+}
+
+.contact-topics {
+	margin: 18px 0 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 10px;
+	max-width: 56ch;
+}
+
+.contact-topics li {
+	position: relative;
+	padding-left: 18px;
+	line-height: 1.6;
+}
+
+.contact-topics li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.72em;
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+	box-shadow: 0 0 0 4px rgba(255, 191, 71, 0.12);
 }
 
 .contact-direct-list {
