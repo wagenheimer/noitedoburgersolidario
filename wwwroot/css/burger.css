@@ -3146,7 +3146,7 @@ body.home-2025 .thank-you-content {
 	display: grid;
 	grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
 	gap: 20px;
-	align-items: center;
+	align-items: start;
 }
 
 .opening-spotlight-top .section-heading {
@@ -3166,14 +3166,10 @@ body.home-2025 .thank-you-content {
 }
 
 .institutions-opening-stats {
-	margin: 14px 0 18px;
-}
-
-.institutions-opening-stats {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
-	margin: 18px 0 24px;
+	margin: 16px 0 0;
 }
 
 .opening-stat {
