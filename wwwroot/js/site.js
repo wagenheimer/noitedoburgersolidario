@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const panels = Array.from(spotlightRoot.querySelectorAll('.spotlight-panel[data-spotlight]'));
         const dots = Array.from(spotlightRoot.querySelectorAll('.spotlight-dot[data-inst]'));
+        const prevButton = spotlightRoot.querySelector('[data-spotlight-prev]');
+        const nextButton = spotlightRoot.querySelector('[data-spotlight-next]');
+        const counter = spotlightRoot.querySelector('[data-spotlight-counter]');
 
         if (!panels.length) {
             return;
@@ -104,6 +107,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 dot.setAttribute('aria-selected', String(isActive));
                 dot.setAttribute('tabindex', isActive ? '0' : '-1');
             });
+
+            if (counter) {
+                counter.textContent = String(activeIndex + 1) + ' / ' + String(ids.length);
+            }
+        }
+
+        function goToStep(step) {
+            activeIndex = (step + ids.length) % ids.length;
+            setActive(ids[activeIndex]);
         }
 
         function stopRotation() {
@@ -124,14 +136,30 @@ document.addEventListener('DOMContentLoaded', function () {
         cards.forEach(function (card) {
             card.addEventListener('click', function () {
                 setActive(card.dataset.inst);
+                startRotation();
             });
         });
 
         dots.forEach(function (dot) {
             dot.addEventListener('click', function () {
                 setActive(dot.dataset.inst);
+                startRotation();
             });
         });
+
+        if (prevButton) {
+            prevButton.addEventListener('click', function () {
+                goToStep(activeIndex - 1);
+                startRotation();
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', function () {
+                goToStep(activeIndex + 1);
+                startRotation();
+            });
+        }
 
         spotlightRoot.addEventListener('mouseenter', stopRotation);
         spotlightRoot.addEventListener('mouseleave', startRotation);
