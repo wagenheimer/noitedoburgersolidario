@@ -3196,7 +3196,7 @@ body.home-2025 .thank-you-content {
 
 .institutions-rotator {
 	position: relative;
-	margin: 0 0 14px;
+	margin: 20px 0 14px;
 }
 
 .spotlight-panel {
@@ -3688,6 +3688,10 @@ body.home-2026 #instituicoes-2026 .institution-logo {
 	.spotlight-panel {
 		grid-template-columns: 1fr;
 		padding: 16px;
+	}
+
+	.institutions-rotator {
+		margin-top: 14px;
 	}
 
 	.spotlight-controls {
