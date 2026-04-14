@@ -1777,83 +1777,43 @@ body {
 
 /* Indicador de scroll (design limpo e suave) */
 .scroll-indicator {
-    position: relative;
-    width: 30px;
-    height: 48px;
-    margin: 18px auto 8px;
-    border-radius: 22px;
-    border: 2px solid rgba(241, 205, 116, 0.72);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
     opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.25s ease;
-}
-
-.scroll-indicator::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 9px;
-    width: 4px;
-    height: 8px;
-    border-radius: 999px;
-    background: #ffd98d;
-    transform: translateX(-50%);
-    animation: scrollWheelDrop 1.55s cubic-bezier(0.25, 0.9, 0.3, 1) infinite;
+    transition: opacity 0.4s ease;
 }
 
 .scroll-indicator::after {
     content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -12px;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid #f1cd74;
-    border-bottom: 2px solid #f1cd74;
-    transform: translateX(-50%) rotate(45deg);
-    animation: scrollChevronFloat 1.55s ease-in-out infinite;
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-right: 3px solid rgba(212, 175, 55, 0.6);
+    border-bottom: 3px solid rgba(212, 175, 55, 0.6);
+    transform: rotate(-45deg);
+    animation: scrollArrowBounce 1.8s ease-in-out infinite;
 }
 
-@keyframes scrollWheelDrop {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(0);
-    }
-    30% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 0.9;
-        transform: translateX(-50%) translateY(12px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(12px);
-    }
-}
-
-@keyframes scrollChevronFloat {
+@keyframes scrollArrowBounce {
     0%, 100% {
-        opacity: 0.55;
-        transform: translateX(-50%) rotate(45deg) translateY(0);
+        transform: rotate(-45deg) translateY(0);
+        opacity: 0.4;
     }
     50% {
-        opacity: 1;
-        transform: translateX(-50%) rotate(45deg) translateY(4px);
+        transform: rotate(-45deg) translateY(8px);
+        opacity: 0.9;
     }
 }
 
 /* Mostrar indicador apenas quando a seção está parcialmente visível */
 .scroll-indicator.visible {
-    opacity: 0.95;
-    transform: translateY(0);
+    opacity: 0.6;
 }
 
 .scroll-indicator:hover {
-  opacity: 1;
-    border-color: rgba(255, 215, 120, 1);
+    opacity: 0.9;
 }
 
 /* Ocultar indicador na última seção da página */
@@ -1866,15 +1826,10 @@ main > section:last-of-type .scroll-indicator {
   .scroll-progress-container {
     height: 3px;
   }
-
-    .scroll-indicator {
-        width: 28px;
-        height: 44px;
-    }
-
-    .scroll-indicator::after {
-        width: 9px;
-        height: 9px;
-        bottom: -10px;
-    }
+  
+  .scroll-indicator::after {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+  }
 }
