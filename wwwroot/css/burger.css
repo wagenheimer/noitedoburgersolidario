@@ -3171,7 +3171,127 @@ body.home-2025 .thank-you-content {
 	margin-bottom: 24px;
 }
 
+.institutions-rotator {
+	position: relative;
+	margin: 4px 0 18px;
+}
+
+.spotlight-panel {
+	display: none;
+	grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
+	gap: 18px;
+	padding: 18px;
+	border-radius: 18px;
+	border: 1px solid rgba(255, 191, 71, 0.28);
+	background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+	align-items: center;
+}
+
+.spotlight-panel.is-active {
+	display: grid;
+	animation: spotlightFade 0.45s ease;
+}
+
+@keyframes spotlightFade {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.spotlight-panel-content h3 {
+	margin: 0 0 8px;
+	font-size: clamp(1.4rem, 2.2vw, 2rem);
+	line-height: 1.08;
+	color: #ffe29d;
+	font-family: 'Bebas Neue', sans-serif;
+	letter-spacing: 0.02em;
+}
+
+.spotlight-panel-content p {
+	margin: 0;
+	color: #e6d9c7;
+	font-size: 1rem;
+	line-height: 1.55;
+	max-width: 58ch;
+}
+
+.spotlight-kicker {
+	display: inline-flex;
+	margin-bottom: 8px;
+	padding: 5px 9px;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #ffd888;
+	border-radius: 999px;
+	background: rgba(255, 191, 71, 0.1);
+	border: 1px solid rgba(255, 191, 71, 0.32);
+}
+
+.spotlight-cta-row {
+	margin-top: 14px;
+}
+
+.spotlight-cta-row .secondary-cta {
+	padding: 10px 16px;
+	font-size: 0.86rem;
+}
+
+.spotlight-panel-media {
+	position: relative;
+	padding: 10px;
+	border-radius: 16px;
+	background: radial-gradient(circle at 50% 40%, rgba(255, 191, 71, 0.18), rgba(255, 255, 255, 0.06));
+	border: 1px solid rgba(255, 191, 71, 0.24);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 170px;
+}
+
+.spotlight-panel-media img {
+	max-width: 100%;
+	max-height: 150px;
+	object-fit: contain;
+	filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.24));
+}
+
+.spotlight-dots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-top: 10px;
+}
+
+.spotlight-dot {
+	appearance: none;
+	width: 10px;
+	height: 10px;
+	border-radius: 999px;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.28);
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.spotlight-dot.is-active {
+	background: #ffbf47;
+	transform: scale(1.35);
+}
+
 .opening-institution-card {
+	appearance: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	gap: 14px;
@@ -3186,6 +3306,12 @@ body.home-2025 .thank-you-content {
 	transform: translateY(-3px);
 	border-color: rgba(255, 191, 71, 0.38);
 	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+}
+
+.opening-institution-card.is-active {
+	border-color: rgba(255, 191, 71, 0.52);
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(255, 191, 71, 0.22);
+	background: linear-gradient(160deg, rgba(255, 191, 71, 0.16), rgba(255, 255, 255, 0.04));
 }
 
 .opening-institution-logo-frame {
@@ -3254,27 +3380,123 @@ body.home-2026 #instituicoes-2026 .institution-logo {
 /* ── Instituições 2026: CTA block dentro da seção ── */
 .institutions-cta-block {
 	margin-top: 48px;
-	padding: 36px 32px;
-	background: linear-gradient(135deg, rgba(255,191,71,0.10) 0%, rgba(255,90,30,0.08) 100%);
-	border: 1px solid rgba(255,191,71,0.28);
-	border-radius: 20px;
-	text-align: center;
+	padding: 34px;
+	background:
+		radial-gradient(circle at 0% 100%, rgba(255, 191, 71, 0.14), transparent 44%),
+		radial-gradient(circle at 100% 0%, rgba(255, 90, 30, 0.16), transparent 42%),
+		linear-gradient(145deg, rgba(44, 18, 10, 0.72), rgba(32, 10, 8, 0.9));
+	border: 1px solid rgba(255,191,71,0.30);
+	border-radius: 24px;
+	text-align: left;
+	box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
+}
+
+.institutions-cta-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.75fr);
+	gap: 26px;
+	align-items: stretch;
+}
+
+.institutions-cta-main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.institutions-cta-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	padding: 7px 12px;
+	margin-bottom: 14px;
+	border-radius: 999px;
+	border: 1px solid rgba(255,191,71,0.34);
+	background: rgba(255,191,71,0.08);
+	color: #ffd889;
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
 }
 
 .institutions-cta-headline {
 	font-family: 'Bebas Neue', sans-serif;
-	font-size: clamp(1.4rem, 2.4vw, 2rem);
+	font-size: clamp(1.55rem, 2.8vw, 2.35rem);
 	color: var(--accent-gold, #ffbf47);
-	letter-spacing: 0.02em;
-	margin: 0 0 12px;
+	letter-spacing: 0.01em;
+	line-height: 1.1;
+	margin: 0 0 14px;
 }
 
 .institutions-cta-sub {
-	color: var(--text-soft, #b0b8c4);
-	font-size: 1.02rem;
-	line-height: 1.65;
-	max-width: 680px;
-	margin: 0 auto 28px;
+	color: #eadfce;
+	font-size: 1.07rem;
+	line-height: 1.62;
+	max-width: 720px;
+	margin: 0 0 24px;
+}
+
+.institutions-cta-actions {
+	justify-content: flex-start;
+}
+
+.institutions-cta-proof {
+	padding: 18px 18px 16px;
+	border-radius: 18px;
+	background: linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+	border: 1px solid rgba(255, 191, 71, 0.20);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.institutions-cta-proof h3 {
+	font-size: 1.05rem;
+	color: #ffd889;
+	margin: 0 0 10px;
+}
+
+.institutions-cta-proof ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 14px;
+	display: grid;
+	gap: 8px;
+}
+
+.institutions-cta-proof li {
+	position: relative;
+	padding-left: 16px;
+	color: #e5d8c3;
+	font-size: 0.94rem;
+	line-height: 1.45;
+}
+
+.institutions-cta-proof li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.52em;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: linear-gradient(180deg, #ffcc66, #ff8c4d);
+	box-shadow: 0 0 10px rgba(255, 191, 71, 0.45);
+}
+
+.institutions-cta-inline-link {
+	color: #ffd889;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 0.95rem;
+	border-bottom: 1px solid rgba(255, 216, 137, 0.32);
+	padding-bottom: 2px;
+	width: fit-content;
+}
+
+.institutions-cta-inline-link:hover {
+	opacity: 0.85;
 }
 
 /* ── Urgency CTA – seção de apelo ao patrocinador ── */
@@ -3344,6 +3566,19 @@ body.home-2026 #instituicoes-2026 .institution-logo {
 		grid-template-columns: 1fr;
 	}
 
+	.spotlight-panel {
+		grid-template-columns: 1fr;
+		padding: 16px;
+	}
+
+	.spotlight-panel-media {
+		min-height: 130px;
+	}
+
+	.spotlight-panel-media img {
+		max-height: 112px;
+	}
+
 	.institutions-opening-stats {
 		gap: 8px;
 	}
@@ -3362,6 +3597,27 @@ body.home-2026 #instituicoes-2026 .institution-logo {
 	}
 
 	.institutions-cta-block {
-		padding: 28px 20px;
+		padding: 26px 18px;
+	}
+
+	.institutions-cta-layout {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+
+	.institutions-cta-headline {
+		font-size: clamp(1.35rem, 7vw, 1.85rem);
+	}
+
+	.institutions-cta-sub {
+		font-size: 0.99rem;
+	}
+
+	.institutions-cta-actions {
+		justify-content: center;
+	}
+
+	.institutions-cta-proof {
+		padding: 16px;
 	}
 }

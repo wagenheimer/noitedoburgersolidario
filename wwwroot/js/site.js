@@ -56,6 +56,92 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // ===== SPOTLIGHT DAS INSTITUIÇÕES (TOPO) =====
+    (function initInstitutionsSpotlight() {
+        const spotlightRoot = document.querySelector('[data-institutions-rotator]');
+        const cards = Array.from(document.querySelectorAll('.opening-institution-card[data-inst]'));
+
+        if (!spotlightRoot || !cards.length) {
+            return;
+        }
+
+        const panels = Array.from(spotlightRoot.querySelectorAll('.spotlight-panel[data-spotlight]'));
+        const dots = Array.from(spotlightRoot.querySelectorAll('.spotlight-dot[data-inst]'));
+
+        if (!panels.length) {
+            return;
+        }
+
+        const ids = cards.map(function (card) {
+            return card.dataset.inst;
+        });
+
+        let activeIndex = 0;
+        let rotationTimer = null;
+
+        function setActive(institutionId) {
+            const nextIndex = ids.indexOf(institutionId);
+            if (nextIndex === -1) {
+                return;
+            }
+
+            activeIndex = nextIndex;
+
+            cards.forEach(function (card) {
+                const isActive = card.dataset.inst === institutionId;
+                card.classList.toggle('is-active', isActive);
+                card.setAttribute('aria-pressed', String(isActive));
+            });
+
+            panels.forEach(function (panel) {
+                const isActive = panel.dataset.spotlight === institutionId;
+                panel.classList.toggle('is-active', isActive);
+            });
+
+            dots.forEach(function (dot) {
+                const isActive = dot.dataset.inst === institutionId;
+                dot.classList.toggle('is-active', isActive);
+                dot.setAttribute('aria-selected', String(isActive));
+                dot.setAttribute('tabindex', isActive ? '0' : '-1');
+            });
+        }
+
+        function stopRotation() {
+            if (rotationTimer) {
+                window.clearInterval(rotationTimer);
+                rotationTimer = null;
+            }
+        }
+
+        function startRotation() {
+            stopRotation();
+            rotationTimer = window.setInterval(function () {
+                activeIndex = (activeIndex + 1) % ids.length;
+                setActive(ids[activeIndex]);
+            }, 4800);
+        }
+
+        cards.forEach(function (card) {
+            card.addEventListener('click', function () {
+                setActive(card.dataset.inst);
+            });
+        });
+
+        dots.forEach(function (dot) {
+            dot.addEventListener('click', function () {
+                setActive(dot.dataset.inst);
+            });
+        });
+
+        spotlightRoot.addEventListener('mouseenter', stopRotation);
+        spotlightRoot.addEventListener('mouseleave', startRotation);
+        spotlightRoot.addEventListener('focusin', stopRotation);
+        spotlightRoot.addEventListener('focusout', startRotation);
+
+        setActive(ids[0]);
+        startRotation();
+    })();
+
     // ===== DUPLICAR CONTEÚDO DA BARRA DE PATROCINADORES =====
     const track = document.querySelector('.sponsor-track');
     if (track) {

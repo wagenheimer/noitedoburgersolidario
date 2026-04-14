@@ -89,8 +89,58 @@
                 <span class="opening-stat">90 pessoas autistas acompanhadas</span>
             </div>
 
+            <div class="institutions-rotator" data-institutions-rotator>
+                <article class="spotlight-panel is-active" data-spotlight="afc">
+                    <div class="spotlight-panel-content">
+                        <span class="spotlight-kicker">Instituição em foco</span>
+                        <h3>Associação Flávia Cristina</h3>
+                        <p>Atendimento especializado com atuação em educação, saúde e assistência para crianças, jovens e adultos com deficiência.</p>
+                        <div class="spotlight-cta-row">
+                            <a href="#afc-card" class="secondary-cta">Ver detalhes da instituição</a>
+                        </div>
+                    </div>
+                    <div class="spotlight-panel-media">
+                        <img src="6oBurger/afclondrina.jpg" alt="Logo Associação Flávia Cristina" />
+                    </div>
+                </article>
+
+                <article class="spotlight-panel" data-spotlight="autimizar">
+                    <div class="spotlight-panel-content">
+                        <span class="spotlight-kicker">Instituição em foco</span>
+                        <h3>ONG Autimizar</h3>
+                        <p>Acolhimento e terapias para pessoas autistas em vulnerabilidade social, com suporte contínuo às famílias.</p>
+                        <div class="spotlight-cta-row">
+                            <a href="#autimizar-card" class="secondary-cta">Ver detalhes da instituição</a>
+                        </div>
+                    </div>
+                    <div class="spotlight-panel-media">
+                        <img src="2026-7Burger/OngAutimizar.png" alt="Logo ONG Autimizar" />
+                    </div>
+                </article>
+
+                <article class="spotlight-panel" data-spotlight="alicerce">
+                    <div class="spotlight-panel-content">
+                        <span class="spotlight-kicker">Instituição em foco</span>
+                        <h3>Instituto Alicerce</h3>
+                        <p>Rede de educação infantil comunitária com 9 unidades e mais de 840 crianças atendidas em Londrina.</p>
+                        <div class="spotlight-cta-row">
+                            <a href="#alicerce-card" class="secondary-cta">Ver detalhes da instituição</a>
+                        </div>
+                    </div>
+                    <div class="spotlight-panel-media">
+                        <img src="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" alt="Logo Instituto Alicerce" />
+                    </div>
+                </article>
+
+                <div class="spotlight-dots" role="tablist" aria-label="Selecionar instituição em foco">
+                    <button type="button" class="spotlight-dot is-active" data-inst="afc" aria-selected="true" aria-label="Destacar Associação Flávia Cristina"></button>
+                    <button type="button" class="spotlight-dot" data-inst="autimizar" aria-selected="false" aria-label="Destacar ONG Autimizar"></button>
+                    <button type="button" class="spotlight-dot" data-inst="alicerce" aria-selected="false" aria-label="Destacar Instituto Alicerce"></button>
+                </div>
+            </div>
+
             <div class="institutions-opening-grid">
-                <article class="opening-institution-card reveal-up delay-1">
+                <button type="button" class="opening-institution-card reveal-up delay-1 is-active" data-inst="afc" aria-label="Destacar Associação Flávia Cristina">
                     <div class="opening-institution-logo-frame">
                         <img src="6oBurger/afclondrina.jpg" alt="Associação Flávia Cristina" class="opening-institution-logo" />
                     </div>
@@ -99,8 +149,8 @@
                         <h3>Associação Flávia Cristina</h3>
                         <p>Atendimento especializado para crianças, jovens e adultos com deficiência, com atuação histórica em Londrina.</p>
                     </div>
-                </article>
-                <article class="opening-institution-card reveal-up delay-2">
+                </button>
+                <button type="button" class="opening-institution-card reveal-up delay-2" data-inst="autimizar" aria-label="Destacar ONG Autimizar">
                     <div class="opening-institution-logo-frame">
                         <img src="2026-7Burger/OngAutimizar.png" alt="ONG Autimizar" class="opening-institution-logo" />
                     </div>
@@ -109,8 +159,8 @@
                         <h3>ONG Autimizar</h3>
                         <p>Acolhimento e terapias para pessoas autistas em vulnerabilidade social, com suporte às famílias.</p>
                     </div>
-                </article>
-                <article class="opening-institution-card reveal-up delay-3">
+                </button>
+                <button type="button" class="opening-institution-card reveal-up delay-3" data-inst="alicerce" aria-label="Destacar Instituto Alicerce">
                     <div class="opening-institution-logo-frame">
                         <img src="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" alt="Instituto Alicerce" class="opening-institution-logo" />
                     </div>
@@ -119,7 +169,7 @@
                         <h3>Instituto Alicerce</h3>
                         <p>9 centros de educação infantil com mais de 840 crianças atendidas em Londrina.</p>
                     </div>
-                </article>
+                </button>
             </div>
 
             <div class="cta-row opening-cta-row">
@@ -407,7 +457,7 @@
             </div>
 
             <div class="institutions-container">
-                <div class="institution-card">
+                <div id="afc-card" class="institution-card">
                     <div class="institution-header">
                         <img src="6oBurger/afclondrina.jpg" alt="Associação Flávia Cristina" class="institution-logo" />
                         <div class="institution-title">
@@ -427,7 +477,7 @@
                     </div>
                 </div>
 
-                <div class="institution-card">
+                <div id="autimizar-card" class="institution-card">
                     <div class="institution-header">
                         <img src="2026-7Burger/OngAutimizar.png" alt="Logo ONG Autimizar" class="institution-logo" />
                         <div class="institution-title">
@@ -452,7 +502,7 @@
                     </div>
                 </div>
 
-                <div class="institution-card">
+                <div id="alicerce-card" class="institution-card">
                     <div class="institution-header">
                         <picture>
                             <source srcset="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" type="image/avif" />
@@ -496,11 +546,26 @@
             </div>
 
             <div class="institutions-cta-block">
-                <p class="institutions-cta-headline">Essas são as causas que contam com o apoio do seu patrocínio.</p>
-                <p class="institutions-cta-sub">Ao patrocinar a 7ª Noite do Burger Solidário, sua empresa contribui diretamente para três instituições com impacto comprovado em Londrina. O apoio fortalece atendimento especializado, inclusão social e educação infantil para quem mais precisa.</p>
-                <div class="cta-row">
-                    <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20ser%20patrocinador%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" rel="noopener" class="primary-cta">Quero ser patrocinador</a>
-                    <a href="#contato" class="secondary-cta">Enviar mensagem para a equipe</a>
+                <div class="institutions-cta-layout">
+                    <div class="institutions-cta-main">
+                        <span class="institutions-cta-eyebrow">Patrocínio com destino definido</span>
+                        <p class="institutions-cta-headline">Essas são as causas que contam com o apoio do seu patrocínio.</p>
+                        <p class="institutions-cta-sub">Ao patrocinar a 7ª Noite do Burger Solidário, sua empresa contribui diretamente para três instituições com impacto comprovado em Londrina. O apoio fortalece atendimento especializado, inclusão social e educação infantil para quem mais precisa.</p>
+                        <div class="cta-row institutions-cta-actions">
+                            <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20ser%20patrocinador%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" rel="noopener" class="primary-cta">Quero ser patrocinador</a>
+                            <a href="#contato" class="secondary-cta">Enviar mensagem para a equipe</a>
+                        </div>
+                    </div>
+
+                    <aside class="institutions-cta-proof" aria-label="Motivos para patrocinar agora">
+                        <h3>Por que decidir agora</h3>
+                        <ul>
+                            <li>Instituições já confirmadas para 2026</li>
+                            <li>Sua marca vinculada a impacto social real</li>
+                            <li>Contato direto e rápido pelo WhatsApp</li>
+                        </ul>
+                        <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20receber%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" rel="noopener" class="institutions-cta-inline-link">Falar com a organização agora</a>
+                    </aside>
                 </div>
             </div>
         </section>
