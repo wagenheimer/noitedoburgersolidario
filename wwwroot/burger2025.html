@@ -500,5 +500,50 @@
             window.addEventListener('resize', resizeCanvas);
         });
     </script>
+    <script>
+        (function() {
+            const progressContainer = document.createElement('div');
+            progressContainer.className = 'scroll-progress-container';
+            const progressBar = document.createElement('div');
+            progressBar.className = 'scroll-progress-bar';
+            progressContainer.appendChild(progressBar);
+            document.body.appendChild(progressContainer);
+
+            function updateProgress() {
+                const scrollTop = window.scrollY || window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = progress + '%';
+            }
+
+            window.addEventListener('scroll', updateProgress, { passive: true });
+            updateProgress();
+
+            const sections = document.querySelectorAll('main > section');
+            sections.forEach((section, index) => {
+                if (index < sections.length - 1) {
+                    const indicator = document.createElement('div');
+                    indicator.className = 'scroll-indicator';
+                    indicator.setAttribute('aria-hidden', 'true');
+                    section.appendChild(indicator);
+                }
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const indicator = entry.target.querySelector('.scroll-indicator');
+                    if (indicator) {
+                        if (entry.isIntersecting) {
+                            indicator.classList.add('visible');
+                        } else {
+                            indicator.classList.remove('visible');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        })();
+    </script>
 </body>
 </html>
