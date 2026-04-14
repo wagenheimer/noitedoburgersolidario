@@ -69,9 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const dots = Array.from(spotlightRoot.querySelectorAll('.spotlight-dot[data-inst]'));
         const prevButton = spotlightRoot.querySelector('[data-spotlight-prev]');
         const nextButton = spotlightRoot.querySelector('[data-spotlight-next]');
-        const counter = spotlightRoot.querySelector('[data-spotlight-counter]');
-        const eta = spotlightRoot.querySelector('[data-spotlight-eta]');
-        const progress = spotlightRoot.querySelector('[data-spotlight-progress]');
+        const progressBars = Array.from(spotlightRoot.querySelectorAll('[data-spotlight-progress]'));
 
         if (!panels.length) {
             return;
@@ -85,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let rotationTimer = null;
         let progressFrame = null;
         let rotationStartTime = 0;
-        const intervalMs = 4800;
+        const intervalMs = 5200;
 
         function setActive(institutionId) {
             const nextIndex = ids.indexOf(institutionId);
@@ -113,9 +111,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 dot.setAttribute('tabindex', isActive ? '0' : '-1');
             });
 
-            if (counter) {
-                counter.textContent = String(activeIndex + 1) + ' / ' + String(ids.length);
-            }
+            progressBars.forEach(function (bar) {
+                const isActive = bar.dataset.instProgress === institutionId;
+                bar.classList.toggle('is-active', isActive);
+                if (!isActive) {
+                    bar.style.width = '0%';
+                }
+            });
         }
 
         function goToStep(step) {
@@ -126,16 +128,12 @@ document.addEventListener('DOMContentLoaded', function () {
         function setProgressState(elapsedMs) {
             const clampedElapsed = Math.max(0, Math.min(elapsedMs, intervalMs));
             const percent = (clampedElapsed / intervalMs) * 100;
-            const remainingMs = Math.max(intervalMs - clampedElapsed, 0);
 
-            if (progress) {
-                progress.style.width = String(percent) + '%';
-            }
-
-            if (eta) {
-                const remainingSeconds = (remainingMs / 1000).toFixed(1).replace('.', ',');
-                eta.textContent = remainingSeconds + 's';
-            }
+            progressBars.forEach(function (bar) {
+                if (bar.classList.contains('is-active')) {
+                    bar.style.width = String(percent) + '%';
+                }
+            });
         }
 
         function stopProgressAnimation() {
@@ -162,9 +160,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             stopProgressAnimation();
-            if (eta) {
-                eta.textContent = '--';
-            }
         }
 
         function startRotation() {
