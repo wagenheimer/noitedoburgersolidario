@@ -16,7 +16,7 @@
 		linear-gradient(180deg, #120407 0%, #210710 42%, #120407 100%);
 	color: var(--text-main);
 	font-family: 'DM Sans', sans-serif;
-	padding-bottom: 80px !important;
+	padding-bottom: 0 !important;
 }
 
 body.home-2026::before {
@@ -1862,7 +1862,7 @@ body.archive-home article[id] {
 @media (max-width: 768px) {
 	body.home-2026 {
 		padding-top: 116px !important;
-		padding-bottom: 40px !important;
+		padding-bottom: 0 !important;
 	}
 
 	.year-landing {
@@ -2009,7 +2009,7 @@ body.archive-home {
 	font-family: 'DM Sans', sans-serif;
 	display: block;
 	padding-top: 96px;
-	padding-bottom: 80px !important;
+	padding-bottom: 0 !important;
 	align-items: stretch;
 }
 
@@ -2901,7 +2901,7 @@ body.archive-home .btn-patrocinar-whatsapp {
 @media (max-width: 768px) {
 	body.archive-home {
 		padding-top: 116px !important;
-		padding-bottom: 40px !important;
+		padding-bottom: 0 !important;
 	}
 
 	.archive-panel,
