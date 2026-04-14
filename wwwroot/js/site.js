@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (eta) {
                 const remainingSeconds = (remainingMs / 1000).toFixed(1).replace('.', ',');
-                eta.textContent = 'Próxima em ' + remainingSeconds + 's';
+                eta.textContent = remainingSeconds + 's';
             }
         }
 
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             stopProgressAnimation();
             if (eta) {
-                eta.textContent = 'Pausado';
+                eta.textContent = '--';
             }
         }
 
