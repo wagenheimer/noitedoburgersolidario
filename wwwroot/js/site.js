@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const prevButton = spotlightRoot.querySelector('[data-spotlight-prev]');
         const nextButton = spotlightRoot.querySelector('[data-spotlight-next]');
         const counter = spotlightRoot.querySelector('[data-spotlight-counter]');
+        const eta = spotlightRoot.querySelector('[data-spotlight-eta]');
+        const progress = spotlightRoot.querySelector('[data-spotlight-progress]');
 
         if (!panels.length) {
             return;
@@ -81,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let activeIndex = 0;
         let rotationTimer = null;
+        let progressFrame = null;
+        let rotationStartTime = 0;
+        const intervalMs = 4800;
 
         function setActive(institutionId) {
             const nextIndex = ids.indexOf(institutionId);
@@ -118,19 +123,65 @@ document.addEventListener('DOMContentLoaded', function () {
             setActive(ids[activeIndex]);
         }
 
+        function setProgressState(elapsedMs) {
+            const clampedElapsed = Math.max(0, Math.min(elapsedMs, intervalMs));
+            const percent = (clampedElapsed / intervalMs) * 100;
+            const remainingMs = Math.max(intervalMs - clampedElapsed, 0);
+
+            if (progress) {
+                progress.style.width = String(percent) + '%';
+            }
+
+            if (eta) {
+                const remainingSeconds = (remainingMs / 1000).toFixed(1).replace('.', ',');
+                eta.textContent = 'Próxima em ' + remainingSeconds + 's';
+            }
+        }
+
+        function stopProgressAnimation() {
+            if (progressFrame) {
+                window.cancelAnimationFrame(progressFrame);
+                progressFrame = null;
+            }
+        }
+
+        function animateProgress() {
+            if (!rotationTimer) {
+                return;
+            }
+
+            const elapsed = Date.now() - rotationStartTime;
+            setProgressState(elapsed);
+            progressFrame = window.requestAnimationFrame(animateProgress);
+        }
+
         function stopRotation() {
             if (rotationTimer) {
                 window.clearInterval(rotationTimer);
                 rotationTimer = null;
             }
+
+            stopProgressAnimation();
+            if (eta) {
+                eta.textContent = 'Pausado';
+            }
         }
 
         function startRotation() {
             stopRotation();
+
+            rotationStartTime = Date.now();
+            setProgressState(0);
+
             rotationTimer = window.setInterval(function () {
                 activeIndex = (activeIndex + 1) % ids.length;
                 setActive(ids[activeIndex]);
-            }, 4800);
+
+                rotationStartTime = Date.now();
+                setProgressState(0);
+            }, intervalMs);
+
+            animateProgress();
         }
 
         cards.forEach(function (card) {
