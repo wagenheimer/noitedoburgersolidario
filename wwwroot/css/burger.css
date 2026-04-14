@@ -3146,7 +3146,11 @@ body.home-2025 .thank-you-content {
 	display: grid;
 	grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
 	gap: 20px;
-	align-items: stretch;
+	align-items: center;
+}
+
+.opening-spotlight-top .section-heading {
+	margin-bottom: 0;
 }
 
 .opening-event-highlight .logo-card {
@@ -3157,8 +3161,12 @@ body.home-2025 .thank-you-content {
 }
 
 .opening-event-highlight .logo-card img {
-	max-height: 320px;
-	object-fit: cover;
+	max-height: 290px;
+	object-fit: contain;
+}
+
+.institutions-opening-stats {
+	margin: 14px 0 18px;
 }
 
 .institutions-opening-stats {
@@ -3192,7 +3200,7 @@ body.home-2025 .thank-you-content {
 
 .institutions-rotator {
 	position: relative;
-	margin: 4px 0 18px;
+	margin: 0 0 14px;
 }
 
 .spotlight-panel {
@@ -3688,7 +3696,7 @@ body.home-2026 #instituicoes-2026 .institution-logo {
 	}
 
 	.opening-event-highlight .logo-card img {
-		max-height: 260px;
+		max-height: 230px;
 	}
 
 	.spotlight-panel {
