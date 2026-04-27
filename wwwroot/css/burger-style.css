@@ -240,7 +240,7 @@ body {
     .sponsor-card img {
         height: 400px;
         width: auto;
-        border: 4px solid #fff;
+        border: none;
         border-radius: 12px;
         background: #fff;
         box-shadow: 0 4px 14px rgba(0,0,0,0.25);
