@@ -1,4 +1,4 @@
-﻿/* ========================================================= */
+/* ========================================================= */
 /* 1. ANIMAÇÕES GLOBAIS E UTILIDADES */
 /* ========================================================= */
 
@@ -1108,7 +1108,7 @@ body {
 .img-modal-content {
     max-width: 90vw;
     max-height: 85vh;
-    border: 6px solid #fff;
+    border: none;
     border-radius: 12px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.5);
     box-sizing: border-box;

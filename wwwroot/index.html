@@ -185,13 +185,14 @@
                 </div>
 
                 <div class="opening-event-highlight">
-                    <div class="logo-card">
-                        <div class="logo-card-badge">Edição 2026</div>
-                        <img src="2026-7Burger/7Burger.jpg" alt="Logo da 7ª Noite do Burger Solidário" />
+                    <div class="logo-card sponsor-card" onclick="openSponsorModal(event, this)" title="Save The Date - 7ª Noite do Burger Solidário" data-full="2026-7Burger/SaveTheDate2026.jpg" style="cursor: pointer; position: relative;">
+                        <div class="logo-card-badge">Save The Date - 24/10/2026</div>
+                        <img src="2026-7Burger/SaveTheDate2026.jpg" alt="Save The Date - 7ª Noite do Burger Solidário" />
                         <div class="logo-card-caption">
-                            <strong>7ª Noite do Burger Solidário</strong>
-                            <span>Uma nova edição em construção para ir além do impacto social do ano passado.</span>
+                            <strong>A Edição 2026 já deu start!</strong>
+                            <span>Marque na agenda e prepare-se para ir além do impacto social do ano passado.</span>
                         </div>
+                        <div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; pointer-events: none; backdrop-filter: blur(4px); z-index: 2;">🔍 Ampliar</div>
                     </div>
                 </div>
             </div>
@@ -268,7 +269,7 @@
                         </div>
                     </div>
                     <div class="spotlight-panel-media">
-                        <img src="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" alt="Logo Instituto Alicerce" />
+                        <img src="2026-7Burger/Logo-Instituto-Alicerce-Cor.avif" alt="Logo Instituto Alicerce" />
                     </div>
                     <div class="spotlight-progress spotlight-progress-inline" aria-hidden="true">
                         <span class="spotlight-progress-fill" data-spotlight-progress data-inst-progress="alicerce"></span>
@@ -309,7 +310,7 @@
                 </button>
                 <button type="button" class="opening-institution-card reveal-up delay-3" data-inst="alicerce" aria-label="Destacar Instituto Alicerce">
                     <div class="opening-institution-logo-frame">
-                        <img src="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" alt="Instituto Alicerce" class="opening-institution-logo" />
+                        <img src="2026-7Burger/Logo-Instituto-Alicerce-Cor.avif" alt="Instituto Alicerce" class="opening-institution-logo" />
                     </div>
                     <div class="opening-institution-content">
                         <span class="opening-institution-tag">Educação infantil comunitária</span>
@@ -327,18 +328,18 @@
 
         <section class="hero-shell reveal-up">
             <div class="hero-copy">
-                <span class="eyebrow">7ª Noite do Burger Solidário</span>
+                <span class="eyebrow" style="background: var(--accent-gold); color: #200608; border: none; font-weight: bold; padding: 10px 18px;">A Edição 2026 já deu start!</span>
                 <div class="hero-kicker-row">
-                    <span class="hero-kicker">Patrocínios abertos para 2026</span>
-                    <span class="hero-kicker hero-kicker-muted">Instituições 2026 confirmadas</span>
+                    <span class="hero-kicker" style="background: rgba(255, 123, 44, 0.2); border-color: var(--accent-orange);">Data: 24/10/2026</span>
+                    <span class="hero-kicker hero-kicker-muted">Local: Toca do Cateto</span>
                 </div>
                 <h1>7ª Noite do Burger Solidário 2026</h1>
-                <p class="hero-lead">Em 2025, a nossa corrente do bem distribuiu mais de <strong>R$52 mil</strong> para instituições beneficiadas. Em 2026, já temos três instituições confirmadas: <strong>Associação Flávia Cristina</strong>, <strong>ONG Autimizar</strong> e <strong>Instituto Alicerce</strong>.</p>
-                <p class="hero-subcopy">A Flávia Cristina amplia acesso a atendimento especializado para pessoas com deficiência. A Autimizar atende pessoas autistas em extrema vulnerabilidade. O Alicerce mantém 9 creches com mais de 840 crianças. Ao patrocinar a 7ª Noite do Burger Solidário, sua empresa entra em uma campanha com impacto social direto e alta visibilidade local.</p>
+                <p class="hero-lead">A maior edição da nossa corrente do bem já começou. Marque na agenda: <strong>24 de Outubro de 2026</strong>, com um evento inesquecível na <strong><img src="patrocinadores/tocadocateto.png" alt="Toca do Cateto" style="height: 24px; vertical-align: middle; border-radius: 4px; background: rgba(255,255,255,0.8); padding: 2px 4px; margin: 0 4px;" /> Toca do Cateto</strong>.</p>
+                <p class="hero-subcopy">Em 2025 distribuímos mais de R$52 mil, e agora as instituições beneficiadas já estão confirmadas: <strong>Associação Flávia Cristina</strong>, <strong>ONG Autimizar</strong> e <strong>Instituto Alicerce</strong>. Ao patrocinar a 7ª edição, sua empresa entra em uma campanha com impacto social direto e alta visibilidade local.</p>
 
                 <div class="cta-row">
                     <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20ser%20patrocinador%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="primary-cta">Quero ser patrocinador</a>
-                    <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="secondary-cta">Falar no WhatsApp</a>
+                    <a href="#instituicoes-2026" class="secondary-cta">Conhecer as instituições</a>
                 </div>
 
                 <div class="hero-impact-grid">
@@ -358,21 +359,11 @@
             </div>
 
             <div class="hero-media reveal-up delay-2">
-                <div class="hero-side-grid">
-                    <article class="hero-mini-card emphasis-card">
-                        <span>Captação aberta</span>
-                        <strong>Quem confirma apoio agora entra na fundação da campanha de 2026.</strong>
-                    </article>
-                    <article class="hero-mini-card stat-card">
-                        <span>Resultado anterior</span>
-                        <strong>+ de R$52 mil</strong>
-                    </article>
-                    <article class="hero-mini-card stat-card">
-                        <span>Instituições 2026</span>
-                        <strong>Flávia Cristina + Autimizar + Alicerce</strong>
-                    </article>
+                <div class="logo-card sponsor-card" onclick="openSponsorModal(event, this)" title="Save The Date - 7ª Noite do Burger Solidário" data-full="2026-7Burger/SaveTheDate2026.jpg" style="padding: 12px; background: linear-gradient(135deg, rgba(214, 55, 59, 0.4), rgba(255, 123, 44, 0.3)); border-color: var(--accent-gold); box-shadow: 0 30px 70px rgba(0,0,0,0.7); cursor: pointer; transform: scale(1.08); transform-origin: center right; transition: transform 0.2s ease;">
+                    <img src="2026-7Burger/SaveTheDate2026.jpg" alt="Save the Date - 7ª Noite do Burger Solidário - 24/10/2026" style="border-radius: 20px; max-height: 550px; width: 100%; object-fit: contain;" />
+                    <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; padding: 8px 12px; border-radius: 8px; font-weight: bold; pointer-events: none; backdrop-filter: blur(4px);">🔍 Ampliar</div>
                 </div>
-                <div class="hero-note hero-note-compact">
+                <div class="hero-note hero-note-compact" style="margin-top: 32px;">
                     <span>Contato para patrocínio</span>
                     <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20receber%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="hero-phone-link"><strong>(43) 99120-5772</strong></a>
                     <a href="https://wa.me/5543991205772?text=Ol%C3%A1%2C%20quero%20receber%20informa%C3%A7%C3%B5es%20sobre%20patroc%C3%ADnio%20da%207%C2%AA%20Noite%20do%20Burger%20Solid%C3%A1rio." target="_blank" class="hero-note-link">Conversar agora</a>
@@ -644,8 +635,8 @@
                 <div id="alicerce-card" class="institution-card">
                     <div class="institution-header">
                         <picture>
-                            <source srcset="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" type="image/avif" />
-                            <img src="2026-7Burger/Logo%20Instituto%20Alicerce_Cor.avif" alt="Logo Instituto Alicerce" class="institution-logo" />
+                            <source srcset="2026-7Burger/Logo-Instituto-Alicerce-Cor.avif" type="image/avif" />
+                            <img src="2026-7Burger/Logo-Instituto-Alicerce-Cor.avif" alt="Logo Instituto Alicerce" class="institution-logo" />
                         </picture>
                         <div class="institution-title">
                             <h4>🌱 Instituto Alicerce</h4>
@@ -736,6 +727,17 @@
             </article>
         </section>
     </main>
+
+    <div id="imgModal" class="img-modal" aria-hidden="true" style="display: none; align-items: center; justify-content: center;">
+        <button class="img-modal-close" aria-label="Fechar">&times;</button>
+        <div class="img-modal-inner">
+            <img id="imgModalContent" class="img-modal-content" src="" alt="Imagem ampliada" />
+            <div class="img-modal-info">
+                <h4 id="imgModalTitle"></h4>
+                <a id="imgModalLink" href="#" target="_blank" rel="noopener noreferrer" style="display: none;" class="visit-link">Visitar link</a>
+            </div>
+        </div>
+    </div>
 
     <footer class="site-footer" role="contentinfo">
         <div class="site-footer-inner">
