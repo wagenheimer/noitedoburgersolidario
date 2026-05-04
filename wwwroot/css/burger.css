@@ -4262,3 +4262,58 @@ body.home-2026 #instituicoes-2026 .institution-logo {
         display: flex;
     }
 }
+
+/* ===== Top-bar mobile: layout centralizado com ícones ===== */
+@media (max-width: 991px) {
+    .top-bar-content {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Coluna esquerda: botão EDIÇÃO */
+    .top-bar-content > .top-button.current-year {
+        justify-self: start;
+    }
+
+    /* Coluna central: ícones sociais */
+    .topbar-mobile-social {
+        justify-self: center;
+        gap: 6px;
+    }
+
+    /* Coluna direita: hamburguer */
+    .menu-toggle {
+        justify-self: end;
+    }
+
+    /* Botão patrocinador some no mobile (já tem no menu) */
+    .topbar-sponsor-btn {
+        display: none !important;
+    }
+
+    /* Ícones maiores e mais bonitos na top-bar mobile */
+    .topbar-mobile-social .social-icon-wa,
+    .topbar-mobile-social .social-icon-ig {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .topbar-mobile-social .social-icon-wa svg,
+    .topbar-mobile-social .social-icon-ig svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .topbar-mobile-social .social-icon-wa {
+        filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.5));
+    }
+
+    .topbar-mobile-social .social-icon-ig {
+        filter: drop-shadow(0 0 6px rgba(225, 48, 108, 0.4));
+    }
+}
