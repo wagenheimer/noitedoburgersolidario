@@ -4293,27 +4293,27 @@ body.home-2026 #instituicoes-2026 .institution-logo {
         display: none !important;
     }
 
-    /* Ícones maiores e mais bonitos na top-bar mobile */
+    /* Ícones na top-bar mobile — sem fundo, só ícone com glow */
     .topbar-mobile-social .social-icon-wa,
     .topbar-mobile-social .social-icon-ig {
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 12px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.12);
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        border: none !important;
+        padding: 4px;
     }
 
     .topbar-mobile-social .social-icon-wa svg,
     .topbar-mobile-social .social-icon-ig svg {
-        width: 22px;
-        height: 22px;
+        width: 26px;
+        height: 26px;
     }
 
     .topbar-mobile-social .social-icon-wa {
-        filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.5));
+        filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.6));
     }
 
     .topbar-mobile-social .social-icon-ig {
-        filter: drop-shadow(0 0 6px rgba(225, 48, 108, 0.4));
+        filter: drop-shadow(0 0 5px rgba(225, 48, 108, 0.5));
     }
 }
