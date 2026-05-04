@@ -4213,3 +4213,36 @@ body.home-2026 #instituicoes-2026 .institution-logo {
 .cotas-fullsize-wrap:hover .cotas-fullsize-hint {
     opacity: 1;
 }
+
+/* ===== Ícones WhatsApp e Instagram em destaque ===== */
+.top-bar-social a,
+.mobile-nav-social a {
+    transition: transform 0.18s ease, color 0.18s ease, filter 0.18s ease;
+}
+
+/* WhatsApp — verde */
+.social-icon-wa {
+    color: #25d366 !important;
+    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.45));
+}
+.social-icon-wa:hover {
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.8)) !important;
+}
+
+/* Instagram — gradiente rosa/laranja via filter */
+.social-icon-ig {
+    color: #e1306c !important;
+    filter: drop-shadow(0 0 5px rgba(225, 48, 108, 0.45));
+}
+.social-icon-ig:hover {
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.8)) !important;
+}
+
+/* No mobile, aumenta um pouco o tamanho */
+.mobile-nav-social .social-icon-wa svg,
+.mobile-nav-social .social-icon-ig svg {
+    width: 28px;
+    height: 28px;
+}
