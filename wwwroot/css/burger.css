@@ -4220,29 +4220,45 @@ body.home-2026 #instituicoes-2026 .institution-logo {
     transition: transform 0.18s ease, color 0.18s ease, filter 0.18s ease;
 }
 
-/* WhatsApp — verde */
+/* WhatsApp — maior e com glow sutil, cor do tema no default */
 .social-icon-wa {
-    color: #25d366 !important;
-    filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.45));
+    color: rgba(255, 255, 255, 0.85);
+    filter: drop-shadow(0 0 4px rgba(37, 211, 102, 0.5));
+    width: 40px !important;
+    height: 40px !important;
 }
+.social-icon-wa svg { width: 22px; height: 22px; }
 .social-icon-wa:hover {
-    transform: scale(1.2) !important;
-    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.8)) !important;
+    color: #25d366 !important;
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.85));
+    background: rgba(37, 211, 102, 0.1) !important;
 }
 
-/* Instagram — gradiente rosa/laranja via filter */
+/* Instagram — maior e com glow rosa sutil */
 .social-icon-ig {
-    color: #e1306c !important;
-    filter: drop-shadow(0 0 5px rgba(225, 48, 108, 0.45));
+    color: rgba(255, 255, 255, 0.85);
+    filter: drop-shadow(0 0 4px rgba(225, 48, 108, 0.4));
+    width: 40px !important;
+    height: 40px !important;
 }
+.social-icon-ig svg { width: 22px; height: 22px; }
 .social-icon-ig:hover {
-    transform: scale(1.2) !important;
-    filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.8)) !important;
+    color: #e1306c !important;
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.85));
+    background: rgba(225, 48, 108, 0.1) !important;
 }
 
-/* No mobile, aumenta um pouco o tamanho */
-.mobile-nav-social .social-icon-wa svg,
-.mobile-nav-social .social-icon-ig svg {
-    width: 28px;
-    height: 28px;
+/* ===== Mobile: ícones WA e IG visíveis direto na top-bar ===== */
+.topbar-mobile-social {
+    display: none;
+    align-items: center;
+    gap: 2px;
+}
+
+@media (max-width: 991px) {
+    .topbar-mobile-social {
+        display: flex;
+    }
 }
