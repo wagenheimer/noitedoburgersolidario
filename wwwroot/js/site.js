@@ -446,6 +446,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ===== FUNÇÕES DE MODAL DE PATROCINADOR (INFO) =====
 function openSponsorModal(e, el) {
+    if (e && typeof e.preventDefault === 'function') {
+        e.preventDefault();
+    }
+
+    if (e && typeof e.stopPropagation === 'function') {
+        e.stopPropagation();
+    }
+
     const src = el.dataset.full || el.querySelector('img')?.src;
     const link = el.dataset.link || null;
     const title = el.title || 'Patrocinador';
